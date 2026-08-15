@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LIN YU · 工业设计作品集</title>
+    <meta name="description" content="极简高级工业设计作品集 —— 消费电子、家居与工具的产品定义、结构与量产落地。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" id="brand" href="index.html">LIN YU</a>
+        <nav class="nav">
+          <a href="index.html" class="active">首页</a>
+          <a href="works.html">作品</a>
+          <a href="index.html#about">关于</a>
+          <a href="index.html#contact">联系</a>
+        </nav>
+        <div class="header-actions">
+          <a class="admin-link" href="admin.html">管理</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="home-hero">
+        <div class="wrap home-hero-grid">
+          <div class="reveal">
+            <div class="avatar" id="avatar"></div>
+            <div class="en" id="home-kicker" style="margin-top:24px"></div>
+            <h1 class="home-name" id="home-name"></h1>
+            <div class="home-title" id="home-title"></div>
+            <p class="home-bio" id="home-bio"></p>
+            <div class="home-cta">
+              <a class="btn btn-primary" href="works.html">查看作品</a>
+              <a class="btn btn-ghost" href="#contact">合作联系</a>
+            </div>
+          </div>
+          <div class="home-visual reveal">
+            <img id="home-visual-img" alt="代表作" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 精选作品 -->
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div>
+              <div class="en">SELECTED WORKS</div>
+              <h2>精选作品</h2>
+            </div>
+            <a class="view-all" href="works.html">查看全部 →</a>
+          </div>
+          <div class="works-grid" id="works-grid"></div>
+        </div>
+      </section>
+
+      <!-- 关于 -->
+      <section class="section" id="about" style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <div class="wrap two-col" style="display:grid; grid-template-columns: 320px 1fr; gap: 64px;">
+          <div class="reveal">
+            <div class="en">ABOUT</div>
+            <h2 style="font-size:32px; font-weight:800; margin-top:8px;">关于</h2>
+          </div>
+          <div class="reveal">
+            <p class="home-bio" id="about-bio" style="max-width:none;"></p>
+            <div class="skills" id="skills" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 联系 -->
+      <section class="section" id="contact">
+        <div class="wrap two-col" style="display:grid; grid-template-columns: 320px 1fr; gap: 64px;">
+          <div class="reveal">
+            <div class="en">CONTACT</div>
+            <h2 style="font-size:32px; font-weight:800; margin-top:8px;">合作联系</h2>
+          </div>
+          <div class="reveal">
+            <a class="home-name" id="contact-email" href="#" style="font-size:30px; margin:0; display:inline-block;"></a>
+            <p class="home-bio" id="contact-note" style="margin-top:14px;"></p>
+            <div id="socials" style="display:flex; gap:14px; margin-top:22px;"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-inner">
+          <div>
+            <div class="footer-brand" id="footer-brand"></div>
+            <p class="footer-desc" id="footer-desc"></p>
+            <div class="footer-socials" id="footer-socials"></div>
+          </div>
+          <div>
+            <div class="footer-col-title">导航</div>
+            <div class="footer-links">
+              <a href="index.html">首页</a>
+              <a href="works.html">作品</a>
+              <a href="index.html#about">关于</a>
+              <a href="index.html#contact">联系</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">作品</div>
+            <div class="footer-links" id="footer-works"></div>
+          </div>
+          <div>
+            <div class="footer-col-title">联系</div>
+            <div class="footer-contact-info">
+              <a class="f-email" id="f-email" href="#"></a>
+              <span class="f-note" id="f-note"></span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-line"></div>
+        <div class="footer-bottom">
+          <span id="footer-copy"></span>
+          <span id="footer-seo"></span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 灯箱 -->
+    <div class="lightbox" id="lightbox">
+      <button class="close" aria-label="关闭">×</button>
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>

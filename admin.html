@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>后台管理 · LIN YU 作品集</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="admin-screen">
+      <!-- 登录 -->
+      <div class="login-wrap" id="login-wrap">
+        <div class="login-card">
+          <div class="en">ADMIN</div>
+          <h1 style="margin-top:10px;">后台登录</h1>
+          <p class="sub">仅管理员可登录。登录后即可修改全部内容、上传图片、新增或删除作品。</p>
+          <div class="field">
+            <label>GitHub Token（管理员凭据）</label>
+            <input type="password" id="pwd" placeholder="粘贴你的 GitHub Token（ghp_... 或 fine-grained）" autocomplete="current-password" />
+          </div>
+          <div class="login-error" id="login-err"></div>
+          <button class="btn btn-primary" id="login-btn" style="width:100%;">登 录</button>
+          <p class="sub" style="margin:16px 0 0; font-size:12px;">本方案无后端服务器，「管理员密码」即你的 GitHub Token（需 repo 写权限）。Token 只存在你浏览器，不会上传他人。改完内容会提交到仓库，约 10–60 秒同步到前台。</p>
+        </div>
+      </div>
+
+      <!-- 管理界面 -->
+      <div class="admin-shell" id="shell">
+        <div class="admin-topbar">
+          <span class="t">后台管理</span>
+          <div style="display:flex; gap:14px; align-items:center;">
+            <a class="mini-btn" href="index.html" target="_blank">预览前台 ↗</a>
+            <button class="mini-btn" id="logout-btn">退出登录</button>
+          </div>
+        </div>
+        <div class="admin-body">
+          <div class="admin-sidebar">
+            <a data-tab="dashboard" class="active">仪表盘</a>
+            <a data-tab="works">作品管理</a>
+            <a data-tab="home">首页内容</a>
+            <a data-tab="about">关于编辑</a>
+            <a data-tab="contact">联系编辑</a>
+          </div>
+          <div class="admin-main" id="main"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 作品编辑弹窗 -->
+    <div class="modal-mask" id="modal">
+      <div class="modal">
+        <h3 id="modal-title">编辑作品</h3>
+        <div class="grid2">
+          <div class="field"><label>标题</label><input id="f-title" /></div>
+          <div class="field"><label>类别</label><input id="f-category" placeholder="消费电子 / 家居 …" /></div>
+        </div>
+        <div class="grid2">
+          <div class="field"><label>年份</label><input id="f-year" placeholder="2025" /></div>
+          <div class="field"><label>一句话简介</label><input id="f-summary" /></div>
+        </div>
+        <div class="field"><label>项目描述（回车分段）</label><textarea id="f-description" rows="4"></textarea></div>
+
+        <div class="field">
+          <label>图片（拖拽或点击上传，点缩略图设为封面，× 删除）</label>
+          <div class="dropzone" id="dropzone">把图片拖到这里，或点击选择</div>
+          <input type="file" id="file-input" accept="image/*" multiple hidden />
+          <div class="thumbs" id="thumbs"></div>
+        </div>
+
+        <div class="field">
+          <label>参数（键值对，可多行）</label>
+          <div class="params-edit" id="params-edit"></div>
+          <button class="mini-btn" id="add-param" type="button">+ 添加参数</button>
+        </div>
+
+        <div class="modal-actions">
+          <button class="mini-btn" id="modal-cancel">取消</button>
+          <button class="mini-btn signal" id="modal-save">保存</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>
