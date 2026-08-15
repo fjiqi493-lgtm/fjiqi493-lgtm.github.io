@@ -1,9 +1,9 @@
 {
-  "brand": "LIN YU",
+  "brand": "Personal design",
   "avatar": "",
   "home": {
     "kicker": "INDUSTRIAL DESIGNER",
-    "name": "林屿",
+    "name": "Jason Fang",
     "title": "工业设计师 · 产品定义 / 结构 / 量产落地",
     "bio": "我专注消费电子、家居与工具的产品定义、CMF 与结构打样。从前期调研到量产跟进，独立完成产品从 0 到 1 的落地。擅长在约束之中，寻找简洁而耐用的解法。这里收录近年的部分作品。"
   },
@@ -33,12 +33,12 @@
   "works": [
     {
       "id": "w1",
-      "title": "香烟",
-      "category": "高端香水",
-      "year": "2026",
-      "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810192674-z8960.jpg",
+      "title": "HALO 悬浮音响",
+      "category": "消费电子",
+      "year": "2025",
+      "cover": "assets/work-01.png",
       "images": [
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810192674-z8960.jpg"
+        "assets/work-01.png"
       ],
       "summary": "一体式悬浮结构无线音响，铝合金环体 + 实木底座。",
       "description": "HALO 试图用最少的部件表达「声音悬浮」的概念。主体为整圈阳极氧化铝，底座为实木，二者通过隐藏磁吸结构咬合。整机仅 3 个外观零件，便于量产与维护。",
