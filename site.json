@@ -33,12 +33,12 @@
   "works": [
     {
       "id": "w1",
-      "title": "HALO 悬浮音响",
-      "category": "消费电子",
+      "title": "香烟香水",
+      "category": "日化",
       "year": "2025",
-      "cover": "assets/work-01.png",
+      "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
       "images": [
-        "assets/work-01.png"
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg"
       ],
       "summary": "一体式悬浮结构无线音响，铝合金环体 + 实木底座。",
       "description": "HALO 试图用最少的部件表达「声音悬浮」的概念。主体为整圈阳极氧化铝，底座为实木，二者通过隐藏磁吸结构咬合。整机仅 3 个外观零件，便于量产与维护。",
