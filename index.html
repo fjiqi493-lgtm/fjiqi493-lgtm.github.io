@@ -31,9 +31,9 @@
       <section class="home-hero">
         <div class="wrap home-hero-grid">
           <div class="reveal">
-            <div class="en" id="home-kicker" style="margin-top:0"></div>
+            <div class="avatar" id="avatar"></div>
+            <div class="en" id="home-kicker" style="margin-top:24px"></div>
             <h1 class="home-name" id="home-name"></h1>
-            <div class="hero-divider"></div>
             <div class="home-title" id="home-title"></div>
             <p class="home-bio" id="home-bio"></p>
             <div class="home-cta">
@@ -62,12 +62,11 @@
       </section>
 
       <!-- 关于 -->
-      <section class="section about-surface" id="about">
-        <div class="wrap about-grid">
+      <section class="section" id="about" style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <div class="wrap two-col" style="display:grid; grid-template-columns: 320px 1fr; gap: 64px;">
           <div class="reveal">
             <div class="en">ABOUT</div>
             <h2 style="font-size:32px; font-weight:800; margin-top:8px;">关于</h2>
-            <div class="about-avatar" id="avatar"></div>
           </div>
           <div class="reveal">
             <p class="home-bio" id="about-bio" style="max-width:none;"></p>
@@ -78,12 +77,16 @@
 
       <!-- 联系 -->
       <section class="section" id="contact">
-        <div class="wrap reveal">
-          <div class="en">CONTACT</div>
-          <h2 class="contact-statement">一起做点好东西</h2>
-          <a class="contact-email" id="contact-email" href="#"></a>
-          <p class="home-bio" id="contact-note" style="margin-top:14px; max-width:560px;"></p>
-          <div id="socials" class="social-links"></div>
+        <div class="wrap two-col" style="display:grid; grid-template-columns: 320px 1fr; gap: 64px;">
+          <div class="reveal">
+            <div class="en">CONTACT</div>
+            <h2 style="font-size:32px; font-weight:800; margin-top:8px;">合作联系</h2>
+          </div>
+          <div class="reveal">
+            <a class="home-name" id="contact-email" href="#" style="font-size:30px; margin:0; display:inline-block;"></a>
+            <p class="home-bio" id="contact-note" style="margin-top:14px;"></p>
+            <div id="socials" style="display:flex; gap:14px; margin-top:22px;"></div>
+          </div>
         </div>
       </section>
     </main>
