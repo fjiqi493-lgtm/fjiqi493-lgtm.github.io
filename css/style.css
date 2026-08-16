@@ -62,10 +62,7 @@ button { font-family: inherit; cursor: pointer; }
 .nav { display: flex; gap: 44px; align-items: center; }
 .nav a { font-size: 14px; color: var(--muted); transition: color 0.15s ease; position: relative; }
 .nav a:hover, .nav a.active { color: var(--text); }
-.nav a.active::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -26px; height: 2px;
-  background: var(--text);
-}
+.nav a.active { font-weight: 600; }
 .header-actions { display: flex; align-items: center; gap: 16px; }
 .admin-link {
   font-size: 13px; color: var(--muted); padding: 8px 16px;
@@ -309,7 +306,6 @@ button { font-family: inherit; cursor: pointer; }
   }
   .nav.open { display: flex; }
   .nav a { padding: 11px 8px; font-size: 15px; }
-  .nav a.active::after { display: none; }
   .nav a.active { background: var(--accent-soft); border-radius: var(--radius); }
   .works-grid { grid-template-columns: 1fr; }
   .home-name { font-size: 40px; }
