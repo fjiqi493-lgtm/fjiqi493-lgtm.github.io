@@ -248,15 +248,46 @@ function renderHomeForm() {
     </div>
     <div class="field"><label>职位标题</label><input id="h-title" value="${h.title || ''}"></div>
     <div class="field"><label>自我介绍</label><textarea id="h-bio" rows="4">${h.bio || ''}</textarea></div>
+    <div class="field"><label>首页右侧代表作大图（拖拽/点击上传，留空自动取第一件作品封面）</label>
+      <div class="dropzone" id="h-hero-dz">点击或拖拽上传大图</div>
+      <input type="file" id="h-hero-input" accept="image/*" hidden>
+      <div class="thumbs" id="h-hero-thumb"></div>
+    </div>
     <button class="btn btn-primary" id="h-save">保存</button>`;
 
   let avatarUrl = site.avatar || '';
+  let heroUrl = (site.home && site.home.heroImage) || '';
   const renderAvatar = () => {
     const box = $('h-avatar-thumb');
     box.innerHTML = avatarUrl ? `<div class="t cover"><img src="${avatarUrl}"><button class="x">×</button></div>` : '';
     box.querySelector('.x') && box.querySelector('.x').addEventListener('click', () => { avatarUrl = ''; renderAvatar(); });
   };
   renderAvatar();
+
+  const renderHero = () => {
+    const box = $('h-hero-thumb');
+    box.innerHTML = heroUrl ? `<div class="t cover"><img src="${heroUrl}"><button class="x">×</button></div>` : '';
+    box.querySelector('.x') && box.querySelector('.x').addEventListener('click', () => { heroUrl = ''; renderHero(); });
+  };
+  renderHero();
+
+  const dzH = $('h-hero-dz');
+  const fiH = $('h-hero-input');
+  dzH.addEventListener('click', () => fiH.click());
+  fiH.addEventListener('change', async () => {
+    if (fiH.files[0]) {
+      try { heroUrl = await authFetch(() => API.upload(fiH.files[0])); renderHero(); }
+      catch (e) { alert(e.message); }
+    }
+  });
+  ['dragover'].forEach((ev) => dzH.addEventListener(ev, (e) => e.preventDefault()));
+  dzH.addEventListener('drop', async (e) => {
+    e.preventDefault();
+    if (e.dataTransfer.files[0]) {
+      try { heroUrl = await authFetch(() => API.upload(e.dataTransfer.files[0])); renderHero(); }
+      catch (err) { alert(err.message); }
+    }
+  });
 
   const dzA = $('h-avatar-dz');
   const fiA = $('h-avatar-input');
@@ -285,6 +316,7 @@ function renderHomeForm() {
         name: $('h-name').value.trim(),
         title: $('h-title').value.trim(),
         bio: $('h-bio').value,
+        heroImage: heroUrl,
       },
     };
     try {
@@ -413,6 +445,7 @@ function renderTextsForm() {
   const nav = s.nav || [];
   const sec = s.sections || {};
   const ft = s.footer || {};
+  const wl = s.workLabels || {};
   $('main').innerHTML = `
     <h2>文字设置</h2>
     <p class="admin-tip">编辑顶部导航与页脚导航、各区块标题（中英对照）、页脚栏目名与页脚 SEO 文案。保存后约 10–60 秒同步到前台。</p>
@@ -444,6 +477,14 @@ function renderTextsForm() {
     <h3 style="margin:22px 0 6px;font-size:14px;font-weight:700;color:#1a1a1a;">页脚 SEO 文案</h3>
     <div class="field"><textarea id="t-seo" rows="2">${s.seo || ''}</textarea></div>
 
+    <h3 style="margin:22px 0 6px;font-size:14px;font-weight:700;color:#1a1a1a;">作品详情标签</h3>
+    <p class="admin-tip">作品详情页里的小标签（英文项目名 / 概览 / 参数），统一在此修改。</p>
+    <div class="grid2">
+      <div class="field"><label>项目区（英文）</label><input id="wl-project" value="${(wl && wl.project) || ''}"></div>
+      <div class="field"><label>概览</label><input id="wl-overview" value="${(wl && wl.overview) || ''}"></div>
+      <div class="field"><label>参数</label><input id="wl-params" value="${(wl && wl.params) || ''}"></div>
+    </div>
+
     <button class="btn btn-primary" id="t-save">保存</button>`;
 
   const renderNav = (list) => {
@@ -468,6 +509,11 @@ function renderTextsForm() {
         colNav: $('ft-colnav').value.trim(),
         colWorks: $('ft-colworks').value.trim(),
         colContact: $('ft-colcontact').value.trim(),
+      },
+      workLabels: {
+        project: $('wl-project').value.trim() || 'PROJECT',
+        overview: $('wl-overview').value.trim() || '概览',
+        params: $('wl-params').value.trim() || '参数',
       },
       seo: $('t-seo').value.trim(),
     };

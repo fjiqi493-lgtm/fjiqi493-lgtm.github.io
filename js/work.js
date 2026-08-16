@@ -9,6 +9,12 @@
 
   setText('brand', data.brand);
 
+  // 作品详情小标签（可在后台「文字设置 → 作品详情标签」中编辑）
+  const wl = data.workLabels || {};
+  setText('w-label-project', wl.project || 'PROJECT');
+  setText('w-label-overview', wl.overview || '概览');
+  setText('w-label-params', wl.params || '参数');
+
   if (!w) {
     $('d-title').textContent = '作品不存在';
     return;

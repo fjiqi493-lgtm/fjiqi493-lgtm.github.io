@@ -21,11 +21,12 @@
     avatar.textContent = (data.home.name || data.brand || '?').trim().charAt(0);
   }
 
-  // 视觉大图：取第一件作品的封面作为代表作
+  // 视觉大图：后台设置的 heroImage 优先，否则取第一件作品的封面作为代表作
   const heroImg = $('home-visual-img');
   const first = data.works[0];
-  if (first) heroImg.src = first.cover || (first.images && first.images[0]) || '';
-  heroImg.alt = first ? first.title : '代表作';
+  const heroSrc = data.home.heroImage || (first && (first.cover || (first.images && first.images[0]))) || '';
+  heroImg.src = heroSrc;
+  heroImg.alt = (data.home.heroImage && '代表作') || (first ? first.title : '代表作');
 
   // 精选作品（取前 6 件）
   renderWorksGrid(data.works, $('works-grid'), 6);
