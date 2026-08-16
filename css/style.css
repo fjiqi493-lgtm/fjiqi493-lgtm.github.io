@@ -59,7 +59,7 @@ button { font-family: inherit; cursor: pointer; }
   height: 72px; display: flex; align-items: center; justify-content: space-between;
 }
 .brand { font-size: 16px; font-weight: 700; letter-spacing: 0.02em; }
-.nav { display: flex; gap: 32px; align-items: center; }
+.nav { display: flex; gap: 44px; align-items: center; }
 .nav a { font-size: 14px; color: var(--muted); transition: color 0.15s ease; position: relative; }
 .nav a:hover, .nav a.active { color: var(--text); }
 .nav a.active::after {

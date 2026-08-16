@@ -216,7 +216,9 @@ function renderFooter(data) {
 /* 渲染全站「文字类」内容：顶部/页脚导航、区块标题、页脚栏目名（均来自 site.json） */
 function renderChrome(data) {
   const nav = data.nav || [];
-  const cur = (location.pathname.split('/').pop() || 'index.html').split('#')[0];
+  // 当前页面文件名（不含 hash）+ 当前 hash
+  const curPath = (location.pathname.split('/').pop() || 'index.html').split('#')[0];
+  const curHash = location.hash || '';
 
   const navEl = $('nav');
   if (navEl) {
@@ -225,8 +227,14 @@ function renderChrome(data) {
       const a = document.createElement('a');
       a.href = n.href;
       a.textContent = n.label;
-      const target = (n.href.split('#')[0] || '').split('/').pop() || 'index.html';
-      if (target === cur) a.classList.add('active');
+      // 精确匹配：纯页面链接必须文件名一致；锚点链接还需 hash 一致
+      const parts = n.href.split('#');
+      const targetPath = (parts[0] || '').split('/').pop() || 'index.html';
+      const targetHash = parts[1] || '';
+      const isHashLink = targetHash.length > 0;
+      if (targetPath === curPath && (!isHashLink || targetHash === curHash)) {
+        a.classList.add('active');
+      }
       navEl.appendChild(a);
     });
   }
