@@ -227,14 +227,6 @@ function renderChrome(data) {
       const a = document.createElement('a');
       a.href = n.href;
       a.textContent = n.label;
-      // 纯页面链接：路径一致且当前无锚点时才 active；锚点链接：路径+hash 都匹配才 active
-      const parts = n.href.split('#');
-      const targetPath = (parts[0] || '').split('/').pop() || 'index.html';
-      const targetHash = parts[1] || '';
-      const isHashLink = targetHash.length > 0;
-      if (targetPath === curPath && (isHashLink ? targetHash === curHash : !curHash)) {
-        a.classList.add('active');
-      }
       navEl.appendChild(a);
     });
   }
@@ -266,15 +258,45 @@ function renderChrome(data) {
   setText('f-col-contact', ft.colContact || '');
   bindNavToggle();
 
-  // 锚点切换时同步更新导航 active 状态（首页内点「关于」「联系」时加粗跟随）
-  window.addEventListener('hashchange', () => {
-    const h = (location.hash || '').replace(/^#/, '');
-    Array.from(navEl.querySelectorAll('a')).forEach((a) => {
-      const parts = a.href.split('#');
-      const th = parts[1] || '';
-      if (th.length > 0) { a.classList.toggle('active', th === h); }
-      else { a.classList.toggle('active', !h); }
-    });
+  // 统一更新导航高亮：根据当前 URL 计算并只点亮唯一匹配项
+  setNavActive();
+  bindNavActiveEvents();
+}
+
+/* 根据当前 URL 计算应高亮的导航 key */
+function currentNavKey() {
+  const curPath = (location.pathname.split('/').pop() || 'index.html').split('#')[0];
+  const curHash = (location.hash || '').replace(/^#/, '');
+  if (curHash === 'about' || curHash === 'contact') return curHash;
+  if (curPath === 'works.html' || curPath === 'work.html') return 'works';
+  return 'index';
+}
+
+/* 统一更新导航高亮：先清除全部，再点亮唯一匹配项（从根本上杜绝多个加粗并存） */
+function setNavActive() {
+  const navEl = $('nav');
+  if (!navEl) return;
+  const key = currentNavKey();
+  navEl.querySelectorAll('a').forEach((a) => {
+    const href = a.getAttribute('href') || '';
+    const hash = href.split('#')[1] || '';
+    const base = (href.split('#')[0] || '').split('/').pop() || 'index.html';
+    let match = false;
+    if (key === 'about' || key === 'contact') match = hash === key;
+    else if (key === 'works') match = base === 'works.html';
+    else match = base === 'index.html' && hash === '';
+    a.classList.toggle('active', match);
+  });
+}
+
+/* 监听 hashchange 与导航点击，实时更新高亮（只注册一次） */
+function bindNavActiveEvents() {
+  if (window.__navActiveBound) return;
+  window.__navActiveBound = true;
+  window.addEventListener('hashchange', setNavActive);
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('#nav a');
+    if (a) setTimeout(setNavActive, 0); // 同页锚点跳转后等 hash 落定再计算
   });
 }
 
