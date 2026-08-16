@@ -74,6 +74,11 @@ button { font-family: inherit; cursor: pointer; }
 }
 .admin-link:hover { border-color: var(--text); color: var(--text); }
 
+.nav-toggle { display: none; align-items: center; justify-content: center;
+  width: 40px; height: 40px; margin-left: 8px; border: 1px solid var(--line-strong);
+  border-radius: var(--radius); background: var(--surface); color: var(--text); }
+.nav-toggle.open { border-color: var(--text); }
+
 /* ===== 通用按钮 ===== */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -294,8 +299,18 @@ button { font-family: inherit; cursor: pointer; }
 }
 @media (max-width: 640px) {
   .wrap { padding: 0 22px; }
-  .nav { gap: 18px; }
-  .nav a:nth-child(1) { display: none; }
+  .nav-toggle { display: inline-flex; }
+  .nav {
+    position: absolute; top: 100%; right: 22px; left: 22px;
+    flex-direction: column; align-items: stretch; gap: 2px;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius-lg); padding: 8px 10px;
+    box-shadow: 0 14px 34px rgba(0,0,0,.12); display: none; z-index: 40;
+  }
+  .nav.open { display: flex; }
+  .nav a { padding: 11px 8px; font-size: 15px; }
+  .nav a.active::after { display: none; }
+  .nav a.active { background: var(--accent-soft); border-radius: var(--radius); }
   .works-grid { grid-template-columns: 1fr; }
   .home-name { font-size: 40px; }
   .detail-title { font-size: 32px; }

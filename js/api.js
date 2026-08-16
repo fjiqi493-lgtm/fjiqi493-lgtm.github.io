@@ -264,6 +264,29 @@ function renderChrome(data) {
   setText('f-col-nav', ft.colNav || '');
   setText('f-col-works', ft.colWorks || '');
   setText('f-col-contact', ft.colContact || '');
+  bindNavToggle();
+}
+
+function bindNavToggle() {
+  const nav = $('nav');
+  const toggle = document.querySelector('.nav-toggle');
+  if (!nav || !toggle || nav.dataset.toggleBound) return;
+  const close = () => {
+    nav.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = nav.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  nav.addEventListener('click', (e) => { if (e.target.closest('a')) close(); });
+  document.addEventListener('click', (e) => {
+    if (nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)) close();
+  });
+  nav.dataset.toggleBound = '1';
 }
 
 function renderWorksGrid(works, container, limit) {
