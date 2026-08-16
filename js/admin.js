@@ -59,6 +59,7 @@ function switchTab(tab) {
   else if (tab === 'home') renderHomeForm();
   else if (tab === 'about') renderAboutForm();
   else if (tab === 'contact') renderContactForm();
+  else if (tab === 'philosophy') renderPhilosophyForm();
 }
 
 /* ---------- 仪表盘 ---------- */
@@ -341,6 +342,68 @@ function renderContactForm() {
     try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存'); }
     catch (e) { alert(e.message); }
   });
+}
+
+/* ---------- 设计理念 ---------- */
+function renderPhilosophyForm() {
+  const p = site.philosophy || {};
+  $('main').innerHTML = `
+    <h2>设计理念编辑</h2>
+    <p class="admin-tip">编辑理念区的英文标签、标题、条目与底部引言。条目可任意增删，保存后约 10–60 秒同步到前台。</p>
+    <div class="grid2">
+      <div class="field"><label>英文标签</label><input id="p-en" value="${p.en || ''}"></div>
+      <div class="field"><label>标题</label><input id="p-title" value="${p.title || ''}"></div>
+    </div>
+    <div class="field"><label>条目（编号 / 标题 / 内容，可多行增删）</label>
+      <div class="philo-edit" id="philo-edit"></div>
+      <button class="mini-btn" id="add-philo" type="button">+ 添加条目</button>
+    </div>
+    <div class="field"><label>底部引言</label><textarea id="p-quote" rows="3">${p.quote || ''}</textarea></div>
+    <button class="btn btn-primary" id="p-save">保存</button>`;
+
+  const renderItems = (list) => {
+    const box = $('philo-edit');
+    box.innerHTML = '';
+    list.forEach((it) => addPhiloRow(it.num, it.title, it.text));
+    if (list.length === 0) addPhiloRow('', '', '');
+  };
+  renderItems(p.items || []);
+
+  $('add-philo').addEventListener('click', () => addPhiloRow('', '', ''));
+  $('p-save').addEventListener('click', async () => {
+    const patch = {
+      philosophy: {
+        en: $('p-en').value.trim(),
+        title: $('p-title').value.trim(),
+        items: collectPhilo(),
+        quote: $('p-quote').value.trim(),
+      },
+    };
+    try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存'); }
+    catch (e) { alert(e.message); }
+  });
+}
+
+function addPhiloRow(num, title, text) {
+  const row = document.createElement('div');
+  row.className = 'prow philo-row';
+  row.innerHTML =
+    '<input placeholder="编号" value="' + (num || '') + '" style="max-width:72px">' +
+    '<input placeholder="标题" value="' + (title || '') + '">' +
+    '<textarea placeholder="内容" rows="2">' + (text || '') + '</textarea>' +
+    '<button class="mini-btn" type="button">×</button>';
+  row.querySelector('button').addEventListener('click', () => row.remove());
+  $('philo-edit').appendChild(row);
+}
+
+function collectPhilo() {
+  return Array.from($('philo-edit').querySelectorAll('.philo-row'))
+    .map((r) => ({
+      num: r.children[0].value.trim(),
+      title: r.children[1].value.trim(),
+      text: r.children[2].value.trim(),
+    }))
+    .filter((p) => p.title || p.text);
 }
 
 /* ---------- 启动 ---------- */

@@ -39,6 +39,26 @@
     skills.appendChild(el);
   });
 
+  // 设计理念（后台可编辑）
+  const ph = data.philosophy || {};
+  setText('philo-en', ph.en);
+  setText('philo-title', ph.title);
+  const phGrid = $('philosophy-grid');
+  if (phGrid) {
+    phGrid.innerHTML = '';
+    (ph.items || []).forEach((it) => {
+      const card = document.createElement('div');
+      card.className = 'philo-card';
+      card.innerHTML =
+        '<span class="philo-num">' + (it.num || '') + '</span>' +
+        '<h3 class="philo-title">' + (it.title || '') + '</h3>' +
+        '<p class="philo-text">' + (it.text || '') + '</p>';
+      phGrid.appendChild(card);
+    });
+  }
+  const phQuote = $('philo-quote');
+  if (phQuote) phQuote.innerHTML = ph.quote ? '<p>' + ph.quote + '</p>' : '';
+
   // 联系
   const email = $('contact-email');
   email.textContent = data.contact.email;
