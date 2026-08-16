@@ -4,7 +4,7 @@
   "home": {
     "kicker": "INDUSTRIAL DESIGNER",
     "name": "Jason Fang",
-    "title": "工业设计师 · 产品外观设计 / 结构设计 / 量产落地",
+    "title": "工业设计师 · 产品外观设计 / 结构设计 / 量产落地 · 数字雕刻师",
     "bio": "我专注消费电子、家居与工具的产品定义、CMF 与结构打样。从前期调研到量产跟进，独立完成产品从 0 到 1 的落地。擅长在约束之中，寻找简洁而耐用的解法。这里收录近年的部分作品。"
   },
   "about": {
@@ -31,16 +31,40 @@
   },
   "seo": "本页可被搜索引擎收录 · 分享链接即可访问",
   "nav": [
-    { "label": "首页", "href": "index.html" },
-    { "label": "作品", "href": "works.html" },
-    { "label": "关于", "href": "index.html#about" },
-    { "label": "联系", "href": "index.html#contact" }
+    {
+      "label": "首页",
+      "href": "index.html"
+    },
+    {
+      "label": "作品",
+      "href": "works.html"
+    },
+    {
+      "label": "关于",
+      "href": "index.html#about"
+    },
+    {
+      "label": "联系",
+      "href": "index.html#contact"
+    }
   ],
   "sections": {
-    "works": { "en": "SELECTED WORKS", "title": "精选作品" },
-    "about": { "en": "ABOUT", "title": "关于" },
-    "contact": { "en": "CONTACT", "title": "合作联系" },
-    "allWorks": { "en": "WORKS", "title": "全部作品" }
+    "works": {
+      "en": "SELECTED WORKS",
+      "title": "精选作品"
+    },
+    "about": {
+      "en": "ABOUT",
+      "title": "关于"
+    },
+    "contact": {
+      "en": "CONTACT",
+      "title": "合作联系"
+    },
+    "allWorks": {
+      "en": "WORKS",
+      "title": "全部作品"
+    }
   },
   "footer": {
     "colNav": "导航",
@@ -51,9 +75,21 @@
     "en": "PHILOSOPHY",
     "title": "设计理念",
     "items": [
-      { "num": "01", "title": "少即是多", "text": "每个产品都应在功能与形态之间找到最简平衡。去掉多余的装饰，让材质和比例自己说话。" },
-      { "num": "02", "title": "为量产设计", "text": "好看的概念图只是起点。每一笔线条都要考虑结构可行性、CMF 成本与供应链约束。" },
-      { "num": "03", "title": "从用户出发", "text": "不为了设计而设计。先理解谁在用、在什么场景用、为什么需要它，再动第一笔。" }
+      {
+        "num": "01",
+        "title": "少即是多",
+        "text": "每个产品都应在功能与形态之间找到最简平衡。去掉多余的装饰，让材质和比例自己说话。"
+      },
+      {
+        "num": "02",
+        "title": "为量产设计",
+        "text": "好看的概念图只是起点。每一笔线条都要考虑结构可行性、CMF 成本与供应链约束。"
+      },
+      {
+        "num": "03",
+        "title": "从用户出发",
+        "text": "不为了设计而设计。先理解谁在用、在什么场景用、为什么需要它，再动第一笔。"
+      }
     ],
     "quote": "好的工业设计是隐形的——你感觉不到它的存在，但离开它又不行。"
   },
