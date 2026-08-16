@@ -227,12 +227,12 @@ function renderChrome(data) {
       const a = document.createElement('a');
       a.href = n.href;
       a.textContent = n.label;
-      // 精确匹配：纯页面链接必须文件名一致；锚点链接还需 hash 一致
+      // 纯页面链接：路径一致且当前无锚点时才 active；锚点链接：路径+hash 都匹配才 active
       const parts = n.href.split('#');
       const targetPath = (parts[0] || '').split('/').pop() || 'index.html';
       const targetHash = parts[1] || '';
       const isHashLink = targetHash.length > 0;
-      if (targetPath === curPath && (!isHashLink || targetHash === curHash)) {
+      if (targetPath === curPath && (isHashLink ? targetHash === curHash : !curHash)) {
         a.classList.add('active');
       }
       navEl.appendChild(a);
