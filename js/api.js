@@ -218,7 +218,7 @@ function renderChrome(data) {
   const nav = data.nav || [];
   // 当前页面文件名（不含 hash）+ 当前 hash
   const curPath = (location.pathname.split('/').pop() || 'index.html').split('#')[0];
-  const curHash = location.hash || '';
+  const curHash = (location.hash || '').replace(/^#/, '');
 
   const navEl = $('nav');
   if (navEl) {
@@ -266,13 +266,14 @@ function renderChrome(data) {
   setText('f-col-contact', ft.colContact || '');
   bindNavToggle();
 
-  // 锚点切换时同步更新导航 active 状态（首页内点「关于」「联系」时下划线跟随）
+  // 锚点切换时同步更新导航 active 状态（首页内点「关于」「联系」时加粗跟随）
   window.addEventListener('hashchange', () => {
-    const h = location.hash || '';
+    const h = (location.hash || '').replace(/^#/, '');
     Array.from(navEl.querySelectorAll('a')).forEach((a) => {
       const parts = a.href.split('#');
       const th = parts[1] || '';
-      a.classList.toggle('active', th.length > 0 ? th === h : !h);
+      if (th.length > 0) { a.classList.toggle('active', th === h); }
+      else { a.classList.toggle('active', !h); }
     });
   });
 }
