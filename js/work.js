@@ -5,6 +5,8 @@
   const data = await API.getSite();
   const w = (data.works || []).find((x) => x.id === id);
 
+  renderChrome(data);
+
   setText('brand', data.brand);
 
   if (!w) {

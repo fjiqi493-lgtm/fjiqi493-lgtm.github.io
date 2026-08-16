@@ -60,6 +60,7 @@ function switchTab(tab) {
   else if (tab === 'about') renderAboutForm();
   else if (tab === 'contact') renderContactForm();
   else if (tab === 'philosophy') renderPhilosophyForm();
+  else if (tab === 'texts') renderTextsForm();
 }
 
 /* ---------- 仪表盘 ---------- */
@@ -404,6 +405,89 @@ function collectPhilo() {
       text: r.children[2].value.trim(),
     }))
     .filter((p) => p.title || p.text);
+}
+
+/* ---------- 文字设置（导航 / 区块标题 / 页脚 / SEO）---------- */
+function renderTextsForm() {
+  const s = site;
+  const nav = s.nav || [];
+  const sec = s.sections || {};
+  const ft = s.footer || {};
+  $('main').innerHTML = `
+    <h2>文字设置</h2>
+    <p class="admin-tip">编辑顶部导航与页脚导航、各区块标题（中英对照）、页脚栏目名与页脚 SEO 文案。保存后约 10–60 秒同步到前台。</p>
+
+    <h3 style="margin:22px 0 6px;font-size:14px;font-weight:700;color:#1a1a1a;">导航（顶部与页脚共用）</h3>
+    <p class="admin-tip">label 为显示文字，href 为链接（页面如 works.html，或锚点如 index.html#about）。</p>
+    <div class="field"><div class="nav-edit" id="nav-edit"></div>
+      <button class="mini-btn" id="add-nav" type="button">+ 添加导航项</button></div>
+
+    <h3 style="margin:22px 0 6px;font-size:14px;font-weight:700;color:#1a1a1a;">区块标题</h3>
+    <div class="grid2">
+      <div class="field"><label>精选作品 · 英文</label><input id="sec-works-en" value="${(sec.works && sec.works.en) || ''}"></div>
+      <div class="field"><label>精选作品 · 中文</label><input id="sec-works-title" value="${(sec.works && sec.works.title) || ''}"></div>
+      <div class="field"><label>关于 · 英文</label><input id="sec-about-en" value="${(sec.about && sec.about.en) || ''}"></div>
+      <div class="field"><label>关于 · 中文</label><input id="sec-about-title" value="${(sec.about && sec.about.title) || ''}"></div>
+      <div class="field"><label>联系 · 英文</label><input id="sec-contact-en" value="${(sec.contact && sec.contact.en) || ''}"></div>
+      <div class="field"><label>联系 · 中文</label><input id="sec-contact-title" value="${(sec.contact && sec.contact.title) || ''}"></div>
+      <div class="field"><label>全部作品 · 英文</label><input id="sec-all-en" value="${(sec.allWorks && sec.allWorks.en) || ''}"></div>
+      <div class="field"><label>全部作品 · 中文</label><input id="sec-all-title" value="${(sec.allWorks && sec.allWorks.title) || ''}"></div>
+    </div>
+
+    <h3 style="margin:22px 0 6px;font-size:14px;font-weight:700;color:#1a1a1a;">页脚栏目名</h3>
+    <div class="grid2">
+      <div class="field"><label>导航栏目</label><input id="ft-colnav" value="${ft.colNav || ''}"></div>
+      <div class="field"><label>作品栏目</label><input id="ft-colworks" value="${ft.colWorks || ''}"></div>
+      <div class="field"><label>联系栏目</label><input id="ft-colcontact" value="${ft.colContact || ''}"></div>
+    </div>
+
+    <h3 style="margin:22px 0 6px;font-size:14px;font-weight:700;color:#1a1a1a;">页脚 SEO 文案</h3>
+    <div class="field"><textarea id="t-seo" rows="2">${s.seo || ''}</textarea></div>
+
+    <button class="btn btn-primary" id="t-save">保存</button>`;
+
+  const renderNav = (list) => {
+    const box = $('nav-edit');
+    box.innerHTML = '';
+    list.forEach((n) => addNavRow(n.label, n.href));
+    if (list.length === 0) addNavRow('', '');
+  };
+  renderNav(nav);
+  $('add-nav').addEventListener('click', () => addNavRow('', ''));
+
+  $('t-save').addEventListener('click', async () => {
+    const patch = {
+      nav: collectNav(),
+      sections: {
+        works: { en: $('sec-works-en').value.trim(), title: $('sec-works-title').value.trim() },
+        about: { en: $('sec-about-en').value.trim(), title: $('sec-about-title').value.trim() },
+        contact: { en: $('sec-contact-en').value.trim(), title: $('sec-contact-title').value.trim() },
+        allWorks: { en: $('sec-all-en').value.trim(), title: $('sec-all-title').value.trim() },
+      },
+      footer: {
+        colNav: $('ft-colnav').value.trim(),
+        colWorks: $('ft-colworks').value.trim(),
+        colContact: $('ft-colcontact').value.trim(),
+      },
+      seo: $('t-seo').value.trim(),
+    };
+    try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存'); }
+    catch (e) { alert(e.message); }
+  });
+}
+
+function addNavRow(label, href) {
+  const row = document.createElement('div');
+  row.className = 'prow';
+  row.innerHTML = '<input placeholder="显示文字" value="' + (label || '') + '"><input placeholder="链接 href" value="' + (href || '') + '"><button class="mini-btn" type="button">×</button>';
+  row.querySelector('button').addEventListener('click', () => row.remove());
+  $('nav-edit').appendChild(row);
+}
+
+function collectNav() {
+  return Array.from($('nav-edit').querySelectorAll('.prow'))
+    .map((r) => ({ label: r.children[0].value.trim(), href: r.children[1].value.trim() }))
+    .filter((n) => n.label && n.href);
 }
 
 /* ---------- 启动 ---------- */

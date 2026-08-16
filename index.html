@@ -14,12 +14,7 @@
     <header class="site-header">
       <div class="wrap header-inner">
         <a class="brand" id="brand" href="index.html">JASON</a>
-        <nav class="nav">
-          <a href="index.html" class="active">首页</a>
-          <a href="works.html">作品</a>
-          <a href="index.html#about">关于</a>
-          <a href="index.html#contact">联系</a>
-        </nav>
+        <nav class="nav" id="nav"></nav>
         <div class="header-actions">
           <a class="admin-link" href="admin.html">管理</a>
         </div>
@@ -52,8 +47,8 @@
         <div class="wrap">
           <div class="section-head reveal">
             <div>
-              <div class="en">SELECTED WORKS</div>
-              <h2>精选作品</h2>
+              <div class="en" id="s-works-en">SELECTED WORKS</div>
+              <h2 id="s-works-title">精选作品</h2>
             </div>
             <a class="view-all" href="works.html">查看全部 →</a>
           </div>
@@ -65,8 +60,8 @@
       <section class="section" id="about" style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
         <div class="wrap two-col" style="display:grid; grid-template-columns: 320px 1fr; gap: 64px;">
           <div class="reveal">
-            <div class="en">ABOUT</div>
-            <h2 style="font-size:32px; font-weight:800; margin-top:8px;">关于</h2>
+            <div class="en" id="s-about-en">ABOUT</div>
+            <h2 id="s-about-title" style="font-size:32px; font-weight:800; margin-top:8px;">关于</h2>
           </div>
           <div class="reveal">
             <p class="home-bio" id="about-bio" style="max-width:none;"></p>
@@ -93,8 +88,8 @@
       <section class="section" id="contact">
         <div class="wrap two-col" style="display:grid; grid-template-columns: 320px 1fr; gap: 64px;">
           <div class="reveal">
-            <div class="en">CONTACT</div>
-            <h2 style="font-size:32px; font-weight:800; margin-top:8px;">合作联系</h2>
+            <div class="en" id="s-contact-en">CONTACT</div>
+            <h2 id="s-contact-title" style="font-size:32px; font-weight:800; margin-top:8px;">合作联系</h2>
           </div>
           <div class="reveal">
             <a class="home-name" id="contact-email" href="#" style="font-size:30px; margin:0; display:inline-block;"></a>
@@ -115,13 +110,8 @@
             <div class="footer-socials" id="footer-socials"></div>
           </div>
           <div>
-            <div class="footer-col-title">导航</div>
-            <div class="footer-links">
-              <a href="index.html">首页</a>
-              <a href="works.html">作品</a>
-              <a href="index.html#about">关于</a>
-              <a href="index.html#contact">联系</a>
-            </div>
+            <div class="footer-col-title" id="f-col-nav">导航</div>
+            <div class="footer-links" id="footer-nav-links"></div>
           </div>
           <div>
             <div class="footer-col-title">作品</div>

@@ -213,6 +213,51 @@ function renderFooter(data) {
   setText('brand', data.brand);
 }
 
+/* 渲染全站「文字类」内容：顶部/页脚导航、区块标题、页脚栏目名（均来自 site.json） */
+function renderChrome(data) {
+  const nav = data.nav || [];
+  const cur = (location.pathname.split('/').pop() || 'index.html').split('#')[0];
+
+  const navEl = $('nav');
+  if (navEl) {
+    navEl.innerHTML = '';
+    nav.forEach((n) => {
+      const a = document.createElement('a');
+      a.href = n.href;
+      a.textContent = n.label;
+      const target = (n.href.split('#')[0] || '').split('/').pop() || 'index.html';
+      if (target === cur) a.classList.add('active');
+      navEl.appendChild(a);
+    });
+  }
+
+  const fnl = $('footer-nav-links');
+  if (fnl) {
+    fnl.innerHTML = '';
+    nav.forEach((n) => {
+      const a = document.createElement('a');
+      a.href = n.href;
+      a.textContent = n.label;
+      fnl.appendChild(a);
+    });
+  }
+
+  const sec = data.sections || {};
+  setText('s-works-en', (sec.works && sec.works.en) || '');
+  setText('s-works-title', (sec.works && sec.works.title) || '');
+  setText('s-about-en', (sec.about && sec.about.en) || '');
+  setText('s-about-title', (sec.about && sec.about.title) || '');
+  setText('s-contact-en', (sec.contact && sec.contact.en) || '');
+  setText('s-contact-title', (sec.contact && sec.contact.title) || '');
+  setText('s-all-en', (sec.allWorks && sec.allWorks.en) || '');
+  setText('s-all-title', (sec.allWorks && sec.allWorks.title) || '');
+
+  const ft = data.footer || {};
+  setText('f-col-nav', ft.colNav || '');
+  setText('f-col-works', ft.colWorks || '');
+  setText('f-col-contact', ft.colContact || '');
+}
+
 function renderWorksGrid(works, container, limit) {
   container.innerHTML = '';
   const list = limit ? works.slice(0, limit) : works;

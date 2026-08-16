@@ -30,6 +30,23 @@
     ]
   },
   "seo": "本页可被搜索引擎收录 · 分享链接即可访问",
+  "nav": [
+    { "label": "首页", "href": "index.html" },
+    { "label": "作品", "href": "works.html" },
+    { "label": "关于", "href": "index.html#about" },
+    { "label": "联系", "href": "index.html#contact" }
+  ],
+  "sections": {
+    "works": { "en": "SELECTED WORKS", "title": "精选作品" },
+    "about": { "en": "ABOUT", "title": "关于" },
+    "contact": { "en": "CONTACT", "title": "合作联系" },
+    "allWorks": { "en": "WORKS", "title": "全部作品" }
+  },
+  "footer": {
+    "colNav": "导航",
+    "colWorks": "作品",
+    "colContact": "联系"
+  },
   "philosophy": {
     "en": "PHILOSOPHY",
     "title": "设计理念",

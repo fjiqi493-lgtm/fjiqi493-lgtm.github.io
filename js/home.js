@@ -2,6 +2,8 @@
 (async function () {
   const data = await API.getSite();
 
+  renderChrome(data);
+
   // 品牌
   setText('brand', data.brand);
 

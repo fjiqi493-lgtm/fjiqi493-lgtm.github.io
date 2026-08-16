@@ -2,6 +2,8 @@
 (async function () {
   const data = await API.getSite();
 
+  renderChrome(data);
+
   setText('brand', data.brand);
   setText('count', (data.works || []).length + ' 件作品');
 
