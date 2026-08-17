@@ -209,13 +209,19 @@ async function uploadFiles(files) {
   dz.textContent = '正在上传到 GitHub，请稍候…';
   dz.style.pointerEvents = 'none';
   dz.style.opacity = '0.6';
-  for (const f of imgs) {
+  for (let i = 0; i < imgs.length; i++) {
+    const f = imgs[i];
     try {
+      // 批量上传时稍微错开请求，避免触发 GitHub 滥用/连接限制
+      if (i > 0) await new Promise((res) => setTimeout(res, 350));
       const url = await authFetch(() => API.upload(f));
       editImages.push(url);
       if (!editCover) editCover = url;
       renderThumbs();
-    } catch (e) { alert('上传失败：' + e.message); }
+    } catch (e) {
+      console.error('图片上传失败:', e);
+      alert('上传失败：' + e.message + '\n\n可尝试刷新页面、检查网络，或稍后再试。');
+    }
   }
   dz.textContent = '把图片拖到这里，或点击选择';
   dz.style.pointerEvents = '';

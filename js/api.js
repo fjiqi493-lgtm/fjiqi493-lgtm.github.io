@@ -52,15 +52,33 @@ const API = {
   logout() { this.setToken(''); },
 
   /* ---------- GitHub Contents 读写 ---------- */
+  async _fetchWithRetry(url, options, retries = 2) {
+    let lastErr;
+    for (let i = 0; i <= retries; i++) {
+      try {
+        const r = await fetch(url, options);
+        return r;
+      } catch (e) {
+        lastErr = e;
+        const isNetwork = String(e.message || '').toLowerCase().includes('failed to fetch') ||
+                          String(e.name || '').includes('TypeError') ||
+                          String(e.message || '').toLowerCase().includes('networkerror');
+        if (!isNetwork || i === retries) throw e;
+        await new Promise((res) => setTimeout(res, 300 * (i + 1)));
+      }
+    }
+    throw lastErr;
+  },
+
   async _ghGet(path) {
-    // 加时间戳穿透浏览器/中间层缓存，确保取到的 SHA 是当前最新
-    const r = await fetch(
+    // 用 URL 时间戳穿透浏览器/中间层缓存；注意 GitHub CORS 白名单不含 Cache-Control 请求头，
+    // 若加 Cache-Control 会触发浏览器 CORS 预检失败 → TypeError: Failed to fetch
+    const r = await this._fetchWithRetry(
       'https://api.github.com/repos/' + GH.owner + '/' + GH.repo + '/contents/' + path + '?ref=' + GH.branch + '&_t=' + Date.now(),
       {
         headers: {
           Authorization: 'Bearer ' + this.token,
           Accept: 'application/vnd.github+json',
-          'Cache-Control': 'no-cache, no-store',
         },
       }
     );
@@ -71,7 +89,7 @@ const API = {
   async _ghPut(path, contentB64, sha, message) {
     const body = { message, content: contentB64 };
     if (sha) body.sha = sha;
-    const r = await fetch(
+    const r = await this._fetchWithRetry(
       'https://api.github.com/repos/' + GH.owner + '/' + GH.repo + '/contents/' + path,
       {
         method: 'PUT',
