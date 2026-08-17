@@ -25,9 +25,18 @@
     "email": "hello@linyu.design",
     "note": "有合作或委托，欢迎随时来信。我通常会在两个工作日内回复。",
     "socials": [
-      { "name": "微信", "url": "" },
-      { "name": "Instagram", "url": "" },
-      { "name": "Behance", "url": "" }
+      {
+        "name": "微信",
+        "url": ""
+      },
+      {
+        "name": "Instagram",
+        "url": ""
+      },
+      {
+        "name": "Behance",
+        "url": ""
+      }
     ]
   },
   "seo": "本页可被搜索引擎收录 · 分享链接即可访问",
@@ -107,7 +116,9 @@
       "year": "2026",
       "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
       "images": [
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg"
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786937547343-fg9r4.jpg",
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786937569047-nitro.jpg"
       ],
       "summary": "方正烟盒语义香水瓶身，晶白料玻璃 + 塑料离式方盖。",
       "description": "TABAC NUIT 试图以极简方体形态诠释烟草夜色的氛围感。瓶身采用方正利落的切割轮廓，模拟烟盒的经典视觉语言，玻璃瓶身与注塑顶盖构成整套外观，整套仅 2 个主要外观零件，兼顾高级质感与量产可行性。",
