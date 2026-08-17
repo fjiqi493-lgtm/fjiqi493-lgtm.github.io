@@ -53,9 +53,16 @@ const API = {
 
   /* ---------- GitHub Contents 读写 ---------- */
   async _ghGet(path) {
+    // 加时间戳穿透浏览器/中间层缓存，确保取到的 SHA 是当前最新
     const r = await fetch(
-      'https://api.github.com/repos/' + GH.owner + '/' + GH.repo + '/contents/' + path + '?ref=' + GH.branch,
-      { headers: { Authorization: 'Bearer ' + this.token, Accept: 'application/vnd.github+json' } }
+      'https://api.github.com/repos/' + GH.owner + '/' + GH.repo + '/contents/' + path + '?ref=' + GH.branch + '&_t=' + Date.now(),
+      {
+        headers: {
+          Authorization: 'Bearer ' + this.token,
+          Accept: 'application/vnd.github+json',
+          'Cache-Control': 'no-cache, no-store',
+        },
+      }
     );
     if (!r.ok) throw new Error('读取仓库失败 (' + r.status + ')');
     return r.json();
@@ -83,10 +90,19 @@ const API = {
     return r.json();
   },
 
-  async saveSite() {
+  async saveSite(retryCount = 0) {
     const cur = await this._ghGet(GH.sitePath);
     const content = strToB64(JSON.stringify(API.site, null, 2));
-    await this._ghPut(GH.sitePath, content, cur.sha, '更新站点内容');
+    try {
+      await this._ghPut(GH.sitePath, content, cur.sha, '更新站点内容');
+    } catch (e) {
+      // 409：SHA 不匹配（缓存/并发导致），重试最多 3 次
+      if (String(e.message).includes('409') && retryCount < 3) {
+        await new Promise((res) => setTimeout(res, 500));
+        return this.saveSite(retryCount + 1);
+      }
+      throw e;
+    }
   },
 
   async createWork(w) {
