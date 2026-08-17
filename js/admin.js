@@ -4,6 +4,15 @@ let editingId = null;
 let editImages = [];
 let editCover = '';
 
+function escapeHtml(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 function showShell() { $('login-wrap').style.display = 'none'; $('shell').classList.add('show'); }
 function showLogin() { $('shell').classList.remove('show'); $('login-wrap').style.display = 'flex'; }
 
@@ -357,19 +366,55 @@ function renderAboutForm() {
 /* ---------- 联系 ---------- */
 function renderContactForm() {
   const c = site.contact || {};
+  // 兼容旧字符串数组格式
+  const socials = (c.socials || []).map((s) =>
+    typeof s === 'string' ? { name: s, url: '' } : Object.assign({}, s)
+  );
+
+  const renderSocialRows = () => socials.map((s, i) => `
+    <div class="social-row" data-idx="${i}" style="display:grid;grid-template-columns:1fr 1.6fr 32px;gap:8px;margin-bottom:8px;align-items:start;">
+      <input class="s-name" placeholder="名称，如 Instagram" value="${escapeHtml(s.name || '')}">
+      <input class="s-url" placeholder="链接 https://...（留空为文本标签）" value="${escapeHtml(s.url || '')}">
+      <button type="button" class="mini-btn s-del" title="删除">×</button>
+    </div>
+  `).join('');
+
   $('main').innerHTML = `
     <h2>联系编辑</h2>
-    <p class="admin-tip">编辑邮箱、合作说明与社交平台（逗号分隔）。</p>
-    <div class="field"><label>邮箱</label><input id="c-email" value="${c.email || ''}"></div>
-    <div class="field"><label>合作说明</label><textarea id="c-note" rows="3">${c.note || ''}</textarea></div>
-    <div class="field"><label>社交平台（逗号分隔）</label><input id="c-socials" value="${(c.socials || []).join('，')}"></div>
+    <p class="admin-tip">编辑邮箱、合作说明与社交平台。链接留空则前台显示为文本标签，填写后自动变为可点击链接。</p>
+    <div class="field"><label>邮箱</label><input id="c-email" value="${escapeHtml(c.email || '')}"></div>
+    <div class="field"><label>合作说明</label><textarea id="c-note" rows="3">${escapeHtml(c.note || '')}</textarea></div>
+    <div class="field">
+      <label style="display:flex;justify-content:space-between;align-items:center;">社交平台 <button type="button" class="mini-btn" id="c-add-social">+ 添加</button></label>
+      <div id="c-socials">${renderSocialRows()}</div>
+    </div>
     <button class="btn btn-primary" id="c-save">保存</button>`;
+
+  $('c-add-social').addEventListener('click', () => {
+    const box = $('c-socials');
+    const div = document.createElement('div');
+    div.className = 'social-row';
+    div.style.cssText = 'display:grid;grid-template-columns:1fr 1.6fr 32px;gap:8px;margin-bottom:8px;align-items:start;';
+    div.innerHTML = '<input class="s-name" placeholder="名称，如 Instagram" value=""><input class="s-url" placeholder="链接 https://...（留空为文本标签）" value=""><button type="button" class="mini-btn s-del" title="删除">×</button>';
+    box.appendChild(div);
+  });
+  $('c-socials').addEventListener('click', (e) => {
+    if (e.target.classList.contains('s-del')) e.target.closest('.social-row').remove();
+  });
+
   $('c-save').addEventListener('click', async () => {
+    const rows = [...$('c-socials').querySelectorAll('.social-row')];
+    const newSocials = rows
+      .map((row) => ({
+        name: row.querySelector('.s-name').value.trim(),
+        url: row.querySelector('.s-url').value.trim(),
+      }))
+      .filter((s) => s.name);
     const patch = {
       contact: {
         email: $('c-email').value.trim(),
         note: $('c-note').value,
-        socials: $('c-socials').value.split(/[，,]/).map((s) => s.trim()).filter(Boolean),
+        socials: newSocials,
       },
     };
     try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存'); }

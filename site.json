@@ -25,9 +25,9 @@
     "email": "hello@linyu.design",
     "note": "有合作或委托，欢迎随时来信。我通常会在两个工作日内回复。",
     "socials": [
-      "微信",
-      "Instagram",
-      "Behance"
+      { "name": "微信", "url": "" },
+      { "name": "Instagram", "url": "" },
+      { "name": "Behance", "url": "" }
     ]
   },
   "seo": "本页可被搜索引擎收录 · 分享链接即可访问",

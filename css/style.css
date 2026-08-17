@@ -166,9 +166,28 @@ button { font-family: inherit; cursor: pointer; }
 .footer-inner { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 48px; margin-bottom: 56px; }
 .footer-brand { font-size: 17px; font-weight: 700; }
 .footer-desc { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 280px; margin-top: 16px; }
-.footer-socials { display: flex; gap: 12px; margin-top: 20px; }
-.footer-socials a { width: 36px; height: 36px; border-radius: var(--radius); border: 1px solid var(--line-strong); display: inline-flex; align-items: center; justify-content: center; font-size: 12px; color: var(--muted); transition: 0.15s ease; }
-.footer-socials a:hover { border-color: var(--text); color: var(--text); }
+.footer-socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.footer-socials .social-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 36px; padding: 8px 14px;
+  border-radius: var(--radius); border: 1px solid var(--line-strong);
+  font-size: 13px; color: var(--muted);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.footer-socials .social-link:hover { border-color: var(--text); color: var(--text); }
+.footer-socials .social-link.is-text { cursor: default; border-style: dashed; }
+
+/* 联系区社交链接 */
+#socials { display: flex; flex-wrap: wrap; gap: 12px 18px; margin-top: 22px; }
+#socials .social-link {
+  font-size: 14px; color: var(--muted);
+  padding-bottom: 2px; border-bottom: 1px solid var(--line-strong);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+#socials .social-link:hover { color: var(--text); border-color: var(--text); }
+#socials .social-link.is-text { cursor: default; border-bottom-style: dashed; }
+
+.f-note:empty { display: none; }
 .footer-col-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 18px; }
 .footer-links { display: flex; flex-direction: column; gap: 11px; }
 .footer-links a { font-size: 14px; color: var(--muted); transition: color 0.15s ease; }

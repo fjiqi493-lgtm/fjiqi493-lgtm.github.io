@@ -70,11 +70,16 @@
   const socials = $('socials');
   socials.innerHTML = '';
   (data.contact.socials || []).forEach((s) => {
-    const a = document.createElement('a');
-    a.href = '#';
-    a.textContent = s;
-    a.style.cssText = 'font-size:14px;color:var(--muted);';
-    socials.appendChild(a);
+    const item = typeof s === 'string' ? { name: s, url: '' } : s;
+    const el = document.createElement(item.url ? 'a' : 'span');
+    if (item.url) {
+      el.href = item.url;
+      el.target = '_blank';
+      el.rel = 'noopener noreferrer';
+    }
+    el.textContent = item.name || '';
+    el.className = 'social-link' + (item.url ? '' : ' is-text');
+    socials.appendChild(el);
   });
 
   renderFooter(data);

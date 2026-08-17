@@ -184,10 +184,16 @@ function renderFooter(data) {
   if (fs) {
     fs.innerHTML = '';
     socials.forEach((s) => {
-      const a = document.createElement('a');
-      a.href = '#';
-      a.textContent = s;
-      fs.appendChild(a);
+      const item = typeof s === 'string' ? { name: s, url: '' } : s;
+      const el = document.createElement(item.url ? 'a' : 'span');
+      if (item.url) {
+        el.href = item.url;
+        el.target = '_blank';
+        el.rel = 'noopener noreferrer';
+      }
+      el.textContent = item.name || '';
+      el.className = 'social-link' + (item.url ? '' : ' is-text');
+      fs.appendChild(el);
     });
   }
   const fw = $('footer-works');
@@ -209,7 +215,8 @@ function renderFooter(data) {
     fe.textContent = data.contact.email;
     fe.href = 'mailto:' + data.contact.email;
   }
-  setText('f-note', data.contact ? data.contact.note : '');
+  // 页脚联系区只保留邮箱，避免与顶部 CONTACT 的说明文字重复
+  setText('f-note', '');
   setText('brand', data.brand);
 }
 
