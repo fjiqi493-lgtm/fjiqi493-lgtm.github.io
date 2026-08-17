@@ -63,14 +63,25 @@
     ps.appendChild(row);
   });
 
-  // 图集（点击放大）
+  // 图集（点击放大；图片若因 GitHub 延迟 404，自动重试 3 次）
   const gal = $('d-gallery');
   gal.innerHTML = '';
   (w.images || []).forEach((src) => {
     const d = document.createElement('div');
     d.className = 'g-img';
     d.setAttribute('data-zoom', src);
-    d.innerHTML = '<img src="' + src + '" alt="' + w.title + '" loading="lazy" />';
+    const img = document.createElement('img');
+    img.alt = w.title;
+    img.loading = 'lazy';
+    let retries = 0;
+    img.onerror = () => {
+      if (retries < 3) {
+        retries++;
+        setTimeout(() => { img.src = src + (src.includes('?') ? '&' : '?') + '_retry=' + retries; }, 2000 * retries);
+      }
+    };
+    img.src = src;
+    d.appendChild(img);
     gal.appendChild(d);
   });
 

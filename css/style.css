@@ -161,9 +161,29 @@ button { font-family: inherit; cursor: pointer; }
 .gallery .g-img { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--accent-soft); aspect-ratio: 4 / 3; cursor: zoom-in; }
 .gallery .g-img img { width: 100%; height: 100%; object-fit: cover; }
 
+/* ===== 联系区（单块居中，与页脚无分隔线）===== */
+.contact-wrap { max-width: 760px; margin: 0 auto; text-align: center; }
+.contact-header { margin-bottom: 40px; }
+.contact-header h2 { font-size: 32px; font-weight: 800; letter-spacing: -0.01em; margin-top: 8px; }
+.contact-body { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.contact-email {
+  font-size: 44px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;
+  color: var(--text); transition: opacity 0.15s ease;
+}
+.contact-email:hover { opacity: 0.65; }
+.contact-note { font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 520px; }
+#socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 22px; margin-top: 10px; }
+#socials .social-link {
+  font-size: 14px; color: var(--muted); padding-bottom: 3px;
+  border-bottom: 1px solid var(--line-strong);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+#socials .social-link:hover { color: var(--text); border-color: var(--text); }
+#socials .social-link.is-text { cursor: default; border-bottom-style: dashed; }
+
 /* ===== 页脚 ===== */
-.site-footer { border-top: 1px solid var(--line); background: var(--surface); padding: 72px 0 48px; margin-top: 40px; }
-.footer-inner { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 48px; margin-bottom: 56px; }
+.site-footer { background: var(--surface); padding: 72px 0 48px; margin-top: 40px; }
+.footer-inner { display: grid; grid-template-columns: 1.8fr 1fr 1.2fr; gap: 48px; margin-bottom: 56px; }
 .footer-brand { font-size: 17px; font-weight: 700; }
 .footer-desc { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 280px; margin-top: 16px; }
 .footer-socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
@@ -177,24 +197,11 @@ button { font-family: inherit; cursor: pointer; }
 .footer-socials .social-link:hover { border-color: var(--text); color: var(--text); }
 .footer-socials .social-link.is-text { cursor: default; border-style: dashed; }
 
-/* 联系区社交链接 */
-#socials { display: flex; flex-wrap: wrap; gap: 12px 18px; margin-top: 22px; }
-#socials .social-link {
-  font-size: 14px; color: var(--muted);
-  padding-bottom: 2px; border-bottom: 1px solid var(--line-strong);
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-#socials .social-link:hover { color: var(--text); border-color: var(--text); }
-#socials .social-link.is-text { cursor: default; border-bottom-style: dashed; }
-
 .f-note:empty { display: none; }
 .footer-col-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 18px; }
 .footer-links { display: flex; flex-direction: column; gap: 11px; }
 .footer-links a { font-size: 14px; color: var(--muted); transition: color 0.15s ease; }
 .footer-links a:hover { color: var(--text); }
-.footer-contact-info { display: flex; flex-direction: column; gap: 10px; }
-.footer-contact-info .f-email { font-size: 15px; font-weight: 600; }
-.footer-contact-info .f-note { font-size: 13px; color: var(--muted); line-height: 1.6; }
 .footer-line { height: 1px; background: var(--line); margin-bottom: 26px; }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .footer-bottom span { font-family: var(--font-mono); font-size: 12px; color: var(--faint); }
@@ -330,6 +337,9 @@ button { font-family: inherit; cursor: pointer; }
   .home-name { font-size: 40px; }
   .detail-title { font-size: 32px; }
   .section-head { flex-direction: column; align-items: flex-start; }
+  .contact-email { font-size: 30px; }
+  .contact-header h2 { font-size: 26px; }
+  .contact-note { font-size: 15px; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
   .admin-sidebar { width: 100%; flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 1px solid var(--line); }

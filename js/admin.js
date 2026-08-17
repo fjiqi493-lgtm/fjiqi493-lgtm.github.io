@@ -204,8 +204,12 @@ fileInput.addEventListener('change', () => uploadFiles(fileInput.files));
 dz.addEventListener('drop', (e) => uploadFiles(e.dataTransfer.files));
 
 async function uploadFiles(files) {
-  for (const f of files) {
-    if (!f.type.startsWith('image/')) continue;
+  const imgs = Array.from(files).filter((f) => f.type.startsWith('image/'));
+  if (!imgs.length) return;
+  dz.textContent = '正在上传到 GitHub，请稍候…';
+  dz.style.pointerEvents = 'none';
+  dz.style.opacity = '0.6';
+  for (const f of imgs) {
     try {
       const url = await authFetch(() => API.upload(f));
       editImages.push(url);
@@ -213,6 +217,9 @@ async function uploadFiles(files) {
       renderThumbs();
     } catch (e) { alert('上传失败：' + e.message); }
   }
+  dz.textContent = '把图片拖到这里，或点击选择';
+  dz.style.pointerEvents = '';
+  dz.style.opacity = '';
   fileInput.value = '';
 }
 
@@ -331,7 +338,7 @@ function renderHomeForm() {
     try {
       await authFetch(() => API.saveSitePatch(patch));
       await loadData();
-      alert('已保存');
+      alert('已保存并提交到 GitHub。由于 GitHub Pages 部署需要约 10–60 秒，请稍后刷新前台查看。');
     } catch (e) { alert(e.message); }
   });
 }
@@ -358,7 +365,7 @@ function renderAboutForm() {
         skills: $('a-skills').value.split(/[，,]/).map((s) => s.trim()).filter(Boolean),
       },
     };
-    try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存'); }
+    try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存并提交到 GitHub。由于 GitHub Pages 部署需要约 10–60 秒，请稍后刷新前台查看。'); }
     catch (e) { alert(e.message); }
   });
 }
@@ -417,7 +424,7 @@ function renderContactForm() {
         socials: newSocials,
       },
     };
-    try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存'); }
+    try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存并提交到 GitHub。由于 GitHub Pages 部署需要约 10–60 秒，请稍后刷新前台查看。'); }
     catch (e) { alert(e.message); }
   });
 }
@@ -457,7 +464,7 @@ function renderPhilosophyForm() {
         quote: $('p-quote').value.trim(),
       },
     };
-    try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存'); }
+    try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存并提交到 GitHub。由于 GitHub Pages 部署需要约 10–60 秒，请稍后刷新前台查看。'); }
     catch (e) { alert(e.message); }
   });
 }
@@ -562,7 +569,7 @@ function renderTextsForm() {
       },
       seo: $('t-seo').value.trim(),
     };
-    try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存'); }
+    try { await authFetch(() => API.saveSitePatch(patch)); await loadData(); alert('已保存并提交到 GitHub。由于 GitHub Pages 部署需要约 10–60 秒，请稍后刷新前台查看。'); }
     catch (e) { alert(e.message); }
   });
 }

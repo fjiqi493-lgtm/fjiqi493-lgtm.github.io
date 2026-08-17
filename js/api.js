@@ -23,9 +23,9 @@ const API = {
     else localStorage.removeItem('admin_token');
   },
 
-  // 访客读取站点数据（公开）
+  // 访客读取站点数据（公开）：加时间戳穿透 GitHub Pages / 浏览器缓存
   async getSite() {
-    const r = await fetch('./site.json', { cache: 'no-store' });
+    const r = await fetch('./site.json?_=' + Date.now(), { cache: 'no-store' });
     if (!r.ok) throw new Error('加载站点数据失败 (' + r.status + ')');
     return r.json();
   },
@@ -110,14 +110,17 @@ const API = {
     return { ok: true };
   },
 
-  // 图片上传：压缩 -> base64 -> 提交到仓库 uploads/ -> 返回 raw 直链
+  // 图片上传：压缩 -> base64 -> 提交到仓库 uploads/ -> 等待 URL 可达后返回 raw 直链
   async upload(file) {
     const dataUrl = await compressImage(file, 500000);
     const b64 = dataUrl.split(',')[1];
     const ext = dataUrl.startsWith('data:image/png') ? 'png' : 'jpg';
     const name = 'uploads/u-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7) + '.' + ext;
     await this._ghPut(name, b64, undefined, '上传图片 ' + name);
-    return 'https://raw.githubusercontent.com/' + GH.owner + '/' + GH.repo + '/' + GH.branch + '/' + name;
+    const url = 'https://raw.githubusercontent.com/' + GH.owner + '/' + GH.repo + '/' + GH.branch + '/' + name;
+    // GitHub raw 地址提交后可能有几秒延迟才可用，轮询最多 10 秒，避免前台裂图
+    await waitForUrl(url, 10000, 500);
+    return url;
   },
 };
 
@@ -166,6 +169,21 @@ function compressImage(file, maxBytes) {
   });
 }
 
+// 轮询等待图片 URL 可访问（GitHub raw 提交后有几秒延迟）
+function waitForUrl(url, maxMs, intervalMs) {
+  return new Promise((resolve) => {
+    const start = Date.now();
+    const tryFetch = () => {
+      fetch(url, { method: 'HEAD', mode: 'no-cors', cache: 'no-store' })
+        .then((r) => { if (r.ok || r.status === 0) resolve(); })
+        .catch(() => {});
+      if (Date.now() - start < maxMs) setTimeout(tryFetch, intervalMs);
+      else resolve(); // 超时也不阻塞，让前台自己重试
+    };
+    tryFetch();
+  });
+}
+
 /* ---------- 通用 UI 工具（灯箱 / 淡入 / 页脚）---------- */
 const $ = (id) => document.getElementById(id);
 function setText(id, text) {
@@ -210,13 +228,7 @@ function renderFooter(data) {
     all.textContent = '查看全部 →';
     fw.appendChild(all);
   }
-  const fe = $('f-email');
-  if (fe && data.contact) {
-    fe.textContent = data.contact.email;
-    fe.href = 'mailto:' + data.contact.email;
-  }
-  // 页脚联系区只保留邮箱，避免与顶部 CONTACT 的说明文字重复
-  setText('f-note', '');
+  // footer 联系栏目已移除：邮箱已显示在顶部 #contact，避免重复
   setText('brand', data.brand);
 }
 
