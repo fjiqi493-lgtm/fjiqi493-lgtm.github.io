@@ -37,7 +37,8 @@
       "KeyShot",
       "Photoshop",
       "Illustrator",
-      "Fusion 360"
+      "Fusion 360",
+      "Siemens NX"
     ]
   },
   "contact": {
@@ -69,9 +70,9 @@
       "href": "works.html"
     },
     {
-        "label": "项目过程",
-        "href": "index.html#process"
-      },
+      "label": "项目过程",
+      "href": "index.html#process"
+    },
     {
       "label": "联系",
       "href": "index.html#contact"
