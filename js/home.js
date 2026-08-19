@@ -150,11 +150,21 @@ const SW_ICON = {
   'blender': 'blender', 'photoshop': 'photoshop', 'illustrator': 'illustrator',
   'premiere': 'premierepro', 'premiere pro': 'premierepro',
   'after effects': 'aftereffects', 'aftereffects': 'aftereffects',
-  'figma': 'figma', 'autodesk': 'autodesk', 'fusion 360': 'autodesk', 'fusion360': 'autodesk',
-  'autocad': 'autodesk',
-  // 没有公开 CDN 图标的：走内嵌 SVG 或首字母兜底
+  'figma': 'figma',
+  // 没有公开 CDN 图标的：走本地文件、内嵌 SVG 或首字母兜底
   'rhino': '', 'keyshot': '', 'siemens nx': '', 'nx': '', 'siemens': '',
+  'fusion 360': '', 'fusion360': '',
   'zbrush': '', 'sketchup': '', 'cinema 4d': '', 'cinema4d': ''
+};
+// 本地图标文件：质量最高、不依赖网络，优先使用
+const SW_LOCAL = {
+  'rhino': 'images/icons/rhino.png',
+  'keyshot': 'images/icons/keyshot.svg',
+  'siemens nx': 'images/icons/siemens-nx.svg',
+  'nx': 'images/icons/siemens-nx.svg',
+  'siemens': 'images/icons/siemens-nx.svg',
+  'fusion 360': 'images/icons/fusion360.svg',
+  'fusion360': 'images/icons/fusion360.svg'
 };
 // Simple Icons 兜底映射（Devicon 失败后尝试）
 const SW_SIMPLE = {
@@ -198,11 +208,20 @@ function renderSoftware(box, names) {
     pill.appendChild(letter);
 
     const key = name.toLowerCase();
+    const localPath = SW_LOCAL[key] || '';
     const slug = SW_ICON[key] || '';
     const simple = SW_SIMPLE[key] || '';
     const svgHtml = SW_SVG[key] || '';
 
-    if (svgHtml) {
+    if (localPath) {
+      // 本地图标文件，质量最高、不依赖网络
+      const img = document.createElement('img');
+      img.className = 'sw-ico sw-local';
+      img.alt = name;
+      img.src = localPath;
+      img.onerror = function () { this.remove(); letter.style.display = ''; };
+      pill.appendChild(img);
+    } else if (svgHtml) {
       // 内嵌 SVG，不依赖网络
       const wrap = document.createElement('span');
       wrap.className = 'sw-ico';
