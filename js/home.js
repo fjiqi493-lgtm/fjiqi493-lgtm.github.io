@@ -151,9 +151,9 @@ const SW_ICON = {
   'premiere': 'premierepro', 'premiere pro': 'premierepro',
   'after effects': 'aftereffects', 'aftereffects': 'aftereffects',
   'figma': 'figma', 'autodesk': 'autodesk', 'fusion 360': 'autodesk', 'fusion360': 'autodesk',
-  'autocad': 'autodesk', 'siemens': 'siemens',
-  // 没有公开 CDN 图标的：用首字母兜底
-  'rhino': '', 'keyshot': '', 'siemens nx': '', 'nx': '',
+  'autocad': 'autodesk',
+  // 没有公开 CDN 图标的：走内嵌 SVG 或首字母兜底
+  'rhino': '', 'keyshot': '', 'siemens nx': '', 'nx': '', 'siemens': '',
   'zbrush': '', 'sketchup': '', 'cinema 4d': '', 'cinema4d': ''
 };
 // Simple Icons 兜底映射（Devicon 失败后尝试）
@@ -163,6 +163,17 @@ const SW_SIMPLE = {
   'after effects': 'adobeaftereffects', 'aftereffects': 'adobeaftereffects',
   'figma': 'figma', 'autodesk': 'autodesk', 'fusion 360': 'autodesk', 'fusion360': 'autodesk',
   'autocad': 'autodesk'
+};
+// 内嵌 SVG：没有 CDN 图标的软件用简洁标志
+const SW_SVG = {
+  'rhino': '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.7 9.8c-.4-1.6-1.8-2.9-3.5-3.3-.9-.2-1.7-.4-2.6-.4-1.6 0-3 .4-4.2 1.4-1.3 1-1.9 2.6-1.6 4.2.2 1 .8 1.9 1.6 2.5l-.9 2.7 2.9-1c.8.2 1.6.4 2.4.4 2.9 0 5.5-2.1 5.9-5 .1-.8.1-1.3 0-1.5zM9.5 8.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>',
+  'keyshot': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/><path d="M12 6v2M12 16v2M6 12h2M16 12h2"/></svg>',
+  'siemens nx': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2l8 5v10l-8 5-8-5V7z"/><path d="M12 12l8-5M12 12l-8-5M12 12v10"/></svg>',
+  'nx': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2l8 5v10l-8 5-8-5V7z"/><path d="M12 12l8-5M12 12l-8-5M12 12v10"/></svg>',
+  'zbrush': '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v4H8v4h10v4H8v4h12v4H4V4z"/></svg>',
+  'sketchup': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12L3 7M12 12l9-5"/></svg>',
+  'cinema 4d': '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 4c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6 2.7-6 6-6z"/></svg>',
+  'cinema4d': '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 4c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6 2.7-6 6-6z"/></svg>'
 };
 function initials(name) {
   const p = name.trim().split(/\s+/);
@@ -186,8 +197,17 @@ function renderSoftware(box, names) {
     const key = name.toLowerCase();
     const slug = SW_ICON[key] || '';
     const simple = SW_SIMPLE[key] || '';
+    const svgHtml = SW_SVG[key] || '';
 
-    if (slug) {
+    if (svgHtml) {
+      // 内嵌 SVG，不依赖网络
+      const wrap = document.createElement('span');
+      wrap.className = 'sw-ico';
+      wrap.innerHTML = svgHtml;
+      const svg = wrap.querySelector('svg');
+      if (svg) { svg.setAttribute('aria-label', name); svg.setAttribute('role', 'img'); }
+      pill.appendChild(wrap);
+    } else if (slug) {
       const img = document.createElement('img');
       img.className = 'sw-ico';
       img.alt = name;
