@@ -90,7 +90,8 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ===== 首页 Hero ===== */
 .home-hero { padding: 120px 0 80px; }
-.home-hero-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 96px; align-items: center; }
+.home-hero-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 0; align-items: stretch; }
+.home-hero-content { position: relative; z-index: 2; padding-right: 36px; }
 .avatar {
   width: 132px; height: 132px; border-radius: 50%;
   background: var(--accent-soft); border: 1px solid var(--line);
@@ -105,8 +106,10 @@ button { font-family: inherit; cursor: pointer; }
 .home-visual {
   position: relative;
   border: none; background: transparent; border-radius: 0;
-  overflow: hidden; aspect-ratio: 16 / 10;
-  margin-right: 0; /* 右边缘与下方容器右对齐 */
+  overflow: hidden;
+  margin-left: -90px; /* 向左侵入文字区，与左侧红线对齐 */
+  margin-right: 0;
+  height: 100%; aspect-ratio: auto;
 }
 .home-visual::after {
   content: '';
@@ -327,7 +330,7 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 1024px) {
   .works-grid { grid-template-columns: repeat(2, 1fr); }
   .home-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .home-visual { max-width: 520px; margin-right: 0; }
+  .home-visual { max-width: 520px; margin-left: 0; margin-right: 0; aspect-ratio: 16 / 10; height: auto; }
   .detail-body { grid-template-columns: 1fr; gap: 40px; }
   .detail-side { position: static; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
@@ -335,7 +338,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 @media (max-width: 640px) {
   .wrap { padding: 0 22px; }
-  .home-visual { margin-right: 0; }
+  .home-visual { margin-left: 0; margin-right: 0; }
   .nav-toggle { display: inline-flex; }
   .nav {
     position: absolute; top: 100%; right: 22px; left: 22px;
