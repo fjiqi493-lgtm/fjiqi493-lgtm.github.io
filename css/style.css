@@ -120,7 +120,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .home-visual::after {
   content: '';
-  position: absolute; left: 0; right: 0; bottom: 0; height: 5%;
+  position: absolute; left: 0; right: 0; bottom: 0; height: 8%;
   background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
   pointer-events: none;
 }
