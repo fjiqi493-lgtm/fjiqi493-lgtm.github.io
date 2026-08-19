@@ -105,13 +105,13 @@ button { font-family: inherit; cursor: pointer; }
 .home-visual {
   position: relative;
   border: none; background: transparent; border-radius: 0;
-  overflow: hidden; aspect-ratio: 16 / 9;
+  overflow: hidden; aspect-ratio: 16 / 10;
   margin-right: -80px; /* 贴紧容器右边缘，增强背景感 */
 }
 .home-visual::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, var(--bg) 0%, transparent 10%, transparent 90%, var(--bg) 100%);
+  background: linear-gradient(to bottom, var(--bg) 0%, transparent 6%, transparent 94%, var(--bg) 100%);
   pointer-events: none;
 }
 .home-visual img {
