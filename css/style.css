@@ -118,6 +118,12 @@ button { font-family: inherit; cursor: pointer; }
   -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%);
   mask-image: linear-gradient(to left, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%);
 }
+.home-visual::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0; height: 5%;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  pointer-events: none;
+}
 
 /* ===== 区块标题 ===== */
 .section { padding: 70px 0; }
