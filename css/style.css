@@ -106,7 +106,7 @@ button { font-family: inherit; cursor: pointer; }
   position: relative;
   border: none; background: transparent; border-radius: 0;
   overflow: hidden; aspect-ratio: 16 / 10;
-  margin-right: -100px; /* 贴紧容器右边缘，增强背景感 */
+  margin-right: 0; /* 右边缘与下方容器右对齐 */
 }
 .home-visual::after {
   content: '';
@@ -327,7 +327,7 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 1024px) {
   .works-grid { grid-template-columns: repeat(2, 1fr); }
   .home-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .home-visual { max-width: 520px; margin-right: -40px; }
+  .home-visual { max-width: 520px; margin-right: 0; }
   .detail-body { grid-template-columns: 1fr; gap: 40px; }
   .detail-side { position: static; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
@@ -335,7 +335,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 @media (max-width: 640px) {
   .wrap { padding: 0 22px; }
-  .home-visual { margin-right: -22px; }
+  .home-visual { margin-right: 0; }
   .nav-toggle { display: inline-flex; }
   .nav {
     position: absolute; top: 100%; right: 22px; left: 22px;
