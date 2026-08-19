@@ -21,6 +21,25 @@
       "包装设计"
     ]
   },
+  "process": {
+    "en": "PROJECT PROCESS",
+    "title": "项目过程",
+    "images": [
+      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
+      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786940667887-3w9tz.jpg",
+      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786946024722-2gfwk.jpg",
+      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
+      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787105710527-6lbsf.jpg"
+    ],
+    "software": [
+      "Rhino",
+      "Blender",
+      "KeyShot",
+      "Photoshop",
+      "Illustrator",
+      "Fusion 360"
+    ]
+  },
   "contact": {
     "email": "hello@linyu.design",
     "note": "有合作或委托，欢迎随时来信。我通常会在两个工作日内回复。",
@@ -50,9 +69,9 @@
       "href": "works.html"
     },
     {
-      "label": "关于",
-      "href": "index.html#about"
-    },
+        "label": "项目过程",
+        "href": "index.html#process"
+      },
     {
       "label": "联系",
       "href": "index.html#contact"
@@ -66,6 +85,10 @@
     "about": {
       "en": "ABOUT",
       "title": "关于"
+    },
+    "process": {
+      "en": "PROJECT PROCESS",
+      "title": "项目过程"
     },
     "contact": {
       "en": "CONTACT",

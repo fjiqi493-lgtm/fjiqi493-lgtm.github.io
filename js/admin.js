@@ -66,7 +66,7 @@ function switchTab(tab) {
   if (tab === 'dashboard') renderDashboard();
   else if (tab === 'works') renderWorks();
   else if (tab === 'home') renderHomeForm();
-  else if (tab === 'about') renderAboutForm();
+  else if (tab === 'process') renderProcessForm();
   else if (tab === 'contact') renderContactForm();
   else if (tab === 'philosophy') renderPhilosophyForm();
   else if (tab === 'texts') renderTextsForm();
@@ -376,6 +376,85 @@ function renderAboutForm() {
   });
 }
 
+/* ---------- 项目过程 ---------- */
+function renderProcessForm() {
+  const p = site.process || {};
+  let imgs = (p.images || []).slice();
+  const sw = (p.software || []).slice();
+  $('main').innerHTML = `
+    <h2>项目过程编辑</h2>
+    <p class="admin-tip">上传制作过程截图（Rhino / KeyShot / PS 等），图片可任意增删；下方填写常用软件名（逗号分隔），前台自动显示对应图标。建议上传压缩后的小图以保证滚动动画流畅。</p>
+    <div class="grid2">
+      <div class="field"><label>英文标签</label><input id="pr-en" value="${escapeHtml(p.en || '')}"></div>
+      <div class="field"><label>标题</label><input id="pr-title" value="${escapeHtml(p.title || '')}"></div>
+    </div>
+    <div class="field">
+      <label>过程截图（拖拽/点击上传，点 × 删除）</label>
+      <div class="dropzone" id="pr-dz">把图片拖到这里，或点击选择</div>
+      <input type="file" id="pr-file" accept="image/*" multiple hidden>
+      <div class="thumbs" id="pr-thumbs"></div>
+    </div>
+    <div class="field"><label>常用软件（逗号分隔，如 Rhino, Blender, KeyShot）</label><input id="pr-software" value="${escapeHtml(sw.join('，'))}"></div>
+    <button class="btn btn-primary" id="pr-save">保存</button>`;
+
+  const renderThumbs = () => {
+    const box = $('pr-thumbs');
+    box.innerHTML = '';
+    imgs.forEach((url, i) => {
+      const t = document.createElement('div');
+      t.className = 't';
+      t.innerHTML = '<img src="' + url + '" alt=""><button class="x" data-i="' + i + '">×</button>';
+      t.querySelector('.x').addEventListener('click', () => { imgs.splice(i, 1); renderThumbs(); });
+      box.appendChild(t);
+    });
+  };
+  renderThumbs();
+
+  const dz = $('pr-dz');
+  const fi = $('pr-file');
+  dz.addEventListener('click', () => fi.click());
+  fi.addEventListener('change', () => uploadProcessFiles(fi.files));
+  ['dragenter', 'dragover'].forEach((ev) => dz.addEventListener(ev, (e) => { e.preventDefault(); dz.classList.add('drag'); }));
+  ['dragleave', 'drop'].forEach((ev) => dz.addEventListener(ev, (e) => { e.preventDefault(); dz.classList.remove('drag'); }));
+  dz.addEventListener('drop', (e) => uploadProcessFiles(e.dataTransfer.files));
+
+  async function uploadProcessFiles(files) {
+    const list = Array.from(files).filter((f) => f.type.startsWith('image/'));
+    if (!list.length) return;
+    dz.textContent = '正在上传到 GitHub，请稍候…';
+    dz.style.pointerEvents = 'none';
+    dz.style.opacity = '0.6';
+    for (let i = 0; i < list.length; i++) {
+      try {
+        if (i > 0) await new Promise((res) => setTimeout(res, 350));
+        const url = await authFetch(() => API.upload(list[i]));
+        imgs.push(url);
+        renderThumbs();
+      } catch (e) { alert('上传失败：' + e.message); }
+    }
+    dz.textContent = '把图片拖到这里，或点击选择';
+    dz.style.pointerEvents = '';
+    dz.style.opacity = '';
+    fi.value = '';
+  }
+
+  $('pr-save').addEventListener('click', async () => {
+    const patch = {
+      process: {
+        en: $('pr-en').value.trim(),
+        title: $('pr-title').value.trim(),
+        images: imgs,
+        software: $('pr-software').value.split(/[，,]/).map((s) => s.trim()).filter(Boolean),
+      },
+    };
+    try {
+      await authFetch(() => API.saveSitePatch(patch));
+      await loadData();
+      alert('已保存并提交到 GitHub。由于 GitHub Pages 部署需要约 10–60 秒，请稍后刷新前台查看。');
+    } catch (e) { alert(e.message); }
+  });
+}
+
 /* ---------- 联系 ---------- */
 function renderContactForm() {
   const c = site.contact || {};
@@ -517,8 +596,8 @@ function renderTextsForm() {
     <div class="grid2">
       <div class="field"><label>精选作品 · 英文</label><input id="sec-works-en" value="${(sec.works && sec.works.en) || ''}"></div>
       <div class="field"><label>精选作品 · 中文</label><input id="sec-works-title" value="${(sec.works && sec.works.title) || ''}"></div>
-      <div class="field"><label>关于 · 英文</label><input id="sec-about-en" value="${(sec.about && sec.about.en) || ''}"></div>
-      <div class="field"><label>关于 · 中文</label><input id="sec-about-title" value="${(sec.about && sec.about.title) || ''}"></div>
+      <div class="field"><label>项目过程 · 英文</label><input id="sec-process-en" value="${(sec.process && sec.process.en) || ''}"></div>
+      <div class="field"><label>项目过程 · 中文</label><input id="sec-process-title" value="${(sec.process && sec.process.title) || ''}"></div>
       <div class="field"><label>联系 · 英文</label><input id="sec-contact-en" value="${(sec.contact && sec.contact.en) || ''}"></div>
       <div class="field"><label>联系 · 中文</label><input id="sec-contact-title" value="${(sec.contact && sec.contact.title) || ''}"></div>
       <div class="field"><label>全部作品 · 英文</label><input id="sec-all-en" value="${(sec.allWorks && sec.allWorks.en) || ''}"></div>
@@ -559,7 +638,7 @@ function renderTextsForm() {
       nav: collectNav(),
       sections: {
         works: { en: $('sec-works-en').value.trim(), title: $('sec-works-title').value.trim() },
-        about: { en: $('sec-about-en').value.trim(), title: $('sec-about-title').value.trim() },
+        process: { en: $('sec-process-en').value.trim(), title: $('sec-process-title').value.trim() },
         contact: { en: $('sec-contact-en').value.trim(), title: $('sec-contact-title').value.trim() },
         allWorks: { en: $('sec-all-en').value.trim(), title: $('sec-all-title').value.trim() },
       },

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css?v=20260819i" />
+    <link rel="stylesheet" href="css/style.css?v=20260819j" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="JASON" />
@@ -66,17 +66,21 @@
         </div>
       </section>
 
-      <!-- 关于 -->
-      <section class="section" id="about" style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-        <div class="wrap two-col" style="display:grid; grid-template-columns: 320px 1fr; gap: 64px;">
-          <div class="reveal">
-            <div class="en" id="s-about-en">ABOUT</div>
-            <h2 id="s-about-title" style="font-size:32px; font-weight:800; margin-top:8px;">关于</h2>
+      <!-- 项目过程 -->
+      <section class="section" id="process" style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow:hidden;">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <div>
+              <div class="en" id="s-process-en">PROJECT PROCESS</div>
+              <h2 id="s-process-title">项目过程</h2>
+            </div>
           </div>
-          <div class="reveal">
-            <p class="home-bio" id="about-bio" style="max-width:none;"></p>
-            <div class="skills" id="skills" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;"></div>
-          </div>
+        </div>
+        <div class="process-stage reveal" id="process-stage">
+          <div class="process-track" id="process-track"></div>
+        </div>
+        <div class="wrap">
+          <div class="process-software reveal" id="process-software"></div>
         </div>
       </section>
 
@@ -142,7 +146,7 @@
       <img id="lightbox-img" src="" alt="" />
     </div>
 
-    <script src="js/api.js?v=20260819i"></script>
-    <script src="js/home.js?v=20260819i"></script>
+    <script src="js/api.js?v=20260819j"></script>
+    <script src="js/home.js?v=20260819j"></script>
   </body>
 </html>

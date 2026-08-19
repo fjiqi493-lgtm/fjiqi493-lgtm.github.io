@@ -31,16 +31,8 @@
   // 精选作品（取前 6 件）
   renderWorksGrid(data.works, $('works-grid'), 6);
 
-  // 关于
-  setText('about-bio', data.about.bio);
-  const skills = $('skills');
-  skills.innerHTML = '';
-  (data.about.skills || []).forEach((s) => {
-    const el = document.createElement('span');
-    el.style.cssText = 'padding:7px 15px;border:1px solid var(--line-strong);border-radius:var(--radius-pill);font-size:13px;color:var(--muted);';
-    el.textContent = s;
-    skills.appendChild(el);
-  });
+  // 项目过程（3D 透视滚动条带 + 软件图标）
+  renderProcess(data.process || {});
 
   // 设计理念（后台可编辑）
   const ph = data.philosophy || {};
@@ -86,3 +78,115 @@
   initReveal();
   initLightbox();
 })();
+
+/* ---- 项目过程：3D 透视旋转木马 + 软件图标 ---- */
+function renderProcess(p) {
+  setText('s-process-en', p.en || 'PROJECT PROCESS');
+  setText('s-process-title', p.title || '项目过程');
+  const track = $('process-track');
+  if (!track) return;
+  const imgs = p.images || [];
+  track.innerHTML = '';
+  imgs.forEach((src) => {
+    const it = document.createElement('div');
+    it.className = 'process-item';
+    const im = document.createElement('img');
+    im.src = src;
+    im.alt = '';
+    im.loading = 'lazy';
+    it.appendChild(im);
+    track.appendChild(it);
+  });
+  initProcessCarousel(track);
+  renderSoftware($('process-software'), p.software || []);
+}
+
+function initProcessCarousel(track) {
+  const items = Array.from(track.children);
+  const n = items.length;
+  if (n === 0) return;
+  const ANGLE = 34, DEPTH = 120, SPEED = 0.006;
+  const spacing = window.matchMedia('(max-width: 1024px)').matches ? 96 : 150;
+  let progress = 0;
+  let paused = false;
+  const stage = $('process-stage');
+  if (stage) {
+    stage.addEventListener('mouseenter', () => (paused = true));
+    stage.addEventListener('mouseleave', () => (paused = false));
+  }
+  function layout() {
+    for (let i = 0; i < n; i++) {
+      let off = i - progress;
+      if (off > n / 2) off -= n;
+      else if (off < -n / 2) off += n;
+      const abs = Math.abs(off);
+      const x = off * spacing;
+      const ry = off * -ANGLE;
+      const tz = -abs * DEPTH;
+      const scale = 1 - Math.min(abs, 3) * 0.14;
+      const op = abs > 3 ? 0 : 1 - abs * 0.22;
+      const el = items[i];
+      el.style.transform =
+        'perspective(1100px) translateX(' + x + 'px) translateZ(' + tz +
+        'px) rotateY(' + ry + 'deg) scale(' + scale + ')';
+      el.style.opacity = op;
+      el.style.zIndex = String(100 - Math.round(abs * 10));
+    }
+  }
+  function tick() {
+    if (!paused) {
+      progress += SPEED;
+      if (progress >= n) progress -= n;
+      layout();
+    }
+    requestAnimationFrame(tick);
+  }
+  layout();
+  requestAnimationFrame(tick);
+}
+
+const SW_ICON = {
+  'rhino': '', 'blender': 'blender', 'keyshot': '', 'photoshop': 'adobephotoshop',
+  'illustrator': 'adobeillustrator', 'fusion 360': 'autodesk', 'fusion360': 'autodesk',
+  'autocad': 'autodesk', 'autodesk': 'autodesk', 'zbrush': 'zbrush',
+  'sketchup': 'sketchup', 'cinema 4d': 'cinema4d', 'figma': 'figma',
+  'premiere': 'adobepremierepro', 'after effects': 'adobeaftereffects'
+};
+function initials(name) {
+  const p = name.trim().split(/\s+/);
+  if (p.length > 1) return (p[0][0] + p[1][0]).toUpperCase();
+  return name.trim().slice(0, 2).toUpperCase();
+}
+function renderSoftware(box, names) {
+  if (!box) return;
+  box.innerHTML = '';
+  (names || []).forEach((raw) => {
+    const name = String(raw).trim();
+    if (!name) return;
+    const pill = document.createElement('div');
+    pill.className = 'sw-pill';
+    const slug = SW_ICON[name.toLowerCase()] || '';
+    if (slug) {
+      const letter = document.createElement('span');
+      letter.className = 'sw-letter';
+      letter.textContent = initials(name);
+      letter.style.display = 'none';
+      const img = document.createElement('img');
+      img.className = 'sw-ico';
+      img.alt = name;
+      img.onerror = () => { img.remove(); letter.style.display = ''; };
+      img.src = 'https://cdn.simpleicons.org/' + slug;
+      pill.appendChild(letter);
+      pill.appendChild(img);
+    } else {
+      const letter = document.createElement('span');
+      letter.className = 'sw-letter';
+      letter.textContent = initials(name);
+      pill.appendChild(letter);
+    }
+    const label = document.createElement('span');
+    label.textContent = name;
+    pill.appendChild(label);
+    box.appendChild(pill);
+  });
+}
