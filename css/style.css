@@ -368,7 +368,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ===== 项目过程（3D 透视滚动条带 + 软件图标） ===== */
 .process-stage {
   position: relative;
-  height: 320px;
+  height: 420px;
   overflow: hidden;
   margin: 26px 0 4px;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
@@ -377,7 +377,7 @@ button { font-family: inherit; cursor: pointer; }
 .process-track { position: absolute; left: 0; right: 0; top: 50%; height: 0; }
 .process-item {
   position: absolute; left: 50%; top: 0;
-  width: 300px; height: 210px; margin-left: -150px; margin-top: -105px;
+  width: 520px; height: 360px; margin-left: -260px; margin-top: -180px;
   border-radius: 16px; overflow: hidden;
   background: var(--line); box-shadow: 0 24px 60px rgba(0,0,0,.18);
   will-change: transform, opacity; backface-visibility: hidden;
@@ -401,6 +401,6 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center; justify-content: center;
 }
 @media (max-width: 1024px) {
-  .process-stage { height: 250px; }
-  .process-item { width: 220px; height: 150px; margin-left: -110px; margin-top: -75px; }
+  .process-stage { height: 320px; }
+  .process-item { width: 380px; height: 260px; margin-left: -190px; margin-top: -130px; }
 }

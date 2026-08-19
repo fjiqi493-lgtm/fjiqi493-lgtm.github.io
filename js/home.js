@@ -106,7 +106,7 @@ function initProcessCarousel(track) {
   const n = items.length;
   if (n === 0) return;
   const ANGLE = 34, DEPTH = 120, SPEED = 0.006;
-  const spacing = window.matchMedia('(max-width: 1024px)').matches ? 96 : 150;
+  const spacing = window.matchMedia('(max-width: 1024px)').matches ? 140 : 220;
   let progress = 0;
   let paused = false;
   const stage = $('process-stage');
