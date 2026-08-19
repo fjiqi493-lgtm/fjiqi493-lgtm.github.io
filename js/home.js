@@ -146,11 +146,23 @@ function initProcessCarousel(track) {
 }
 
 const SW_ICON = {
-  'rhino': '', 'blender': 'blender', 'keyshot': '', 'photoshop': 'adobephotoshop',
-  'illustrator': 'adobeillustrator', 'fusion 360': 'autodesk', 'fusion360': 'autodesk',
-  'autocad': 'autodesk', 'autodesk': 'autodesk', 'zbrush': 'zbrush',
-  'sketchup': 'sketchup', 'cinema 4d': 'cinema4d', 'figma': 'figma',
-  'premiere': 'adobepremierepro', 'after effects': 'adobeaftereffects'
+  // Devicon slug（优先从 jsDelivr 加载，国内稳定）
+  'blender': 'blender', 'photoshop': 'photoshop', 'illustrator': 'illustrator',
+  'premiere': 'premierepro', 'premiere pro': 'premierepro',
+  'after effects': 'aftereffects', 'aftereffects': 'aftereffects',
+  'figma': 'figma', 'autodesk': 'autodesk', 'fusion 360': 'autodesk', 'fusion360': 'autodesk',
+  'autocad': 'autodesk', 'siemens': 'siemens',
+  // 没有公开 CDN 图标的：用首字母兜底
+  'rhino': '', 'keyshot': '', 'siemens nx': '', 'nx': '',
+  'zbrush': '', 'sketchup': '', 'cinema 4d': '', 'cinema4d': ''
+};
+// Simple Icons 兜底映射（Devicon 失败后尝试）
+const SW_SIMPLE = {
+  'blender': 'blender', 'photoshop': 'adobephotoshop', 'illustrator': 'adobeillustrator',
+  'premiere': 'adobepremierepro', 'premiere pro': 'adobepremierepro',
+  'after effects': 'adobeaftereffects', 'aftereffects': 'adobeaftereffects',
+  'figma': 'figma', 'autodesk': 'autodesk', 'fusion 360': 'autodesk', 'fusion360': 'autodesk',
+  'autocad': 'autodesk'
 };
 function initials(name) {
   const p = name.trim().split(/\s+/);
@@ -165,25 +177,42 @@ function renderSoftware(box, names) {
     if (!name) return;
     const pill = document.createElement('div');
     pill.className = 'sw-pill';
-    const slug = SW_ICON[name.toLowerCase()] || '';
+    const letter = document.createElement('span');
+    letter.className = 'sw-letter';
+    letter.textContent = initials(name);
+    letter.style.display = 'none';
+    pill.appendChild(letter);
+
+    const key = name.toLowerCase();
+    const slug = SW_ICON[key] || '';
+    const simple = SW_SIMPLE[key] || '';
+
     if (slug) {
-      const letter = document.createElement('span');
-      letter.className = 'sw-letter';
-      letter.textContent = initials(name);
-      letter.style.display = 'none';
       const img = document.createElement('img');
       img.className = 'sw-ico';
       img.alt = name;
+      // Devicon 优先；部分图标只有 -plain 没有 -original
+      img.src = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/' + slug + '/' + slug + '-original.svg';
+      img.onerror = function () {
+        if (simple) {
+          this.onerror = function () { this.remove(); letter.style.display = ''; };
+          this.src = 'https://cdn.simpleicons.org/' + simple;
+        } else {
+          this.remove(); letter.style.display = '';
+        }
+      };
+      pill.appendChild(img);
+    } else if (simple) {
+      // 没有 Devicon 但有 Simple Icons
+      const img = document.createElement('img');
+      img.className = 'sw-ico'; img.alt = name;
       img.onerror = () => { img.remove(); letter.style.display = ''; };
-      img.src = 'https://cdn.simpleicons.org/' + slug;
-      pill.appendChild(letter);
+      img.src = 'https://cdn.simpleicons.org/' + simple;
       pill.appendChild(img);
     } else {
-      const letter = document.createElement('span');
-      letter.className = 'sw-letter';
-      letter.textContent = initials(name);
-      pill.appendChild(letter);
+      letter.style.display = '';
     }
+
     const label = document.createElement('span');
     label.textContent = name;
     pill.appendChild(label);
