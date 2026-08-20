@@ -403,7 +403,7 @@
       "href": "works.html"
     },
     {
-      "label": "项目过程",
+      "label": "创意过程",
       "href": "index.html#process"
     },
     {
@@ -415,10 +415,6 @@
     "works": {
       "en": "SELECTED WORKS",
       "title": "精选作品"
-    },
-    "about": {
-      "en": "ABOUT",
-      "title": "关于"
     },
     "process": {
       "en": "PROJECT PROCESS",
