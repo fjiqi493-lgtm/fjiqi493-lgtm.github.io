@@ -158,13 +158,13 @@ const SW_ICON = {
 };
 // 本地图标文件：质量最高、不依赖网络，优先使用
 const SW_LOCAL = {
-  'rhino': 'images/icons/rhino.png',
-  'keyshot': 'images/icons/keyshot.png',
-  'siemens nx': 'images/icons/siemens-nx.png',
-  'nx': 'images/icons/siemens-nx.png',
-  'siemens': 'images/icons/siemens-nx.png',
-  'fusion 360': 'images/icons/fusion360.png',
-  'fusion360': 'images/icons/fusion360.png'
+  'rhino': 'images/icons/rhino.png?v=20260820c',
+  'keyshot': 'images/icons/keyshot.png?v=20260820c',
+  'siemens nx': 'images/icons/siemens-nx.png?v=20260820c',
+  'nx': 'images/icons/siemens-nx.png?v=20260820c',
+  'siemens': 'images/icons/siemens-nx.png?v=20260820c',
+  'fusion 360': 'images/icons/fusion360.png?v=20260820c',
+  'fusion360': 'images/icons/fusion360.png?v=20260820c'
 };
 // Simple Icons 兜底映射（Devicon 失败后尝试）
 const SW_SIMPLE = {
