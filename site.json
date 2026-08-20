@@ -33,12 +33,20 @@
     ],
     "software": [
       "Rhino",
+      "Siemens NX",
+      "Geomagic Design X",
+      "Geomagic Wrap",
+      "AutoCAD",
+      "SpaceClaim",
+      "3ds Max",
+      "ZBrush",
       "Blender",
       "KeyShot",
+      "RizomUV",
+      "PixPlant",
       "Photoshop",
       "Illustrator",
-      "Fusion 360",
-      "Siemens NX"
+      "Fusion 360"
     ]
   },
   "contact": {

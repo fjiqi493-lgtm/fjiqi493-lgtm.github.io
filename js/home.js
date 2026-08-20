@@ -158,13 +158,30 @@ const SW_ICON = {
 };
 // 本地图标文件：质量最高、不依赖网络，优先使用
 const SW_LOCAL = {
-  'rhino': 'images/icons/rhino.png?v=20260820c',
-  'keyshot': 'images/icons/keyshot.png?v=20260820c',
-  'siemens nx': 'images/icons/siemens-nx.png?v=20260820c',
-  'nx': 'images/icons/siemens-nx.png?v=20260820c',
-  'siemens': 'images/icons/siemens-nx.png?v=20260820c',
-  'fusion 360': 'images/icons/fusion360.png?v=20260820c',
-  'fusion360': 'images/icons/fusion360.png?v=20260820c'
+  'rhino': 'images/icons/rhino.png?v=20260820d',
+  'keyshot': 'images/icons/keyshot.png?v=20260820d',
+  'siemens nx': 'images/icons/siemens-nx.png?v=20260820d',
+  'nx': 'images/icons/siemens-nx.png?v=20260820d',
+  'siemens': 'images/icons/siemens-nx.png?v=20260820d',
+  'fusion 360': 'images/icons/fusion360.png?v=20260820d',
+  'fusion360': 'images/icons/fusion360.png?v=20260820d',
+  'geomagic wrap': 'images/icons/geomagic-wrap.png?v=20260820d',
+  'geomagicwrap': 'images/icons/geomagic-wrap.png?v=20260820d',
+  'wrap': 'images/icons/geomagic-wrap.png?v=20260820d',
+  'geomagic design x': 'images/icons/geomagic-design-x.png?v=20260820d',
+  'geomagic designx': 'images/icons/geomagic-design-x.png?v=20260820d',
+  'design x': 'images/icons/geomagic-design-x.png?v=20260820d',
+  'designx': 'images/icons/geomagic-design-x.png?v=20260820d',
+  'autocad': 'images/icons/autocad.png?v=20260820d',
+  'auto cad': 'images/icons/autocad.png?v=20260820d',
+  'rizomuv': 'images/icons/rizomuv.png?v=20260820d',
+  'rizom uv': 'images/icons/rizomuv.png?v=20260820d',
+  'spaceclaim': 'images/icons/spaceclaim.png?v=20260820d',
+  '3dsmax': 'images/icons/3dsmax.png?v=20260820d',
+  '3ds max': 'images/icons/3dsmax.png?v=20260820d',
+  '3d studio max': 'images/icons/3dsmax.png?v=20260820d',
+  'zbrush': 'images/icons/zbrush.png?v=20260820d',
+  'pixplant': 'images/icons/pixplant.png?v=20260820d'
 };
 // Simple Icons 兜底映射（Devicon 失败后尝试）
 const SW_SIMPLE = {
