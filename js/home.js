@@ -1,7 +1,7 @@
 /* 首页渲染 */
 let __homeRaw = null;
 function renderHome() {
-  const data = API.localized(__homeRaw);
+  const data = localized(__homeRaw);
 
   renderChrome(data);
 

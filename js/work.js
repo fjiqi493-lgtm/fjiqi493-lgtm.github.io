@@ -2,7 +2,7 @@
 let __workRaw = null;
 let __workId = null;
 function renderWork() {
-  const data = API.localized(__workRaw);
+  const data = localized(__workRaw);
   const w = (data.works || []).find((x) => x.id === __workId);
 
   renderChrome(data);

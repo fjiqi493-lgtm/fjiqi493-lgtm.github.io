@@ -1,7 +1,7 @@
 /* 作品列表页渲染 */
 let __worksRaw = null;
 function renderWorksPage() {
-  const data = API.localized(__worksRaw);
+  const data = localized(__worksRaw);
 
   renderChrome(data);
 
