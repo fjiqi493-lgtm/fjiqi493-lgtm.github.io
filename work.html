@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css?v=20260820h" />
+    <link rel="stylesheet" href="css/style.css?v=20260820i" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="JASON" />
@@ -25,7 +25,8 @@
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14" /></svg>
         </button>
         <div class="header-actions">
-          <a class="admin-link" href="admin.html">管理</a>
+          <button class="lang-toggle" id="lang-toggle" type="button"><span data-lang="zh" class="on">中</span><i>/</i><span data-lang="en">EN</span></button>
+          <a class="admin-link" id="admin-link" href="admin.html">管理</a>
         </div>
       </div>
     </header>
@@ -33,7 +34,7 @@
     <main>
       <section class="detail-hero">
         <div class="wrap">
-          <a class="detail-back" href="works.html">← 返回作品列表</a>
+          <a class="detail-back" id="detail-back" href="works.html">← 返回作品列表</a>
           <div class="reveal">
             <h1 class="detail-title" id="d-title"></h1>
             <div class="detail-cat" id="d-cat"></div>
@@ -96,7 +97,7 @@
       <img id="lightbox-img" src="" alt="" />
     </div>
 
-    <script src="js/api.js?v=20260820h"></script>
-    <script src="js/work.js?v=20260820h"></script>
+    <script src="js/api.js?v=20260820i"></script>
+    <script src="js/work.js?v=20260820i"></script>
   </body>
 </html>

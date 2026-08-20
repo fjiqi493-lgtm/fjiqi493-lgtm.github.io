@@ -71,6 +71,23 @@ button { font-family: inherit; cursor: pointer; }
 }
 .admin-link:hover { border-color: var(--text); color: var(--text); }
 
+/* ===== 语言切换（极简）===== */
+.lang-toggle {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 13px; color: var(--muted); line-height: 1;
+  padding: 8px 12px; border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill); background: var(--surface);
+  cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease;
+}
+.lang-toggle:hover { border-color: var(--text); color: var(--text); }
+.lang-toggle [data-lang] { transition: color 0.15s ease; }
+.lang-toggle .on { color: var(--text); font-weight: 600; }
+.lang-toggle i { font-style: normal; color: var(--faint); margin: 0 1px; }
+
+/* 中英切换整页淡入淡出 */
+main, .site-footer { transition: opacity 0.18s ease; }
+.lang-fade { opacity: 0; }
+
 .nav-toggle { display: none; align-items: center; justify-content: center;
   width: 40px; height: 40px; margin-left: 8px; border: 1px solid var(--line-strong);
   border-radius: var(--radius); background: var(--surface); color: var(--text); }

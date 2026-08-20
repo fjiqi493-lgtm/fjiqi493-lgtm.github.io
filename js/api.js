@@ -158,6 +158,70 @@ const API = {
   },
 };
 
+/* ---------- 多语言（中英切换）---------- */
+let SiteLang = (localStorage.getItem('siteLang') === 'en') ? 'en' : 'zh';
+document.documentElement.lang = (SiteLang === 'en') ? 'en' : 'zh-CN';
+
+// 硬编码 UI 字符串（不在 site.json 内的中文）
+const UI = {
+  zh: { viewWorks: '查看作品', contact: '合作联系', viewAll: '查看全部 →', admin: '管理', openMenu: '打开菜单', rights: '保留所有权利。', count: ' 件作品', notFound: '作品不存在', ovCat: '类别', ovYear: '年份', back: '← 返回作品列表' },
+  en: { viewWorks: 'View Works', contact: 'Contact', viewAll: 'View All →', admin: 'Admin', openMenu: 'Open menu', rights: 'All rights reserved.', count: ' works', notFound: 'Work not found', ovCat: 'Category', ovYear: 'Year', back: '← Back to Works' }
+};
+function UIT(k) { return (UI[SiteLang] && UI[SiteLang][k] != null) ? UI[SiteLang][k] : UI.zh[k]; }
+
+// 将英文镜像整树合并到中文数据上，得到当前语言版本的数据（不修改原数据，后台只改中文源）
+function deepMerge(src, ov) {
+  if (Array.isArray(ov)) return ov;            // 数组整体替换（en 镜像结构与中文一致）
+  if (ov && typeof ov === 'object' && !Array.isArray(ov)) {
+    const out = {};
+    const keys = new Set([...(src ? Object.keys(src) : []), ...Object.keys(ov)]);
+    keys.forEach((k) => {
+      const sv = src ? src[k] : undefined;
+      const ovv = ov[k];
+      if (ovv === undefined) out[k] = sv;
+      else if (ovv && typeof ovv === 'object' && !Array.isArray(ovv) && sv && typeof sv === 'object')
+        out[k] = deepMerge(sv, ovv);
+      else out[k] = ovv;
+    });
+    return out;
+  }
+  return ov === undefined ? src : ov;
+}
+function localized(data) {
+  return (SiteLang === 'en' && data && data.en) ? deepMerge(data, data.en) : data;
+}
+
+// 整页淡入淡出，保证中英切换流畅
+function withLangFade(fn) {
+  const els = [document.querySelector('main'), document.querySelector('.site-footer')].filter(Boolean);
+  els.forEach((e) => e.classList.add('lang-fade'));
+  setTimeout(() => {
+    fn();
+    requestAnimationFrame(() => els.forEach((e) => e.classList.remove('lang-fade')));
+  }, 140);
+}
+
+function updateLangToggleUI() {
+  const btn = document.getElementById('lang-toggle');
+  if (!btn) return;
+  btn.querySelectorAll('[data-lang]').forEach((s) => s.classList.toggle('on', s.getAttribute('data-lang') === SiteLang));
+  btn.setAttribute('aria-label', SiteLang === 'en' ? '切换到中文' : 'Switch to English');
+}
+function applyLang(lang) {
+  SiteLang = lang === 'en' ? 'en' : 'zh';
+  try { localStorage.setItem('siteLang', SiteLang); } catch (e) {}
+  document.documentElement.lang = SiteLang === 'en' ? 'en' : 'zh-CN';
+  updateLangToggleUI();
+  window.dispatchEvent(new Event('lang:change'));
+}
+function initLangToggle() {
+  const btn = document.getElementById('lang-toggle');
+  if (!btn || btn.dataset.langBound) return;
+  btn.dataset.langBound = '1';
+  updateLangToggleUI();
+  btn.addEventListener('click', () => applyLang(SiteLang === 'en' ? 'zh' : 'en'));
+}
+
 /* ---------- 工具 ---------- */
 function b64ToStr(b64) {
   const bin = atob(b64.replace(/\s/g, ''));
@@ -228,7 +292,7 @@ function setText(id, text) {
 function renderFooter(data) {
   setText('footer-brand', data.brand);
   setText('footer-desc', data.home ? data.home.bio : '');
-  setText('footer-copy', '© ' + new Date().getFullYear() + ' ' + data.brand + '. 保留所有权利。');
+  setText('footer-copy', '© ' + new Date().getFullYear() + ' ' + data.brand + '. ' + UIT('rights'));
   setText('footer-seo', data.seo || '');
 
   const socials = (data.contact && data.contact.socials) || [];
@@ -259,7 +323,7 @@ function renderFooter(data) {
     });
     const all = document.createElement('a');
     all.href = 'works.html';
-    all.textContent = '查看全部 →';
+    all.textContent = UIT('viewAll');
     fw.appendChild(all);
   }
   // footer 联系栏目已移除：邮箱已显示在顶部 #contact，避免重复
@@ -309,7 +373,16 @@ function renderChrome(data) {
   setText('f-col-nav', ft.colNav || '');
   setText('f-col-works', ft.colWorks || '');
   setText('f-col-contact', ft.colContact || '');
+  // 同步静态页眉文案（中英文切换）
+  setText('cta-works', UIT('viewWorks'));
+  setText('cta-contact', UIT('contact'));
+  setText('cta-viewall', UIT('viewAll'));
+  setText('admin-link', UIT('admin'));
+  const nt = document.querySelector('.nav-toggle');
+  if (nt) nt.setAttribute('aria-label', UIT('openMenu'));
+
   bindNavToggle();
+  initLangToggle();
 
   // 统一更新导航高亮：根据当前 URL 计算并只点亮唯一匹配项
   setNavActive();
@@ -418,6 +491,8 @@ function initReveal() {
 }
 
 function initLightbox() {
+  if (window.__lightboxBound) return;   // 重新渲染时不重复绑定全局监听
+  window.__lightboxBound = true;
   const box = $('lightbox');
   const img = $('lightbox-img');
   const close = () => box.classList.remove('open');

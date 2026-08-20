@@ -1,6 +1,7 @@
 /* 首页渲染 */
-(async function () {
-  const data = await API.getSite();
+let __homeRaw = null;
+function renderHome() {
+  const data = API.localized(__homeRaw);
 
   renderChrome(data);
 
@@ -77,6 +78,12 @@
   renderFooter(data);
   initReveal();
   initLightbox();
+}
+
+(async function () {
+  __homeRaw = await API.getSite();
+  renderHome();
+  window.addEventListener('lang:change', () => withLangFade(renderHome));
 })();
 
 /* ---- 项目过程：3D 透视旋转木马 + 软件图标 ---- */
@@ -101,10 +108,12 @@ function renderProcess(p) {
   renderSoftware($('process-software'), p.software || []);
 }
 
+let __carouselRAF = 0;
 function initProcessCarousel(track) {
   const items = Array.from(track.children);
   const n = items.length;
   if (n === 0) return;
+  if (__carouselRAF) cancelAnimationFrame(__carouselRAF);
   const ANGLE = 34, DEPTH = 120, SPEED = 0.006;
   const spacing = window.matchMedia('(max-width: 1024px)').matches ? 140 : 220;
   let progress = 0;
@@ -137,7 +146,7 @@ function initProcessCarousel(track) {
       if (progress >= n) progress -= n;
       layout();
     }
-    requestAnimationFrame(tick);
+    __carouselRAF = requestAnimationFrame(tick);
   }
   layout();
   const stage = document.getElementById('process-stage');
@@ -148,7 +157,7 @@ function initProcessCarousel(track) {
     );
     io.observe(stage);
   }
-  requestAnimationFrame(tick);
+  __carouselRAF = requestAnimationFrame(tick);
 }
 
 const SW_ICON = {

@@ -1,11 +1,12 @@
 /* 作品列表页渲染 */
-(async function () {
-  const data = await API.getSite();
+let __worksRaw = null;
+function renderWorksPage() {
+  const data = API.localized(__worksRaw);
 
   renderChrome(data);
 
   setText('brand', data.brand);
-  setText('count', (data.works || []).length + ' 件作品');
+  setText('count', (data.works || []).length + UIT('count'));
 
   const grid = $('works-grid');
   if (!data.works || data.works.length === 0) {
@@ -17,4 +18,9 @@
   renderFooter(data);
   initReveal();
   initLightbox();
+}
+(async function () {
+  __worksRaw = await API.getSite();
+  renderWorksPage();
+  window.addEventListener('lang:change', () => withLangFade(renderWorksPage));
 })();

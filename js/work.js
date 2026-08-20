@@ -1,9 +1,9 @@
 /* 作品详情页渲染 */
-(async function () {
-  const params = new URLSearchParams(location.search);
-  const id = params.get('id');
-  const data = await API.getSite();
-  const w = (data.works || []).find((x) => x.id === id);
+let __workRaw = null;
+let __workId = null;
+function renderWork() {
+  const data = API.localized(__workRaw);
+  const w = (data.works || []).find((x) => x.id === __workId);
 
   renderChrome(data);
 
@@ -12,11 +12,12 @@
   // 作品详情小标签（可在后台「文字设置 → 作品详情标签」中编辑）
   const wl = data.workLabels || {};
   setText('w-label-project', wl.project || 'PROJECT');
-  setText('w-label-overview', wl.overview || '概览');
-  setText('w-label-params', wl.params || '参数');
+  setText('w-label-overview', wl.overview || 'Overview');
+  setText('w-label-params', wl.params || 'Parameters');
+  setText('detail-back', UIT('back'));
 
   if (!w) {
-    $('d-title').textContent = '作品不存在';
+    $('d-title').textContent = UIT('notFound');
     return;
   }
 
@@ -44,8 +45,8 @@
   const ov = $('d-overview');
   ov.innerHTML = '';
   [
-    ['类别', w.category || '—'],
-    ['年份', w.year || '—'],
+    [UIT('ovCat'), w.category || '—'],
+    [UIT('ovYear'), w.year || '—'],
   ].forEach(([k, v]) => {
     const row = document.createElement('div');
     row.className = 'param-row';
@@ -88,4 +89,11 @@
   renderFooter(data);
   initReveal();
   initLightbox();
+}
+(async function () {
+  const params = new URLSearchParams(location.search);
+  __workId = params.get('id');
+  __workRaw = await API.getSite();
+  renderWork();
+  window.addEventListener('lang:change', () => withLangFade(renderWork));
 })();
