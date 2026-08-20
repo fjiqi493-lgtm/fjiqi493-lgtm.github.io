@@ -80,20 +80,58 @@
     },
     "about": {
       "bio": "Bachelor's in Industrial Design with 8 years in consumer electronics and home products. Proficient in Rhino / NX modeling, CNC prototyping and supply-chain coordination; I own the full path from sketch to mass production. Recently also exploring fragrance packaging and lifestyle goods.",
-      "skills": ["Product Definition", "CMF", "Structural Design", "Rhino / NX", "3D Modeling", "Production", "User Research", "Packaging Design"]
+      "skills": [
+        "Product Definition",
+        "CMF",
+        "Structural Design",
+        "Rhino / NX",
+        "3D Modeling",
+        "Production",
+        "User Research",
+        "Packaging Design"
+      ]
     },
     "process": {
       "en": "PROJECT PROCESS",
       "title": "Selected Process",
-      "software": ["Rhino", "Siemens NX", "Geomagic Design X", "Geomagic Wrap", "AutoCAD", "SpaceClaim", "3ds Max", "ZBrush", "Blender", "KeyShot", "RizomUV", "PixPlant", "Photoshop", "Illustrator", "Fusion 360", "Creo"]
+      "software": [
+        "Rhino",
+        "Siemens NX",
+        "Geomagic Design X",
+        "Geomagic Wrap",
+        "AutoCAD",
+        "SpaceClaim",
+        "3ds Max",
+        "ZBrush",
+        "Blender",
+        "KeyShot",
+        "RizomUV",
+        "PixPlant",
+        "Photoshop",
+        "Illustrator",
+        "Fusion 360",
+        "Creo"
+      ]
     },
     "philosophy": {
       "en": "PHILOSOPHY",
       "title": "Design Philosophy",
       "items": [
-        {"num": "01", "title": "Less is More", "text": "Every product should strike the simplest balance between function and form. Strip away excess ornament and let material and proportion speak for themselves."},
-        {"num": "02", "title": "Design for Production", "text": "A pretty concept render is only the start. Every line must consider structural feasibility, CMF cost and supply-chain constraints."},
-        {"num": "03", "title": "Start with the User", "text": "Never design for design's sake. Understand who uses it, in what context, and why they need it—before the first stroke."}
+        {
+          "num": "01",
+          "title": "Less is More",
+          "text": "Every product should strike the simplest balance between function and form. Strip away excess ornament and let material and proportion speak for themselves."
+        },
+        {
+          "num": "02",
+          "title": "Design for Production",
+          "text": "A pretty concept render is only the start. Every line must consider structural feasibility, CMF cost and supply-chain constraints."
+        },
+        {
+          "num": "03",
+          "title": "Start with the User",
+          "text": "Never design for design's sake. Understand who uses it, in what context, and why they need it—before the first stroke."
+        }
       ],
       "quote": "Good industrial design is invisible—you never notice it, yet you can't do without it."
     },
@@ -101,24 +139,60 @@
       "email": "2907227699@qq.com",
       "note": "For collaborations or commissions, feel free to reach out anytime. I usually reply within two business days.",
       "socials": [
-        {"name": "WeChat", "url": ""},
-        {"name": "Instagram", "url": ""},
-        {"name": "Behance", "url": ""}
+        {
+          "name": "WeChat",
+          "url": ""
+        },
+        {
+          "name": "Instagram",
+          "url": ""
+        },
+        {
+          "name": "Behance",
+          "url": ""
+        }
       ]
     },
     "seo": "This page is indexable by search engines · Share the link to visit",
     "nav": [
-      {"label": "Home", "href": "index.html"},
-      {"label": "Works", "href": "works.html"},
-      {"label": "Process", "href": "index.html#process"},
-      {"label": "Contact", "href": "index.html#contact"}
+      {
+        "label": "Home",
+        "href": "index.html"
+      },
+      {
+        "label": "Works",
+        "href": "works.html"
+      },
+      {
+        "label": "Process",
+        "href": "index.html#process"
+      },
+      {
+        "label": "Contact",
+        "href": "index.html#contact"
+      }
     ],
     "sections": {
-      "works": {"en": "SELECTED WORKS", "title": "Selected Works"},
-      "about": {"en": "ABOUT", "title": "About"},
-      "process": {"en": "PROJECT PROCESS", "title": "Process"},
-      "contact": {"en": "CONTACT", "title": "Contact"},
-      "allWorks": {"en": "WORKS", "title": "All Works"}
+      "works": {
+        "en": "SELECTED WORKS",
+        "title": "Selected Works"
+      },
+      "about": {
+        "en": "ABOUT",
+        "title": "About"
+      },
+      "process": {
+        "en": "PROJECT PROCESS",
+        "title": "Process"
+      },
+      "contact": {
+        "en": "CONTACT",
+        "title": "Contact"
+      },
+      "allWorks": {
+        "en": "WORKS",
+        "title": "All Works"
+      }
     },
     "footer": {
       "colNav": "Nav",
@@ -131,12 +205,192 @@
       "params": "Parameters"
     },
     "works": [
-      {"id": "w1", "title": "TABAC NUIT Fragrance", "category": "Beauty", "year": "2026", "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg", "images": ["https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg", "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786940667887-3w9tz.jpg", "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786946024722-2gfwk.jpg", "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953096582-cq8bw.jpg", "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953144765-5xehb.jpg", "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953160843-v050c.jpg"], "summary": "A fragrance bottle with a squared cigarette-case language: crystal-clear glass body and a detachable square cap.", "description": "TABAC NUIT translates the mood of a tobacco night into a minimal squared form. The bottle takes a crisp, squared silhouette that echoes the classic visual language of a cigarette case; a glass body and an injection-molded cap make up the whole exterior, with only 2 main cosmetic parts—balancing premium feel and manufacturability.", "params": [{"k": "Material", "v": "Anodized aluminum + walnut"}, {"k": "Dimensions", "v": "Ø180 × 64 mm"}, {"k": "Process", "v": "CNC + magnetic assembly"}, {"k": "Timeline", "v": "2024.09 – 2025.03"}]},
-      {"id": "w2", "title": "joker perfume", "category": "Beauty", "year": "2026", "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg", "images": ["https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg", "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866903222-foz3t.jpg"], "summary": "A modular desk lamp with swappable heads; warm light for a cozy home mood.", "description": "LUMA decouples the body from the head so users can swap spot/flood modules by scenario. The arm is a single extruded-aluminum profile, bent into shape—simple structure at a controllable cost.", "params": [{"k": "Material", "v": "Aluminum extrusion + PC"}, {"k": "Color Temp", "v": "2700K – 4000K"}, {"k": "Process", "v": "Extrusion + bending"}, {"k": "Timeline", "v": "2024.02 – 2024.08"}]},
-      {"id": "w3", "title": "FOLD Folding Tool", "category": "Outdoor Tool", "year": "2024", "cover": "assets/work-03.png", "images": ["assets/work-03.png"], "summary": "An integrated titanium folding multi-tool; lightweight and portable.", "description": "FOLD is cut and bent from a single titanium sheet; unfolded it offers pliers, knife and wrench. Stowed thickness is just 11mm—easy to carry.", "params": [{"k": "Material", "v": "Titanium TC4"}, {"k": "Weight", "v": "86 g"}, {"k": "Process", "v": "Wire-cut + bending"}, {"k": "Timeline", "v": "2023.11 – 2024.05"}]},
-      {"id": "w4", "title": "CLAY Ceramic Kettle", "category": "Kitchenware", "year": "2023", "cover": "assets/work-04.png", "images": ["assets/work-04.png"], "summary": "A matte stoneware pour-over kettle with a lowered center of gravity for steady pours.", "description": "CLAY shows a warm matte feel in hand-made stoneware; the body's center of gravity is deliberately lowered to steady the pour. The wooden handle is CNC-machined for a snug grip.", "params": [{"k": "Material", "v": "Stoneware + walnut"}, {"k": "Capacity", "v": "420 ml"}, {"k": "Process", "v": "Thrown + matte glaze"}, {"k": "Timeline", "v": "2023.03 – 2023.09"}]},
-      {"id": "w5", "title": "MOVE Wheelchair Concept", "category": "Mobility Aid", "year": "2023", "cover": "assets/work-05.png", "images": ["assets/work-05.png"], "summary": "A lightweight aluminum wheelchair concept with slim structure and easy folding.", "description": "MOVE rethinks the tubing layout, using fewer cross-members for the same strength and a lighter look. The seat flips up for easy side transfers.", "params": [{"k": "Material", "v": "Aluminum 6061"}, {"k": "Weight", "v": "7.2 kg"}, {"k": "Process", "v": "Tubing + welding"}, {"k": "Timeline", "v": "2022.12 – 2023.06"}]},
-      {"id": "w6", "title": "ECHO Headphones", "category": "Wearable", "year": "2025", "cover": "assets/work-06.png", "images": ["assets/work-06.png"], "summary": "A minimal matte-black headphone with no visible screws.", "description": "ECHO pursues a one-piece clean language: headband and earcup shells hide all fasteners, assembled via internal clips. Pads are memory foam with protein leather.", "params": [{"k": "Material", "v": "PC + aluminum"}, {"k": "Weight", "v": "248 g"}, {"k": "Process", "v": "Two-shot molding + clips"}, {"k": "Timeline", "v": "2024.10 – 2025.04"}]}
+      {
+        "id": "w1",
+        "title": "TABAC NUIT Fragrance",
+        "category": "Beauty",
+        "year": "2026",
+        "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
+        "images": [
+          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
+          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786940667887-3w9tz.jpg",
+          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786946024722-2gfwk.jpg",
+          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953096582-cq8bw.jpg",
+          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953144765-5xehb.jpg",
+          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953160843-v050c.jpg"
+        ],
+        "summary": "A fragrance bottle with a squared cigarette-case language: crystal-clear glass body and a detachable square cap.",
+        "description": "TABAC NUIT translates the mood of a tobacco night into a minimal squared form. The bottle takes a crisp, squared silhouette that echoes the classic visual language of a cigarette case; a glass body and an injection-molded cap make up the whole exterior, with only 2 main cosmetic parts—balancing premium feel and manufacturability.",
+        "params": [
+          {
+            "k": "Material",
+            "v": "Anodized aluminum + walnut"
+          },
+          {
+            "k": "Dimensions",
+            "v": "Ø180 × 64 mm"
+          },
+          {
+            "k": "Process",
+            "v": "CNC + magnetic assembly"
+          },
+          {
+            "k": "Timeline",
+            "v": "2024.09 – 2025.03"
+          }
+        ]
+      },
+      {
+        "id": "w2",
+        "title": "joker perfume",
+        "category": "Beauty",
+        "year": "2026",
+        "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
+        "images": [
+          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
+          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866903222-foz3t.jpg"
+        ],
+        "summary": "A modular desk lamp with swappable heads; warm light for a cozy home mood.",
+        "description": "LUMA decouples the body from the head so users can swap spot/flood modules by scenario. The arm is a single extruded-aluminum profile, bent into shape—simple structure at a controllable cost.",
+        "params": [
+          {
+            "k": "Material",
+            "v": "Aluminum extrusion + PC"
+          },
+          {
+            "k": "Color Temp",
+            "v": "2700K – 4000K"
+          },
+          {
+            "k": "Process",
+            "v": "Extrusion + bending"
+          },
+          {
+            "k": "Timeline",
+            "v": "2024.02 – 2024.08"
+          }
+        ]
+      },
+      {
+        "id": "w3",
+        "title": "FOLD Folding Tool",
+        "category": "Outdoor Tool",
+        "year": "2024",
+        "cover": "assets/work-03.png",
+        "images": [
+          "assets/work-03.png"
+        ],
+        "summary": "An integrated titanium folding multi-tool; lightweight and portable.",
+        "description": "FOLD is cut and bent from a single titanium sheet; unfolded it offers pliers, knife and wrench. Stowed thickness is just 11mm—easy to carry.",
+        "params": [
+          {
+            "k": "Material",
+            "v": "Titanium TC4"
+          },
+          {
+            "k": "Weight",
+            "v": "86 g"
+          },
+          {
+            "k": "Process",
+            "v": "Wire-cut + bending"
+          },
+          {
+            "k": "Timeline",
+            "v": "2023.11 – 2024.05"
+          }
+        ]
+      },
+      {
+        "id": "w4",
+        "title": "CLAY Ceramic Kettle",
+        "category": "Kitchenware",
+        "year": "2023",
+        "cover": "assets/work-04.png",
+        "images": [
+          "assets/work-04.png"
+        ],
+        "summary": "A matte stoneware pour-over kettle with a lowered center of gravity for steady pours.",
+        "description": "CLAY shows a warm matte feel in hand-made stoneware; the body's center of gravity is deliberately lowered to steady the pour. The wooden handle is CNC-machined for a snug grip.",
+        "params": [
+          {
+            "k": "Material",
+            "v": "Stoneware + walnut"
+          },
+          {
+            "k": "Capacity",
+            "v": "420 ml"
+          },
+          {
+            "k": "Process",
+            "v": "Thrown + matte glaze"
+          },
+          {
+            "k": "Timeline",
+            "v": "2023.03 – 2023.09"
+          }
+        ]
+      },
+      {
+        "id": "w5",
+        "title": "MOVE Wheelchair Concept",
+        "category": "Mobility Aid",
+        "year": "2023",
+        "cover": "assets/work-05.png",
+        "images": [
+          "assets/work-05.png"
+        ],
+        "summary": "A lightweight aluminum wheelchair concept with slim structure and easy folding.",
+        "description": "MOVE rethinks the tubing layout, using fewer cross-members for the same strength and a lighter look. The seat flips up for easy side transfers.",
+        "params": [
+          {
+            "k": "Material",
+            "v": "Aluminum 6061"
+          },
+          {
+            "k": "Weight",
+            "v": "7.2 kg"
+          },
+          {
+            "k": "Process",
+            "v": "Tubing + welding"
+          },
+          {
+            "k": "Timeline",
+            "v": "2022.12 – 2023.06"
+          }
+        ]
+      },
+      {
+        "id": "w6",
+        "title": "ECHO Headphones",
+        "category": "Wearable",
+        "year": "2025",
+        "cover": "assets/work-06.png",
+        "images": [
+          "assets/work-06.png"
+        ],
+        "summary": "A minimal matte-black headphone with no visible screws.",
+        "description": "ECHO pursues a one-piece clean language: headband and earcup shells hide all fasteners, assembled via internal clips. Pads are memory foam with protein leather.",
+        "params": [
+          {
+            "k": "Material",
+            "v": "PC + aluminum"
+          },
+          {
+            "k": "Weight",
+            "v": "248 g"
+          },
+          {
+            "k": "Process",
+            "v": "Two-shot molding + clips"
+          },
+          {
+            "k": "Timeline",
+            "v": "2024.10 – 2025.04"
+          }
+        ]
+      }
     ]
   },
   "nav": [
@@ -280,15 +534,19 @@
     },
     {
       "id": "w3",
-      "title": "FOLD 折叠工具",
-      "category": "户外工具",
-      "year": "2024",
-      "cover": "assets/work-03.png",
+      "title": "女体香水",
+      "category": "日化",
+      "year": "2026",
+      "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208213686-r2bzq.jpg",
       "images": [
-        "assets/work-03.png"
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208213686-r2bzq.jpg",
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208221892-r1uc4.jpg",
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208256021-uq0y1.jpg",
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208293222-d2hi8.jpg",
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208300452-2rrss.jpg"
       ],
-      "summary": "钛合金一体折叠多功能工具，轻量便携。",
-      "description": "FOLD 以单块钛合金板材经线切割 + 折弯成型，展开后提供钳、刀、扳手三种基础功能。收纳厚度仅 11mm，适合随身携带。",
+      "summary": "雕塑感香氛容器，织物褶皱形态，通透瓶身，兼顾美学与手持体验。",
+      "description": "以垂坠织物褶皱为设计灵感，扭曲通透玻璃瓶身搭配雕塑感金属瓶盖，兼具流动艺术形态与舒适手持体验，提供多组 CMF 配色方案。",
       "params": [
         {
           "k": "材质",
