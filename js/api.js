@@ -411,6 +411,10 @@ function initReveal() {
     { threshold: 0.12 }
   );
   els.forEach((e) => io.observe(e));
+  // 兜底：若 1.5s 后仍有未显示的元素（JS 异常/观察器未触发），强制显示，避免内容永久不可见
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.in)').forEach((e) => e.classList.add('in'));
+  }, 1500);
 }
 
 function initLightbox() {

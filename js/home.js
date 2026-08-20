@@ -108,6 +108,10 @@ function initProcessCarousel(track) {
   const ANGLE = 34, DEPTH = 120, SPEED = 0.006;
   const spacing = window.matchMedia('(max-width: 1024px)').matches ? 140 : 220;
   let progress = 0;
+  // 系统开启“减弱动效”时不做自动旋转（无障碍），仅静态布局一次
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // 离开视口即暂停，进入视口恢复；不响应鼠标悬停（保持常驻滚动）
+  let visible = true;
   function layout() {
     for (let i = 0; i < n; i++) {
       let off = i - progress;
@@ -128,12 +132,22 @@ function initProcessCarousel(track) {
     }
   }
   function tick() {
-    progress += SPEED;
-    if (progress >= n) progress -= n;
-    layout();
+    if (visible && !reduceMotion) {
+      progress += SPEED;
+      if (progress >= n) progress -= n;
+      layout();
+    }
     requestAnimationFrame(tick);
   }
   layout();
+  const stage = document.getElementById('process-stage');
+  if (stage && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((en) => { visible = en.isIntersecting; }),
+      { threshold: 0.05 }
+    );
+    io.observe(stage);
+  }
   requestAnimationFrame(tick);
 }
 
