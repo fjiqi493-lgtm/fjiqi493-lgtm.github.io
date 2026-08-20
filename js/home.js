@@ -108,12 +108,6 @@ function initProcessCarousel(track) {
   const ANGLE = 34, DEPTH = 120, SPEED = 0.006;
   const spacing = window.matchMedia('(max-width: 1024px)').matches ? 140 : 220;
   let progress = 0;
-  let paused = false;
-  const stage = $('process-stage');
-  if (stage) {
-    stage.addEventListener('mouseenter', () => (paused = true));
-    stage.addEventListener('mouseleave', () => (paused = false));
-  }
   function layout() {
     for (let i = 0; i < n; i++) {
       let off = i - progress;
@@ -134,11 +128,9 @@ function initProcessCarousel(track) {
     }
   }
   function tick() {
-    if (!paused) {
-      progress += SPEED;
-      if (progress >= n) progress -= n;
-      layout();
-    }
+    progress += SPEED;
+    if (progress >= n) progress -= n;
+    layout();
     requestAnimationFrame(tick);
   }
   layout();
@@ -159,32 +151,32 @@ const SW_ICON = {
 };
 // 本地图标文件：质量最高、不依赖网络，优先使用
 const SW_LOCAL = {
-  'rhino': 'images/icons/rhino.png?v=20260820e',
-  'keyshot': 'images/icons/keyshot.png?v=20260820e',
-  'siemens nx': 'images/icons/siemens-nx.png?v=20260820e',
-  'nx': 'images/icons/siemens-nx.png?v=20260820e',
-  'siemens': 'images/icons/siemens-nx.png?v=20260820e',
-  'fusion 360': 'images/icons/fusion360.png?v=20260820e',
-  'fusion360': 'images/icons/fusion360.png?v=20260820e',
-  'geomagic wrap': 'images/icons/geomagic-wrap.png?v=20260820e',
-  'geomagicwrap': 'images/icons/geomagic-wrap.png?v=20260820e',
-  'wrap': 'images/icons/geomagic-wrap.png?v=20260820e',
-  'geomagic design x': 'images/icons/geomagic-design-x.png?v=20260820e',
-  'geomagic designx': 'images/icons/geomagic-design-x.png?v=20260820e',
-  'design x': 'images/icons/geomagic-design-x.png?v=20260820e',
-  'designx': 'images/icons/geomagic-design-x.png?v=20260820e',
-  'autocad': 'images/icons/autocad.png?v=20260820e',
-  'auto cad': 'images/icons/autocad.png?v=20260820e',
-  'rizomuv': 'images/icons/rizomuv.png?v=20260820e',
-  'rizom uv': 'images/icons/rizomuv.png?v=20260820e',
-  'spaceclaim': 'images/icons/spaceclaim.png?v=20260820e',
-  '3dsmax': 'images/icons/3dsmax.png?v=20260820e',
-  '3ds max': 'images/icons/3dsmax.png?v=20260820e',
-  '3d studio max': 'images/icons/3dsmax.png?v=20260820e',
-  'zbrush': 'images/icons/zbrush.png?v=20260820e',
-  'pixplant': 'images/icons/pixplant.png?v=20260820e',
-  'creo': 'images/icons/creo.png?v=20260820e',
-  'creo parametric': 'images/icons/creo.png?v=20260820e'
+  'rhino': 'images/icons/rhino.png?v=20260820f',
+  'keyshot': 'images/icons/keyshot.png?v=20260820f',
+  'siemens nx': 'images/icons/siemens-nx.png?v=20260820f',
+  'nx': 'images/icons/siemens-nx.png?v=20260820f',
+  'siemens': 'images/icons/siemens-nx.png?v=20260820f',
+  'fusion 360': 'images/icons/fusion360.png?v=20260820f',
+  'fusion360': 'images/icons/fusion360.png?v=20260820f',
+  'geomagic wrap': 'images/icons/geomagic-wrap.png?v=20260820f',
+  'geomagicwrap': 'images/icons/geomagic-wrap.png?v=20260820f',
+  'wrap': 'images/icons/geomagic-wrap.png?v=20260820f',
+  'geomagic design x': 'images/icons/geomagic-design-x.png?v=20260820f',
+  'geomagic designx': 'images/icons/geomagic-design-x.png?v=20260820f',
+  'design x': 'images/icons/geomagic-design-x.png?v=20260820f',
+  'designx': 'images/icons/geomagic-design-x.png?v=20260820f',
+  'autocad': 'images/icons/autocad.png?v=20260820f',
+  'auto cad': 'images/icons/autocad.png?v=20260820f',
+  'rizomuv': 'images/icons/rizomuv.png?v=20260820f',
+  'rizom uv': 'images/icons/rizomuv.png?v=20260820f',
+  'spaceclaim': 'images/icons/spaceclaim.png?v=20260820f',
+  '3dsmax': 'images/icons/3dsmax.png?v=20260820f',
+  '3ds max': 'images/icons/3dsmax.png?v=20260820f',
+  '3d studio max': 'images/icons/3dsmax.png?v=20260820f',
+  'zbrush': 'images/icons/zbrush.png?v=20260820f',
+  'pixplant': 'images/icons/pixplant.png?v=20260820f',
+  'creo': 'images/icons/creo.png?v=20260820f',
+  'creo parametric': 'images/icons/creo.png?v=20260820f'
 };
 // Simple Icons 兜底映射（Devicon 失败后尝试）
 const SW_SIMPLE = {
