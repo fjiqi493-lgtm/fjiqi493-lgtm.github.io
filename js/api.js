@@ -169,9 +169,34 @@ const UI = {
 };
 function UIT(k) { return (UI[SiteLang] && UI[SiteLang][k] != null) ? UI[SiteLang][k] : UI.zh[k]; }
 
+// 判断是否为「带 id 的对象」（用于按 id 合并的对象数组，如 works）
+function _isItemWithId(x) {
+  return x && typeof x === 'object' && !Array.isArray(x) && x.id != null;
+}
+
 // 将英文镜像整树合并到中文数据上，得到当前语言版本的数据（不修改原数据，后台只改中文源）
 function deepMerge(src, ov) {
-  if (Array.isArray(ov)) return ov;            // 数组整体替换（en 镜像结构与中文一致）
+  if (Array.isArray(ov)) {
+    // 含 id 的对象数组（如 works）：以中文源为基准，按 id 合并，英文镜像只覆盖同名作品的翻译字段。
+    // 中文新增的作品（en 镜像尚未收录）自动出现在英文模式，待翻译前显示中文原文，图片/参数等内容始终保留。
+    if (Array.isArray(src) && src.length && ov.length &&
+        _isItemWithId(src[0]) && _isItemWithId(ov[0])) {
+      const ovById = {};
+      ov.forEach((it) => { if (it && it.id != null) ovById[it.id] = it; });
+      // 作品：以中文源为基准。仅标题/类别/简介/描述可被英文镜像覆盖（文字翻译）；
+      // 图片/封面/年份/参数等内容字段始终取自中文，确保「翻译文字」与「作品内容」彻底解耦——
+      // 后台新增或编辑任意作品都会立即中英同步，未翻译的作品在英文模式显示中文原文。
+      const TXT = ['title', 'category', 'summary', 'description'];
+      return src.map((it) => {
+        const m = it && it.id != null ? ovById[it.id] : null;
+        if (!m) return it;
+        const out = Object.assign({}, it);
+        TXT.forEach((k) => { if (m[k] != null && m[k] !== '') out[k] = m[k]; });
+        return out;
+      });
+    }
+    return ov; // 普通数组（字符串列表等）整体替换
+  }
   if (ov && typeof ov === 'object' && !Array.isArray(ov)) {
     const out = {};
     const keys = new Set([...(src ? Object.keys(src) : []), ...Object.keys(ov)]);
@@ -179,9 +204,7 @@ function deepMerge(src, ov) {
       const sv = src ? src[k] : undefined;
       const ovv = ov[k];
       if (ovv === undefined) out[k] = sv;
-      else if (ovv && typeof ovv === 'object' && !Array.isArray(ovv) && sv && typeof sv === 'object')
-        out[k] = deepMerge(sv, ovv);
-      else out[k] = ovv;
+      else out[k] = deepMerge(sv, ovv); // 统一交给 deepMerge：对象递归合并、数组按 id 合并、普通数组替换、标量覆盖
     });
     return out;
   }
