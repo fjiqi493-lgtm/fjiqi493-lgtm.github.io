@@ -18,6 +18,7 @@ function renderWorksPage() {
   renderFooter(data);
   initReveal();
   initLightbox();
+  fadeImages();
 }
 (async function () {
   __worksRaw = await API.getSite();

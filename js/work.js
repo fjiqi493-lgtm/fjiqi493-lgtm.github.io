@@ -26,8 +26,10 @@ function renderWork() {
 
   // 封面（点击放大）
   const cover = $('d-cover-img');
-  cover.src = w.cover || (w.images && w.images[0]) || '';
+  cover.src = imgUrl(w.cover || (w.images && w.images[0]) || '');
   cover.alt = w.title;
+  cover.decoding = 'async';
+  cover.fetchPriority = 'high';
   $('d-cover').setAttribute('data-zoom', cover.src);
 
   // 描述（按换行分段）
@@ -70,18 +72,20 @@ function renderWork() {
   (w.images || []).forEach((src) => {
     const d = document.createElement('div');
     d.className = 'g-img';
-    d.setAttribute('data-zoom', src);
+    const real = imgUrl(src);
+    d.setAttribute('data-zoom', real);
     const img = document.createElement('img');
     img.alt = w.title;
     img.loading = 'lazy';
+    img.decoding = 'async';
     let retries = 0;
     img.onerror = () => {
       if (retries < 3) {
         retries++;
-        setTimeout(() => { img.src = src + (src.includes('?') ? '&' : '?') + '_retry=' + retries; }, 2000 * retries);
+        setTimeout(() => { img.src = real + (real.includes('?') ? '&' : '?') + '_retry=' + retries; }, 2000 * retries);
       }
     };
-    img.src = src;
+    img.src = real;
     d.appendChild(img);
     gal.appendChild(d);
   });
@@ -89,6 +93,7 @@ function renderWork() {
   renderFooter(data);
   initReveal();
   initLightbox();
+  fadeImages();
 }
 (async function () {
   const params = new URLSearchParams(location.search);

@@ -17,7 +17,7 @@ function renderHome() {
   // 头像：有图用图，否则显示名字首字
   const avatar = $('avatar');
   if (data.avatar) {
-    avatar.innerHTML = '<img src="' + data.avatar + '" alt="头像" />';
+    avatar.innerHTML = '<img src="' + imgUrl(data.avatar) + '" alt="头像" decoding="async" />';
   } else {
     avatar.textContent = (data.home.name || data.brand || '?').trim().charAt(0);
   }
@@ -26,8 +26,10 @@ function renderHome() {
   const heroImg = $('home-visual-img');
   const first = data.works[0];
   const heroSrc = data.home.heroImage || (first && (first.cover || (first.images && first.images[0]))) || '';
-  heroImg.src = heroSrc;
+  heroImg.src = imgUrl(heroSrc);
   heroImg.alt = (data.home.heroImage && '代表作') || (first ? first.title : '代表作');
+  heroImg.decoding = 'async';
+  heroImg.fetchPriority = 'high';
 
   // 精选作品（取前 6 件）
   renderWorksGrid(data.works, $('works-grid'), 6);
@@ -78,6 +80,7 @@ function renderHome() {
   renderFooter(data);
   initReveal();
   initLightbox();
+  fadeImages();
 }
 
 (async function () {
@@ -98,9 +101,10 @@ function renderProcess(p) {
     const it = document.createElement('div');
     it.className = 'process-item';
     const im = document.createElement('img');
-    im.src = src;
+    im.src = imgUrl(src);
     im.alt = '';
     im.loading = 'lazy';
+    im.decoding = 'async';
     it.appendChild(im);
     track.appendChild(it);
   });

@@ -13,6 +13,27 @@ const GH = {
   sitePath: 'site.json',
 };
 
+// 把 raw.githubusercontent.com 的仓库内图片改写为同源 GitHub Pages 地址，
+// 走 Pages(Fastly) CDN、复用同源连接、可被浏览器缓存；raw 域常被限流且跨域，是手机端图片加载慢的主因。
+function imgUrl(u) {
+  if (!u) return u;
+  const m = String(u).match(/^https?:\/\/raw\.githubusercontent\.com\/[^\/]+\/[^\/]+\/(?:main|master)\/(.+)$/);
+  return m ? location.origin + '/' + m[1] : u;
+}
+
+// 图片淡入：渲染后给所有 img 加 fz(透明)，加载完成再淡入，避免“残缺/白块”闪烁；
+// 仅 JS 成功运行后才隐藏，JS 异常也不会导致图片永久不可见。
+function fadeImages(scope) {
+  (scope || document).querySelectorAll('img').forEach((im) => {
+    if (im.classList.contains('fz')) return;
+    im.classList.add('fz');
+    const done = () => im.classList.add('loaded');
+    if (im.complete && im.naturalWidth > 0) done();
+    else im.addEventListener('load', done, { once: true });
+    im.addEventListener('error', done, { once: true });
+  });
+}
+
 const API = {
   token: localStorage.getItem('admin_token') || '',
   site: null,
@@ -479,7 +500,7 @@ function renderWorksGrid(works, container, limit) {
     a.className = 'work-card reveal';
     a.href = 'work.html?id=' + w.id;
     a.innerHTML = `
-      <div class="thumb"><img src="${w.cover || (w.images && w.images[0]) || ''}" alt="${w.title}" loading="lazy" /></div>
+      <div class="thumb"><img src="${imgUrl(w.cover || (w.images && w.images[0])) || ''}" alt="${w.title}" loading="lazy" decoding="async" /></div>
       <div class="meta">
         <span class="title">${w.title}</span>
         <span class="cat">${w.category || ''} · ${w.year || ''}</span>
@@ -487,6 +508,7 @@ function renderWorksGrid(works, container, limit) {
       <div class="summary">${w.summary || ''}</div>`;
     container.appendChild(a);
   });
+  fadeImages(container);
 }
 
 function initReveal() {
