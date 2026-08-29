@@ -475,8 +475,7 @@
         "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786946024722-2gfwk.jpg",
         "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953096582-cq8bw.jpg",
         "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953144765-5xehb.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953160843-v050c.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995034846-pd3hq.jpg"
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953160843-v050c.jpg"
       ],
       "summary": "方正烟盒语义香水瓶身，晶白料玻璃 + 塑料离式方盖。",
       "description": "TABAC NUIT 试图以极简方体形态诠释烟草夜色的氛围感。瓶身采用方正利落的切割轮廓，模拟烟盒的经典视觉语言，玻璃瓶身与注塑顶盖构成整套外观，整套仅 2 个主要外观零件，兼顾高级质感与量产可行性。",
@@ -566,31 +565,30 @@
     },
     {
       "id": "w4",
-      "title": "CLAY 陶瓷壶",
-      "category": "厨具",
+      "title": "perfume",
+      "category": "日化",
       "year": "2023",
-      "cover": "assets/work-04.png",
+      "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995074619-1nno6.jpg",
       "images": [
-        "assets/work-04.png"
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995074619-1nno6.jpg",
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995142469-g3a9k.jpg",
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995152290-ijgn0.jpg",
+        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995187792-vl79k.jpg"
       ],
-      "summary": "哑光炻器手冲壶，重心下沉、出水稳定。",
-      "description": "CLAY 以手作炻器呈现温润哑光质感，壶身重心刻意下沉以提升注水稳定。配套木柄经 CNC 加工，握感贴合。",
+      "summary": "镜面金属镂空香水瓶，雕塑感收腰，琥珀色内瓶。",
+      "description": "采用镜面金属外壳与琥珀色内瓶双层结构，瓶身有机水滴形镂空开窗展露香液色泽。雕塑感收腰造型兼顾视觉张力与握持手感。",
       "params": [
         {
           "k": "材质",
-          "v": "炻器 + 胡桃木"
+          "v": "ABS"
         },
         {
           "k": "容量",
-          "v": "420 ml"
+          "v": "100ml"
         },
         {
           "k": "工艺",
-          "v": "拉坯 + 哑光釉"
-        },
-        {
-          "k": "周期",
-          "v": "2023.03 – 2023.09"
+          "v": "电镀+喷涂"
         }
       ]
     },
