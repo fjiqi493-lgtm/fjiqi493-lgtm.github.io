@@ -125,29 +125,36 @@ main, .site-footer { transition: opacity 0.18s ease; }
 .home-cta { margin-top: 32px; display: flex; gap: 14px; }
 .home-visual {
   position: relative;
-  border: none; background: transparent; border-radius: 0;
+  border: none; background: var(--bg); border-radius: 0;
   overflow: hidden;
   margin-left: -90px; /* 向左侵入文字区 */
   margin-right: 0; /* 右边缘与下方容器右对齐 */
   z-index: 1;
-  /* 固定展示尺寸：不受上传图像素 / 左侧文字高度影响 */
+  /* 固定展示尺寸：不受上传图像素 / 左侧文字高度影响；
+     max-height 要足够大，避免桌面端先被高度限制而宽度撑不满 */
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 3;
-  max-height: 520px;
+  max-height: 640px;
   align-self: center;
-  background: var(--accent-soft);
 }
 .home-visual img {
   width: 100%; height: 100%; min-height: 0; object-fit: cover;
-  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%);
-  mask-image: linear-gradient(to left, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%);
+}
+/* 左侧：用背景色渐变遮罩融合图片硬边（比 mask-image 更稳、更自然） */
+.home-visual::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 120px;
+  background: linear-gradient(to right, var(--bg) 0%, rgba(251,251,249,0.55) 45%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
 }
 .home-visual::after {
   content: '';
   position: absolute; left: 0; right: 0; bottom: 0; height: 8%;
   background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
   pointer-events: none;
+  z-index: 2;
 }
 
 /* ===== 区块标题 ===== */
