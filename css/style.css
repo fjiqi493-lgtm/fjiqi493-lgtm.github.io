@@ -130,8 +130,8 @@ main, .site-footer { transition: opacity 0.18s ease; }
   margin-left: -90px; /* 向左侵入文字区 */
   margin-right: 0; /* 右边缘与下方容器右对齐 */
   z-index: 1;
-  /* 强制撑满 grid 右列，宽度不再受 aspect-ratio 压缩 */
-  width: 100%;
+  /* 强制撑满 grid 右列：左缘 -90px 侵入文字区，宽度补偿 +90px 使右缘仍回到容器右边界（与下方精选作品对齐） */
+  width: calc(100% + 90px);
   justify-self: stretch;
   align-self: center;
 }
@@ -369,7 +369,7 @@ main, .site-footer { transition: opacity 0.18s ease; }
 @media (max-width: 1024px) {
   .works-grid { grid-template-columns: repeat(2, 1fr); }
   .home-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .home-visual { max-width: 520px; margin-left: 0; margin-right: 0; }
+  .home-visual { width: 100%; max-width: 100%; margin-left: 0; margin-right: 0; }
   .detail-body { grid-template-columns: 1fr; gap: 40px; }
   .detail-side { position: static; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
