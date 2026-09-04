@@ -1,681 +1,693 @@
 {
-  "brand": "JASON",
-  "avatar": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787021009906-wllix.jpg",
-  "home": {
-    "kicker": "INDUSTRIAL DESIGNER",
-    "name": "Jason Fang",
-    "title": "工业设计师 · 产品外观设计 / 结构设计 / 量产落地 · 数字雕刻师",
-    "bio": "我专注消费电子、家居与工具的产品定义、CMF 与结构打样。从前期调研到量产跟进，独立完成产品从 0 到 1 的落地。擅长在约束之中，寻找简洁而耐用的解法。这里收录近年的部分作品。",
-    "heroImage": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788509350300-0j2ce.jpg"
-  },
-  "about": {
-    "bio": "本科毕业于工业设计专业，拥有 8 年消费电子与家居产品设计经验。熟悉 Rhino / NX 建模、CNC 打样与供应链协同，能独立完成从草图到量产的完整链路。近期也涉足香水瓶包装与生活方式品类。",
-    "skills": [
-      "产品定义",
-      "CMF",
-      "结构设计",
-      "Rhino / NX",
-      "3D 建模",
-      "量产落地",
-      "用户研究",
-      "包装设计"
-    ]
-  },
-  "process": {
-    "en": "PROJECT PROCESS",
-    "title": "部分创意过程",
-    "images": [
-      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
-      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786940667887-3w9tz.jpg",
-      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786946024722-2gfwk.jpg",
-      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
-      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787105710527-6lbsf.jpg",
-      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787195682843-c9e8p.jpg",
-      "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787306339601-3s2ua.jpg"
-    ],
-    "software": [
-      "Rhino",
-      "Siemens NX",
-      "Geomagic Design X",
-      "Geomagic Wrap",
-      "AutoCAD",
-      "SpaceClaim",
-      "3ds Max",
-      "ZBrush",
-      "Blender",
-      "KeyShot",
-      "RizomUV",
-      "PixPlant",
-      "Photoshop",
-      "Illustrator",
-      "Fusion 360",
-      "Creo"
-    ]
-  },
-  "contact": {
-    "email": "2907227699@qq.com",
-    "note": "有合作或委托，欢迎随时来信。我通常会在两个工作日内回复。",
-    "socials": [
-      {
-        "name": "微信",
-        "url": ""
-      },
-      {
-        "name": "Instagram",
-        "url": ""
-      },
-      {
-        "name": "Behance",
-        "url": ""
-      }
-    ]
-  },
-  "seo": "本页可被搜索引擎收录 · 分享链接即可访问",
-  "en": {
+    "brand": "JASON",
+    "avatar": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787021009906-wllix.jpg",
     "home": {
-      "kicker": "INDUSTRIAL DESIGNER",
-      "name": "Jason Fang",
-      "title": "Industrial Designer · Product & Structural Design · Mass Production · Digital Sculptor",
-      "bio": "I focus on product definition, CMF and structural prototyping for consumer electronics, home goods and tools. From early research to production follow-up, I take products from 0 to 1 end-to-end, and enjoy finding simple, durable solutions within constraints. This is a selection of recent work.",
-      "heroImage": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787105710527-6lbsf.jpg"
+        "kicker": "INDUSTRIAL DESIGNER",
+        "name": "Jason Fang",
+        "title": "\u5de5\u4e1a\u8bbe\u8ba1\u5e08 \u00b7 \u4ea7\u54c1\u5916\u89c2\u8bbe\u8ba1 / \u7ed3\u6784\u8bbe\u8ba1 / \u91cf\u4ea7\u843d\u5730 \u00b7 \u6570\u5b57\u96d5\u523b\u5e08",
+        "bio": "\u6211\u4e13\u6ce8\u6d88\u8d39\u7535\u5b50\u3001\u5bb6\u5c45\u4e0e\u5de5\u5177\u7684\u4ea7\u54c1\u5b9a\u4e49\u3001CMF \u4e0e\u7ed3\u6784\u6253\u6837\u3002\u4ece\u524d\u671f\u8c03\u7814\u5230\u91cf\u4ea7\u8ddf\u8fdb\uff0c\u72ec\u7acb\u5b8c\u6210\u4ea7\u54c1\u4ece 0 \u5230 1 \u7684\u843d\u5730\u3002\u64c5\u957f\u5728\u7ea6\u675f\u4e4b\u4e2d\uff0c\u5bfb\u627e\u7b80\u6d01\u800c\u8010\u7528\u7684\u89e3\u6cd5\u3002\u8fd9\u91cc\u6536\u5f55\u8fd1\u5e74\u7684\u90e8\u5206\u4f5c\u54c1\u3002",
+        "heroImage": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788509350300-0j2ce.jpg",
+        "colors": {
+            "kicker": "#ffffff",
+            "name": "#ffffff",
+            "title": "#ffffff",
+            "bio": "#ffffff"
+        }
     },
     "about": {
-      "bio": "Bachelor's in Industrial Design with 8 years in consumer electronics and home products. Proficient in Rhino / NX modeling, CNC prototyping and supply-chain coordination; I own the full path from sketch to mass production. Recently also exploring fragrance packaging and lifestyle goods.",
-      "skills": [
-        "Product Definition",
-        "CMF",
-        "Structural Design",
-        "Rhino / NX",
-        "3D Modeling",
-        "Production",
-        "User Research",
-        "Packaging Design"
-      ]
+        "bio": "\u672c\u79d1\u6bd5\u4e1a\u4e8e\u5de5\u4e1a\u8bbe\u8ba1\u4e13\u4e1a\uff0c\u62e5\u6709 8 \u5e74\u6d88\u8d39\u7535\u5b50\u4e0e\u5bb6\u5c45\u4ea7\u54c1\u8bbe\u8ba1\u7ecf\u9a8c\u3002\u719f\u6089 Rhino / NX \u5efa\u6a21\u3001CNC \u6253\u6837\u4e0e\u4f9b\u5e94\u94fe\u534f\u540c\uff0c\u80fd\u72ec\u7acb\u5b8c\u6210\u4ece\u8349\u56fe\u5230\u91cf\u4ea7\u7684\u5b8c\u6574\u94fe\u8def\u3002\u8fd1\u671f\u4e5f\u6d89\u8db3\u9999\u6c34\u74f6\u5305\u88c5\u4e0e\u751f\u6d3b\u65b9\u5f0f\u54c1\u7c7b\u3002",
+        "skills": [
+            "\u4ea7\u54c1\u5b9a\u4e49",
+            "CMF",
+            "\u7ed3\u6784\u8bbe\u8ba1",
+            "Rhino / NX",
+            "3D \u5efa\u6a21",
+            "\u91cf\u4ea7\u843d\u5730",
+            "\u7528\u6237\u7814\u7a76",
+            "\u5305\u88c5\u8bbe\u8ba1"
+        ]
     },
     "process": {
-      "en": "PROJECT PROCESS",
-      "title": "Selected Process",
-      "software": [
-        "Rhino",
-        "Siemens NX",
-        "Geomagic Design X",
-        "Geomagic Wrap",
-        "AutoCAD",
-        "SpaceClaim",
-        "3ds Max",
-        "ZBrush",
-        "Blender",
-        "KeyShot",
-        "RizomUV",
-        "PixPlant",
-        "Photoshop",
-        "Illustrator",
-        "Fusion 360",
-        "Creo"
-      ]
-    },
-    "philosophy": {
-      "en": "PHILOSOPHY",
-      "title": "Design Philosophy",
-      "items": [
-        {
-          "num": "01",
-          "title": "Less is More",
-          "text": "Every product should strike the simplest balance between function and form. Strip away excess ornament and let material and proportion speak for themselves."
-        },
-        {
-          "num": "02",
-          "title": "Design for Production",
-          "text": "A pretty concept render is only the start. Every line must consider structural feasibility, CMF cost and supply-chain constraints."
-        },
-        {
-          "num": "03",
-          "title": "Start with the User",
-          "text": "Never design for design's sake. Understand who uses it, in what context, and why they need it—before the first stroke."
-        }
-      ],
-      "quote": "Good industrial design is invisible—you never notice it, yet you can't do without it."
+        "en": "PROJECT PROCESS",
+        "title": "\u90e8\u5206\u521b\u610f\u8fc7\u7a0b",
+        "images": [
+            "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
+            "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786940667887-3w9tz.jpg",
+            "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786946024722-2gfwk.jpg",
+            "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
+            "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787105710527-6lbsf.jpg",
+            "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787195682843-c9e8p.jpg",
+            "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787306339601-3s2ua.jpg"
+        ],
+        "software": [
+            "Rhino",
+            "Siemens NX",
+            "Geomagic Design X",
+            "Geomagic Wrap",
+            "AutoCAD",
+            "SpaceClaim",
+            "3ds Max",
+            "ZBrush",
+            "Blender",
+            "KeyShot",
+            "RizomUV",
+            "PixPlant",
+            "Photoshop",
+            "Illustrator",
+            "Fusion 360",
+            "Creo"
+        ]
     },
     "contact": {
-      "email": "2907227699@qq.com",
-      "note": "For collaborations or commissions, feel free to reach out anytime. I usually reply within two business days.",
-      "socials": [
-        {
-          "name": "WeChat",
-          "url": ""
-        },
-        {
-          "name": "Instagram",
-          "url": ""
-        },
-        {
-          "name": "Behance",
-          "url": ""
-        }
-      ]
+        "email": "2907227699@qq.com",
+        "note": "\u6709\u5408\u4f5c\u6216\u59d4\u6258\uff0c\u6b22\u8fce\u968f\u65f6\u6765\u4fe1\u3002\u6211\u901a\u5e38\u4f1a\u5728\u4e24\u4e2a\u5de5\u4f5c\u65e5\u5185\u56de\u590d\u3002",
+        "socials": [
+            {
+                "name": "\u5fae\u4fe1",
+                "url": ""
+            },
+            {
+                "name": "Instagram",
+                "url": ""
+            },
+            {
+                "name": "Behance",
+                "url": ""
+            }
+        ]
     },
-    "seo": "This page is indexable by search engines · Share the link to visit",
+    "seo": "\u672c\u9875\u53ef\u88ab\u641c\u7d22\u5f15\u64ce\u6536\u5f55 \u00b7 \u5206\u4eab\u94fe\u63a5\u5373\u53ef\u8bbf\u95ee",
+    "en": {
+        "home": {
+            "kicker": "INDUSTRIAL DESIGNER",
+            "name": "Jason Fang",
+            "title": "Industrial Designer \u00b7 Product & Structural Design \u00b7 Mass Production \u00b7 Digital Sculptor",
+            "bio": "I focus on product definition, CMF and structural prototyping for consumer electronics, home goods and tools. From early research to production follow-up, I take products from 0 to 1 end-to-end, and enjoy finding simple, durable solutions within constraints. This is a selection of recent work.",
+            "heroImage": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788509350300-0j2ce.jpg",
+            "colors": {
+                "kicker": "#ffffff",
+                "name": "#ffffff",
+                "title": "#ffffff",
+                "bio": "#ffffff"
+            }
+        },
+        "about": {
+            "bio": "Bachelor's in Industrial Design with 8 years in consumer electronics and home products. Proficient in Rhino / NX modeling, CNC prototyping and supply-chain coordination; I own the full path from sketch to mass production. Recently also exploring fragrance packaging and lifestyle goods.",
+            "skills": [
+                "Product Definition",
+                "CMF",
+                "Structural Design",
+                "Rhino / NX",
+                "3D Modeling",
+                "Production",
+                "User Research",
+                "Packaging Design"
+            ]
+        },
+        "process": {
+            "en": "PROJECT PROCESS",
+            "title": "Selected Process",
+            "software": [
+                "Rhino",
+                "Siemens NX",
+                "Geomagic Design X",
+                "Geomagic Wrap",
+                "AutoCAD",
+                "SpaceClaim",
+                "3ds Max",
+                "ZBrush",
+                "Blender",
+                "KeyShot",
+                "RizomUV",
+                "PixPlant",
+                "Photoshop",
+                "Illustrator",
+                "Fusion 360",
+                "Creo"
+            ]
+        },
+        "philosophy": {
+            "en": "PHILOSOPHY",
+            "title": "Design Philosophy",
+            "items": [
+                {
+                    "num": "01",
+                    "title": "Less is More",
+                    "text": "Every product should strike the simplest balance between function and form. Strip away excess ornament and let material and proportion speak for themselves."
+                },
+                {
+                    "num": "02",
+                    "title": "Design for Production",
+                    "text": "A pretty concept render is only the start. Every line must consider structural feasibility, CMF cost and supply-chain constraints."
+                },
+                {
+                    "num": "03",
+                    "title": "Start with the User",
+                    "text": "Never design for design's sake. Understand who uses it, in what context, and why they need it\u2014before the first stroke."
+                }
+            ],
+            "quote": "Good industrial design is invisible\u2014you never notice it, yet you can't do without it."
+        },
+        "contact": {
+            "email": "2907227699@qq.com",
+            "note": "For collaborations or commissions, feel free to reach out anytime. I usually reply within two business days.",
+            "socials": [
+                {
+                    "name": "WeChat",
+                    "url": ""
+                },
+                {
+                    "name": "Instagram",
+                    "url": ""
+                },
+                {
+                    "name": "Behance",
+                    "url": ""
+                }
+            ]
+        },
+        "seo": "This page is indexable by search engines \u00b7 Share the link to visit",
+        "nav": [
+            {
+                "label": "Home",
+                "href": "index.html"
+            },
+            {
+                "label": "Works",
+                "href": "works.html"
+            },
+            {
+                "label": "Process",
+                "href": "index.html#process"
+            },
+            {
+                "label": "Contact",
+                "href": "index.html#contact"
+            }
+        ],
+        "sections": {
+            "works": {
+                "en": "SELECTED WORKS",
+                "title": "Selected Works"
+            },
+            "about": {
+                "en": "ABOUT",
+                "title": "About"
+            },
+            "process": {
+                "en": "PROJECT PROCESS",
+                "title": "Process"
+            },
+            "contact": {
+                "en": "CONTACT",
+                "title": "Contact"
+            },
+            "allWorks": {
+                "en": "WORKS",
+                "title": "All Works"
+            }
+        },
+        "footer": {
+            "colNav": "Nav",
+            "colWorks": "Works",
+            "colContact": "Contact"
+        },
+        "workLabels": {
+            "project": "PROJECT",
+            "overview": "Overview",
+            "params": "Parameters"
+        },
+        "works": [
+            {
+                "id": "w1",
+                "title": "TABAC NUIT Fragrance",
+                "category": "Beauty",
+                "year": "2026",
+                "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
+                "images": [
+                    "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
+                    "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786940667887-3w9tz.jpg",
+                    "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786946024722-2gfwk.jpg",
+                    "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953096582-cq8bw.jpg",
+                    "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953144765-5xehb.jpg",
+                    "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953160843-v050c.jpg"
+                ],
+                "summary": "A fragrance bottle with a squared cigarette-case language: crystal-clear glass body and a detachable square cap.",
+                "description": "TABAC NUIT translates the mood of a tobacco night into a minimal squared form. The bottle takes a crisp, squared silhouette that echoes the classic visual language of a cigarette case; a glass body and an injection-molded cap make up the whole exterior, with only 2 main cosmetic parts\u2014balancing premium feel and manufacturability.",
+                "params": [
+                    {
+                        "k": "Material",
+                        "v": "Anodized aluminum + walnut"
+                    },
+                    {
+                        "k": "Dimensions",
+                        "v": "\u00d8180 \u00d7 64 mm"
+                    },
+                    {
+                        "k": "Process",
+                        "v": "CNC + magnetic assembly"
+                    },
+                    {
+                        "k": "Timeline",
+                        "v": "2024.09 \u2013 2025.03"
+                    }
+                ]
+            },
+            {
+                "id": "w2",
+                "title": "joker perfume",
+                "category": "Beauty",
+                "year": "2026",
+                "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
+                "images": [
+                    "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
+                    "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866903222-foz3t.jpg"
+                ],
+                "summary": "A modular desk lamp with swappable heads; warm light for a cozy home mood.",
+                "description": "LUMA decouples the body from the head so users can swap spot/flood modules by scenario. The arm is a single extruded-aluminum profile, bent into shape\u2014simple structure at a controllable cost.",
+                "params": [
+                    {
+                        "k": "Material",
+                        "v": "Aluminum extrusion + PC"
+                    },
+                    {
+                        "k": "Color Temp",
+                        "v": "2700K \u2013 4000K"
+                    },
+                    {
+                        "k": "Process",
+                        "v": "Extrusion + bending"
+                    },
+                    {
+                        "k": "Timeline",
+                        "v": "2024.02 \u2013 2024.08"
+                    }
+                ]
+            },
+            {
+                "id": "w3",
+                "title": "FOLD Folding Tool",
+                "category": "Outdoor Tool",
+                "year": "2024",
+                "cover": "assets/work-03.png",
+                "images": [
+                    "assets/work-03.png"
+                ],
+                "summary": "An integrated titanium folding multi-tool; lightweight and portable.",
+                "description": "FOLD is cut and bent from a single titanium sheet; unfolded it offers pliers, knife and wrench. Stowed thickness is just 11mm\u2014easy to carry.",
+                "params": [
+                    {
+                        "k": "Material",
+                        "v": "Titanium TC4"
+                    },
+                    {
+                        "k": "Weight",
+                        "v": "86 g"
+                    },
+                    {
+                        "k": "Process",
+                        "v": "Wire-cut + bending"
+                    },
+                    {
+                        "k": "Timeline",
+                        "v": "2023.11 \u2013 2024.05"
+                    }
+                ]
+            },
+            {
+                "id": "w4",
+                "title": "CLAY Ceramic Kettle",
+                "category": "Kitchenware",
+                "year": "2023",
+                "cover": "assets/work-04.png",
+                "images": [
+                    "assets/work-04.png"
+                ],
+                "summary": "A matte stoneware pour-over kettle with a lowered center of gravity for steady pours.",
+                "description": "CLAY shows a warm matte feel in hand-made stoneware; the body's center of gravity is deliberately lowered to steady the pour. The wooden handle is CNC-machined for a snug grip.",
+                "params": [
+                    {
+                        "k": "Material",
+                        "v": "Stoneware + walnut"
+                    },
+                    {
+                        "k": "Capacity",
+                        "v": "420 ml"
+                    },
+                    {
+                        "k": "Process",
+                        "v": "Thrown + matte glaze"
+                    },
+                    {
+                        "k": "Timeline",
+                        "v": "2023.03 \u2013 2023.09"
+                    }
+                ]
+            },
+            {
+                "id": "w5",
+                "title": "MOVE Wheelchair Concept",
+                "category": "Mobility Aid",
+                "year": "2023",
+                "cover": "assets/work-05.png",
+                "images": [
+                    "assets/work-05.png"
+                ],
+                "summary": "A lightweight aluminum wheelchair concept with slim structure and easy folding.",
+                "description": "MOVE rethinks the tubing layout, using fewer cross-members for the same strength and a lighter look. The seat flips up for easy side transfers.",
+                "params": [
+                    {
+                        "k": "Material",
+                        "v": "Aluminum 6061"
+                    },
+                    {
+                        "k": "Weight",
+                        "v": "7.2 kg"
+                    },
+                    {
+                        "k": "Process",
+                        "v": "Tubing + welding"
+                    },
+                    {
+                        "k": "Timeline",
+                        "v": "2022.12 \u2013 2023.06"
+                    }
+                ]
+            },
+            {
+                "id": "w6",
+                "title": "ECHO Headphones",
+                "category": "Wearable",
+                "year": "2025",
+                "cover": "assets/work-06.png",
+                "images": [
+                    "assets/work-06.png"
+                ],
+                "summary": "A minimal matte-black headphone with no visible screws.",
+                "description": "ECHO pursues a one-piece clean language: headband and earcup shells hide all fasteners, assembled via internal clips. Pads are memory foam with protein leather.",
+                "params": [
+                    {
+                        "k": "Material",
+                        "v": "PC + aluminum"
+                    },
+                    {
+                        "k": "Weight",
+                        "v": "248 g"
+                    },
+                    {
+                        "k": "Process",
+                        "v": "Two-shot molding + clips"
+                    },
+                    {
+                        "k": "Timeline",
+                        "v": "2024.10 \u2013 2025.04"
+                    }
+                ]
+            }
+        ]
+    },
     "nav": [
-      {
-        "label": "Home",
-        "href": "index.html"
-      },
-      {
-        "label": "Works",
-        "href": "works.html"
-      },
-      {
-        "label": "Process",
-        "href": "index.html#process"
-      },
-      {
-        "label": "Contact",
-        "href": "index.html#contact"
-      }
+        {
+            "label": "\u9996\u9875",
+            "href": "index.html"
+        },
+        {
+            "label": "\u4f5c\u54c1",
+            "href": "works.html"
+        },
+        {
+            "label": "\u521b\u610f\u8fc7\u7a0b",
+            "href": "index.html#process"
+        },
+        {
+            "label": "\u8054\u7cfb",
+            "href": "index.html#contact"
+        }
     ],
     "sections": {
-      "works": {
-        "en": "SELECTED WORKS",
-        "title": "Selected Works"
-      },
-      "about": {
-        "en": "ABOUT",
-        "title": "About"
-      },
-      "process": {
-        "en": "PROJECT PROCESS",
-        "title": "Process"
-      },
-      "contact": {
-        "en": "CONTACT",
-        "title": "Contact"
-      },
-      "allWorks": {
-        "en": "WORKS",
-        "title": "All Works"
-      }
+        "works": {
+            "en": "SELECTED WORKS",
+            "title": "\u7cbe\u9009\u4f5c\u54c1"
+        },
+        "process": {
+            "en": "PROJECT PROCESS",
+            "title": "\u9879\u76ee\u8fc7\u7a0b"
+        },
+        "contact": {
+            "en": "CONTACT",
+            "title": "\u5408\u4f5c\u8054\u7cfb"
+        },
+        "allWorks": {
+            "en": "WORKS",
+            "title": "\u5168\u90e8\u4f5c\u54c1"
+        }
     },
     "footer": {
-      "colNav": "Nav",
-      "colWorks": "Works",
-      "colContact": "Contact"
+        "colNav": "\u5bfc\u822a",
+        "colWorks": "\u4f5c\u54c1",
+        "colContact": "\u8054\u7cfb"
     },
     "workLabels": {
-      "project": "PROJECT",
-      "overview": "Overview",
-      "params": "Parameters"
+        "project": "PROJECT",
+        "overview": "\u6982\u89c8",
+        "params": "\u53c2\u6570"
+    },
+    "philosophy": {
+        "en": "PHILOSOPHY",
+        "title": "\u8bbe\u8ba1\u7406\u5ff5",
+        "items": [
+            {
+                "num": "01",
+                "title": "\u5c11\u5373\u662f\u591a",
+                "text": "\u6bcf\u4e2a\u4ea7\u54c1\u90fd\u5e94\u5728\u529f\u80fd\u4e0e\u5f62\u6001\u4e4b\u95f4\u627e\u5230\u6700\u7b80\u5e73\u8861\u3002\u53bb\u6389\u591a\u4f59\u7684\u88c5\u9970\uff0c\u8ba9\u6750\u8d28\u548c\u6bd4\u4f8b\u81ea\u5df1\u8bf4\u8bdd\u3002"
+            },
+            {
+                "num": "02",
+                "title": "\u4e3a\u91cf\u4ea7\u8bbe\u8ba1",
+                "text": "\u597d\u770b\u7684\u6982\u5ff5\u56fe\u53ea\u662f\u8d77\u70b9\u3002\u6bcf\u4e00\u7b14\u7ebf\u6761\u90fd\u8981\u8003\u8651\u7ed3\u6784\u53ef\u884c\u6027\u3001CMF \u6210\u672c\u4e0e\u4f9b\u5e94\u94fe\u7ea6\u675f\u3002"
+            },
+            {
+                "num": "03",
+                "title": "\u4ece\u7528\u6237\u51fa\u53d1",
+                "text": "\u4e0d\u4e3a\u4e86\u8bbe\u8ba1\u800c\u8bbe\u8ba1\u3002\u5148\u7406\u89e3\u8c01\u5728\u7528\u3001\u5728\u4ec0\u4e48\u573a\u666f\u7528\u3001\u4e3a\u4ec0\u4e48\u9700\u8981\u5b83\uff0c\u518d\u52a8\u7b2c\u4e00\u7b14\u3002"
+            }
+        ],
+        "quote": "\u597d\u7684\u5de5\u4e1a\u8bbe\u8ba1\u662f\u9690\u5f62\u7684\u2014\u2014\u4f60\u611f\u89c9\u4e0d\u5230\u5b83\u7684\u5b58\u5728\uff0c\u4f46\u79bb\u5f00\u5b83\u53c8\u4e0d\u884c\u3002"
     },
     "works": [
-      {
-        "id": "w1",
-        "title": "TABAC NUIT Fragrance",
-        "category": "Beauty",
-        "year": "2026",
-        "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
-        "images": [
-          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
-          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786940667887-3w9tz.jpg",
-          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786946024722-2gfwk.jpg",
-          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953096582-cq8bw.jpg",
-          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953144765-5xehb.jpg",
-          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953160843-v050c.jpg"
-        ],
-        "summary": "A fragrance bottle with a squared cigarette-case language: crystal-clear glass body and a detachable square cap.",
-        "description": "TABAC NUIT translates the mood of a tobacco night into a minimal squared form. The bottle takes a crisp, squared silhouette that echoes the classic visual language of a cigarette case; a glass body and an injection-molded cap make up the whole exterior, with only 2 main cosmetic parts—balancing premium feel and manufacturability.",
-        "params": [
-          {
-            "k": "Material",
-            "v": "Anodized aluminum + walnut"
-          },
-          {
-            "k": "Dimensions",
-            "v": "Ø180 × 64 mm"
-          },
-          {
-            "k": "Process",
-            "v": "CNC + magnetic assembly"
-          },
-          {
-            "k": "Timeline",
-            "v": "2024.09 – 2025.03"
-          }
-        ]
-      },
-      {
-        "id": "w2",
-        "title": "joker perfume",
-        "category": "Beauty",
-        "year": "2026",
-        "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
-        "images": [
-          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
-          "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866903222-foz3t.jpg"
-        ],
-        "summary": "A modular desk lamp with swappable heads; warm light for a cozy home mood.",
-        "description": "LUMA decouples the body from the head so users can swap spot/flood modules by scenario. The arm is a single extruded-aluminum profile, bent into shape—simple structure at a controllable cost.",
-        "params": [
-          {
-            "k": "Material",
-            "v": "Aluminum extrusion + PC"
-          },
-          {
-            "k": "Color Temp",
-            "v": "2700K – 4000K"
-          },
-          {
-            "k": "Process",
-            "v": "Extrusion + bending"
-          },
-          {
-            "k": "Timeline",
-            "v": "2024.02 – 2024.08"
-          }
-        ]
-      },
-      {
-        "id": "w3",
-        "title": "FOLD Folding Tool",
-        "category": "Outdoor Tool",
-        "year": "2024",
-        "cover": "assets/work-03.png",
-        "images": [
-          "assets/work-03.png"
-        ],
-        "summary": "An integrated titanium folding multi-tool; lightweight and portable.",
-        "description": "FOLD is cut and bent from a single titanium sheet; unfolded it offers pliers, knife and wrench. Stowed thickness is just 11mm—easy to carry.",
-        "params": [
-          {
-            "k": "Material",
-            "v": "Titanium TC4"
-          },
-          {
-            "k": "Weight",
-            "v": "86 g"
-          },
-          {
-            "k": "Process",
-            "v": "Wire-cut + bending"
-          },
-          {
-            "k": "Timeline",
-            "v": "2023.11 – 2024.05"
-          }
-        ]
-      },
-      {
-        "id": "w4",
-        "title": "CLAY Ceramic Kettle",
-        "category": "Kitchenware",
-        "year": "2023",
-        "cover": "assets/work-04.png",
-        "images": [
-          "assets/work-04.png"
-        ],
-        "summary": "A matte stoneware pour-over kettle with a lowered center of gravity for steady pours.",
-        "description": "CLAY shows a warm matte feel in hand-made stoneware; the body's center of gravity is deliberately lowered to steady the pour. The wooden handle is CNC-machined for a snug grip.",
-        "params": [
-          {
-            "k": "Material",
-            "v": "Stoneware + walnut"
-          },
-          {
-            "k": "Capacity",
-            "v": "420 ml"
-          },
-          {
-            "k": "Process",
-            "v": "Thrown + matte glaze"
-          },
-          {
-            "k": "Timeline",
-            "v": "2023.03 – 2023.09"
-          }
-        ]
-      },
-      {
-        "id": "w5",
-        "title": "MOVE Wheelchair Concept",
-        "category": "Mobility Aid",
-        "year": "2023",
-        "cover": "assets/work-05.png",
-        "images": [
-          "assets/work-05.png"
-        ],
-        "summary": "A lightweight aluminum wheelchair concept with slim structure and easy folding.",
-        "description": "MOVE rethinks the tubing layout, using fewer cross-members for the same strength and a lighter look. The seat flips up for easy side transfers.",
-        "params": [
-          {
-            "k": "Material",
-            "v": "Aluminum 6061"
-          },
-          {
-            "k": "Weight",
-            "v": "7.2 kg"
-          },
-          {
-            "k": "Process",
-            "v": "Tubing + welding"
-          },
-          {
-            "k": "Timeline",
-            "v": "2022.12 – 2023.06"
-          }
-        ]
-      },
-      {
-        "id": "w6",
-        "title": "ECHO Headphones",
-        "category": "Wearable",
-        "year": "2025",
-        "cover": "assets/work-06.png",
-        "images": [
-          "assets/work-06.png"
-        ],
-        "summary": "A minimal matte-black headphone with no visible screws.",
-        "description": "ECHO pursues a one-piece clean language: headband and earcup shells hide all fasteners, assembled via internal clips. Pads are memory foam with protein leather.",
-        "params": [
-          {
-            "k": "Material",
-            "v": "PC + aluminum"
-          },
-          {
-            "k": "Weight",
-            "v": "248 g"
-          },
-          {
-            "k": "Process",
-            "v": "Two-shot molding + clips"
-          },
-          {
-            "k": "Timeline",
-            "v": "2024.10 – 2025.04"
-          }
-        ]
-      }
+        {
+            "id": "w1",
+            "title": "TABAC NUIT \u9999\u6c34",
+            "category": "\u65e5\u5316",
+            "year": "2026",
+            "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786940667887-3w9tz.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786946024722-2gfwk.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953096582-cq8bw.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953144765-5xehb.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953160843-v050c.jpg"
+            ],
+            "summary": "\u65b9\u6b63\u70df\u76d2\u8bed\u4e49\u9999\u6c34\u74f6\u8eab\uff0c\u6676\u767d\u6599\u73bb\u7483 + \u5851\u6599\u79bb\u5f0f\u65b9\u76d6\u3002",
+            "description": "TABAC NUIT \u8bd5\u56fe\u4ee5\u6781\u7b80\u65b9\u4f53\u5f62\u6001\u8be0\u91ca\u70df\u8349\u591c\u8272\u7684\u6c1b\u56f4\u611f\u3002\u74f6\u8eab\u91c7\u7528\u65b9\u6b63\u5229\u843d\u7684\u5207\u5272\u8f6e\u5ed3\uff0c\u6a21\u62df\u70df\u76d2\u7684\u7ecf\u5178\u89c6\u89c9\u8bed\u8a00\uff0c\u73bb\u7483\u74f6\u8eab\u4e0e\u6ce8\u5851\u9876\u76d6\u6784\u6210\u6574\u5957\u5916\u89c2\uff0c\u6574\u5957\u4ec5 2 \u4e2a\u4e3b\u8981\u5916\u89c2\u96f6\u4ef6\uff0c\u517c\u987e\u9ad8\u7ea7\u8d28\u611f\u4e0e\u91cf\u4ea7\u53ef\u884c\u6027\u3002",
+            "params": [
+                {
+                    "k": "\u6750\u8d28",
+                    "v": "\u9633\u6781\u6c27\u5316\u94dd + \u80e1\u6843\u6728"
+                },
+                {
+                    "k": "\u5c3a\u5bf8",
+                    "v": "\u00d8180 \u00d7 64 mm"
+                },
+                {
+                    "k": "\u5de5\u827a",
+                    "v": "CNC + \u78c1\u5438\u88c5\u914d"
+                },
+                {
+                    "k": "\u5468\u671f",
+                    "v": "2024.09 \u2013 2025.03"
+                }
+            ]
+        },
+        {
+            "id": "w2",
+            "title": "joker perfume",
+            "category": "\u65e5\u5316",
+            "year": "2026",
+            "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866903222-foz3t.jpg"
+            ],
+            "summary": "\u53ef\u62c6\u6362\u706f\u5934\u7684\u6a21\u5757\u5316\u53f0\u706f\uff0c\u6696\u5149\u8d34\u5408\u5c45\u5bb6\u6c1b\u56f4\u3002",
+            "description": "LUMA \u5c06\u706f\u4f53\u4e0e\u706f\u5934\u89e3\u8026\uff0c\u7528\u6237\u53ef\u6309\u573a\u666f\u66f4\u6362\u805a\u5149 / \u6cdb\u5149\u6a21\u7ec4\u3002\u706f\u81c2\u4e3a\u5355\u6839\u94dd\u6324\u578b\u6750\uff0c\u6298\u5f2f\u6210\u578b\uff0c\u7ed3\u6784\u7b80\u6d01\u4e14\u6210\u672c\u53ef\u63a7\u3002",
+            "params": [
+                {
+                    "k": "\u6750\u8d28",
+                    "v": "\u94dd\u6324\u578b\u6750 + PC"
+                },
+                {
+                    "k": "\u8272\u6e29",
+                    "v": "2700K \u2013 4000K"
+                },
+                {
+                    "k": "\u5de5\u827a",
+                    "v": "\u94dd\u6324 + \u6298\u5f2f"
+                },
+                {
+                    "k": "\u5468\u671f",
+                    "v": "2024.02 \u2013 2024.08"
+                }
+            ]
+        },
+        {
+            "id": "w3",
+            "title": "\u5973\u4f53\u9999\u6c34",
+            "category": "\u65e5\u5316",
+            "year": "2026",
+            "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208213686-r2bzq.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208213686-r2bzq.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208221892-r1uc4.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208256021-uq0y1.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208293222-d2hi8.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208300452-2rrss.jpg"
+            ],
+            "summary": "\u96d5\u5851\u611f\u9999\u6c1b\u5bb9\u5668\uff0c\u7ec7\u7269\u8936\u76b1\u5f62\u6001\uff0c\u901a\u900f\u74f6\u8eab\uff0c\u517c\u987e\u7f8e\u5b66\u4e0e\u624b\u6301\u4f53\u9a8c\u3002",
+            "description": "\u4ee5\u5782\u5760\u7ec7\u7269\u8936\u76b1\u4e3a\u8bbe\u8ba1\u7075\u611f\uff0c\u626d\u66f2\u901a\u900f\u73bb\u7483\u74f6\u8eab\u642d\u914d\u96d5\u5851\u611f\u91d1\u5c5e\u74f6\u76d6\uff0c\u517c\u5177\u6d41\u52a8\u827a\u672f\u5f62\u6001\u4e0e\u8212\u9002\u624b\u6301\u4f53\u9a8c\uff0c\u63d0\u4f9b\u591a\u7ec4 CMF \u914d\u8272\u65b9\u6848\u3002",
+            "params": [
+                {
+                    "k": "\u6750\u8d28",
+                    "v": "\u949b\u5408\u91d1 TC4"
+                },
+                {
+                    "k": "\u91cd\u91cf",
+                    "v": "86 g"
+                },
+                {
+                    "k": "\u5de5\u827a",
+                    "v": "\u7ebf\u5207\u5272 + \u6298\u5f2f"
+                },
+                {
+                    "k": "\u5468\u671f",
+                    "v": "2023.11 \u2013 2024.05"
+                }
+            ]
+        },
+        {
+            "id": "w4",
+            "title": "perfume",
+            "category": "\u65e5\u5316",
+            "year": "2023",
+            "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995074619-1nno6.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995074619-1nno6.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995142469-g3a9k.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995152290-ijgn0.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995187792-vl79k.jpg"
+            ],
+            "summary": "\u955c\u9762\u91d1\u5c5e\u9542\u7a7a\u9999\u6c34\u74f6\uff0c\u96d5\u5851\u611f\u6536\u8170\uff0c\u7425\u73c0\u8272\u5185\u74f6\u3002",
+            "description": "\u91c7\u7528\u955c\u9762\u91d1\u5c5e\u5916\u58f3\u4e0e\u7425\u73c0\u8272\u5185\u74f6\u53cc\u5c42\u7ed3\u6784\uff0c\u74f6\u8eab\u6709\u673a\u6c34\u6ef4\u5f62\u9542\u7a7a\u5f00\u7a97\u5c55\u9732\u9999\u6db2\u8272\u6cfd\u3002\u96d5\u5851\u611f\u6536\u8170\u9020\u578b\u517c\u987e\u89c6\u89c9\u5f20\u529b\u4e0e\u63e1\u6301\u624b\u611f\u3002",
+            "params": [
+                {
+                    "k": "\u6750\u8d28",
+                    "v": "ABS"
+                },
+                {
+                    "k": "\u5bb9\u91cf",
+                    "v": "100ml"
+                },
+                {
+                    "k": "\u5de5\u827a",
+                    "v": "\u7535\u9540+\u55b7\u6d82"
+                }
+            ]
+        },
+        {
+            "id": "w5",
+            "title": "MOVE \u8f6e\u6905\u6982\u5ff5",
+            "category": "\u533b\u7597\u8f85\u5177",
+            "year": "2023",
+            "cover": "assets/work-05.png",
+            "images": [
+                "assets/work-05.png"
+            ],
+            "summary": "\u8f7b\u91cf\u5316\u94dd\u5408\u91d1\u8f6e\u6905\u6982\u5ff5\uff0c\u7ed3\u6784\u7ea4\u7ec6\u3001\u6613\u6536\u7eb3\u3002",
+            "description": "MOVE \u91cd\u65b0\u68b3\u7406\u4e86\u8f6e\u6905\u7684\u7ba1\u4ef6\u8d70\u5411\uff0c\u7528\u66f4\u5c11\u7684\u4ea4\u53c9\u4ef6\u5b9e\u73b0\u540c\u7b49\u5f3a\u5ea6\uff0c\u6574\u4f53\u89c6\u89c9\u66f4\u8f7b\u76c8\u3002\u5ea7\u9762\u53ef\u4e0a\u7ffb\uff0c\u65b9\u4fbf\u4fa7\u5411\u8f6c\u79fb\u3002",
+            "params": [
+                {
+                    "k": "\u6750\u8d28",
+                    "v": "\u94dd\u5408\u91d1 6061"
+                },
+                {
+                    "k": "\u81ea\u91cd",
+                    "v": "7.2 kg"
+                },
+                {
+                    "k": "\u5de5\u827a",
+                    "v": "\u7ba1\u6750 + \u710a\u63a5"
+                },
+                {
+                    "k": "\u5468\u671f",
+                    "v": "2022.12 \u2013 2023.06"
+                }
+            ]
+        },
+        {
+            "id": "w6",
+            "title": "ECHO \u5934\u6234\u8033\u673a",
+            "category": "\u53ef\u7a7f\u6234",
+            "year": "2025",
+            "cover": "assets/work-06.png",
+            "images": [
+                "assets/work-06.png"
+            ],
+            "summary": "\u6781\u7b80\u54d1\u9ed1\u5934\u6234\u8033\u673a\uff0c\u65e0\u5916\u9732\u87ba\u4e1d\u3002",
+            "description": "ECHO \u8ffd\u6c42\u4e00\u4f53\u7eaf\u51c0\u7684\u5916\u89c2\u8bed\u8a00\uff0c\u5934\u6881\u4e0e\u8033\u7f69\u5916\u58f3\u5747\u65e0\u5916\u9732\u7d27\u56fa\u4ef6\uff0c\u9760\u5185\u90e8\u5361\u6263\u7ec4\u88c5\u3002\u8033\u57ab\u4e3a\u8bb0\u5fc6\u6d77\u7ef5 + \u86cb\u767d\u76ae\u3002",
+            "params": [
+                {
+                    "k": "\u6750\u8d28",
+                    "v": "PC + \u94dd\u5408\u91d1"
+                },
+                {
+                    "k": "\u91cd\u91cf",
+                    "v": "248 g"
+                },
+                {
+                    "k": "\u5de5\u827a",
+                    "v": "\u53cc\u8272\u6ce8\u5851 + \u5361\u6263"
+                },
+                {
+                    "k": "\u5468\u671f",
+                    "v": "2024.10 \u2013 2025.04"
+                }
+            ]
+        },
+        {
+            "title": "sword perfume",
+            "category": "\u65e5\u5316",
+            "year": "2026",
+            "summary": "\u96d5\u5851\u611f\u9999\u6c1b\u5bb9\u5668\uff0c\u7ec7\u7269\u8936\u76b1\u5f62\u6001\uff0c\u901a\u900f\u74f6\u8eab\uff0c\u517c\u987e\u7f8e\u5b66\u4e0e\u624b\u6301\u4f53\u9a8c\u3002",
+            "description": "\u96d5\u5851\u611f\u9999\u6c1b\u5bb9\u5668\uff0c\u7ec7\u7269\u8936\u76b1\u5f62\u6001\uff0c\u901a\u900f\u74f6\u8eab\uff0c\u517c\u987e\u7f8e\u5b66\u4e0e\u624b\u6301\u4f53\u9a8c\u3002",
+            "images": [
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513902292-581un.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513910508-ahone.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513919838-9fvve.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513934896-k6c5y.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513938600-e5l7o.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513941924-m1rrw.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513945309-bzlrf.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513948646-pme9d.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513951425-mvwvt.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513954290-ib7c2.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513958341-i80xo.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513961440-jad16.jpg",
+                "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513964419-d9a5p.jpg"
+            ],
+            "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513902292-581un.jpg",
+            "params": [],
+            "id": "w1788514150150"
+        }
     ]
-  },
-  "nav": [
-    {
-      "label": "首页",
-      "href": "index.html"
-    },
-    {
-      "label": "作品",
-      "href": "works.html"
-    },
-    {
-      "label": "创意过程",
-      "href": "index.html#process"
-    },
-    {
-      "label": "联系",
-      "href": "index.html#contact"
-    }
-  ],
-  "sections": {
-    "works": {
-      "en": "SELECTED WORKS",
-      "title": "精选作品"
-    },
-    "process": {
-      "en": "PROJECT PROCESS",
-      "title": "项目过程"
-    },
-    "contact": {
-      "en": "CONTACT",
-      "title": "合作联系"
-    },
-    "allWorks": {
-      "en": "WORKS",
-      "title": "全部作品"
-    }
-  },
-  "footer": {
-    "colNav": "导航",
-    "colWorks": "作品",
-    "colContact": "联系"
-  },
-  "workLabels": {
-    "project": "PROJECT",
-    "overview": "概览",
-    "params": "参数"
-  },
-  "philosophy": {
-    "en": "PHILOSOPHY",
-    "title": "设计理念",
-    "items": [
-      {
-        "num": "01",
-        "title": "少即是多",
-        "text": "每个产品都应在功能与形态之间找到最简平衡。去掉多余的装饰，让材质和比例自己说话。"
-      },
-      {
-        "num": "02",
-        "title": "为量产设计",
-        "text": "好看的概念图只是起点。每一笔线条都要考虑结构可行性、CMF 成本与供应链约束。"
-      },
-      {
-        "num": "03",
-        "title": "从用户出发",
-        "text": "不为了设计而设计。先理解谁在用、在什么场景用、为什么需要它，再动第一笔。"
-      }
-    ],
-    "quote": "好的工业设计是隐形的——你感觉不到它的存在，但离开它又不行。"
-  },
-  "works": [
-    {
-      "id": "w1",
-      "title": "TABAC NUIT 香水",
-      "category": "日化",
-      "year": "2026",
-      "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
-      "images": [
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786810575302-mgfik.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786940667887-3w9tz.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786946024722-2gfwk.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953096582-cq8bw.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953144765-5xehb.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786953160843-v050c.jpg"
-      ],
-      "summary": "方正烟盒语义香水瓶身，晶白料玻璃 + 塑料离式方盖。",
-      "description": "TABAC NUIT 试图以极简方体形态诠释烟草夜色的氛围感。瓶身采用方正利落的切割轮廓，模拟烟盒的经典视觉语言，玻璃瓶身与注塑顶盖构成整套外观，整套仅 2 个主要外观零件，兼顾高级质感与量产可行性。",
-      "params": [
-        {
-          "k": "材质",
-          "v": "阳极氧化铝 + 胡桃木"
-        },
-        {
-          "k": "尺寸",
-          "v": "Ø180 × 64 mm"
-        },
-        {
-          "k": "工艺",
-          "v": "CNC + 磁吸装配"
-        },
-        {
-          "k": "周期",
-          "v": "2024.09 – 2025.03"
-        }
-      ]
-    },
-    {
-      "id": "w2",
-      "title": "joker perfume",
-      "category": "日化",
-      "year": "2026",
-      "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
-      "images": [
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866880353-jx5bd.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1786866903222-foz3t.jpg"
-      ],
-      "summary": "可拆换灯头的模块化台灯，暖光贴合居家氛围。",
-      "description": "LUMA 将灯体与灯头解耦，用户可按场景更换聚光 / 泛光模组。灯臂为单根铝挤型材，折弯成型，结构简洁且成本可控。",
-      "params": [
-        {
-          "k": "材质",
-          "v": "铝挤型材 + PC"
-        },
-        {
-          "k": "色温",
-          "v": "2700K – 4000K"
-        },
-        {
-          "k": "工艺",
-          "v": "铝挤 + 折弯"
-        },
-        {
-          "k": "周期",
-          "v": "2024.02 – 2024.08"
-        }
-      ]
-    },
-    {
-      "id": "w3",
-      "title": "女体香水",
-      "category": "日化",
-      "year": "2026",
-      "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208213686-r2bzq.jpg",
-      "images": [
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208213686-r2bzq.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208221892-r1uc4.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208256021-uq0y1.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208293222-d2hi8.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787208300452-2rrss.jpg"
-      ],
-      "summary": "雕塑感香氛容器，织物褶皱形态，通透瓶身，兼顾美学与手持体验。",
-      "description": "以垂坠织物褶皱为设计灵感，扭曲通透玻璃瓶身搭配雕塑感金属瓶盖，兼具流动艺术形态与舒适手持体验，提供多组 CMF 配色方案。",
-      "params": [
-        {
-          "k": "材质",
-          "v": "钛合金 TC4"
-        },
-        {
-          "k": "重量",
-          "v": "86 g"
-        },
-        {
-          "k": "工艺",
-          "v": "线切割 + 折弯"
-        },
-        {
-          "k": "周期",
-          "v": "2023.11 – 2024.05"
-        }
-      ]
-    },
-    {
-      "id": "w4",
-      "title": "perfume",
-      "category": "日化",
-      "year": "2023",
-      "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995074619-1nno6.jpg",
-      "images": [
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995074619-1nno6.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995142469-g3a9k.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995152290-ijgn0.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1787995187792-vl79k.jpg"
-      ],
-      "summary": "镜面金属镂空香水瓶，雕塑感收腰，琥珀色内瓶。",
-      "description": "采用镜面金属外壳与琥珀色内瓶双层结构，瓶身有机水滴形镂空开窗展露香液色泽。雕塑感收腰造型兼顾视觉张力与握持手感。",
-      "params": [
-        {
-          "k": "材质",
-          "v": "ABS"
-        },
-        {
-          "k": "容量",
-          "v": "100ml"
-        },
-        {
-          "k": "工艺",
-          "v": "电镀+喷涂"
-        }
-      ]
-    },
-    {
-      "id": "w5",
-      "title": "MOVE 轮椅概念",
-      "category": "医疗辅具",
-      "year": "2023",
-      "cover": "assets/work-05.png",
-      "images": [
-        "assets/work-05.png"
-      ],
-      "summary": "轻量化铝合金轮椅概念，结构纤细、易收纳。",
-      "description": "MOVE 重新梳理了轮椅的管件走向，用更少的交叉件实现同等强度，整体视觉更轻盈。座面可上翻，方便侧向转移。",
-      "params": [
-        {
-          "k": "材质",
-          "v": "铝合金 6061"
-        },
-        {
-          "k": "自重",
-          "v": "7.2 kg"
-        },
-        {
-          "k": "工艺",
-          "v": "管材 + 焊接"
-        },
-        {
-          "k": "周期",
-          "v": "2022.12 – 2023.06"
-        }
-      ]
-    },
-    {
-      "id": "w6",
-      "title": "ECHO 头戴耳机",
-      "category": "可穿戴",
-      "year": "2025",
-      "cover": "assets/work-06.png",
-      "images": [
-        "assets/work-06.png"
-      ],
-      "summary": "极简哑黑头戴耳机，无外露螺丝。",
-      "description": "ECHO 追求一体纯净的外观语言，头梁与耳罩外壳均无外露紧固件，靠内部卡扣组装。耳垫为记忆海绵 + 蛋白皮。",
-      "params": [
-        {
-          "k": "材质",
-          "v": "PC + 铝合金"
-        },
-        {
-          "k": "重量",
-          "v": "248 g"
-        },
-        {
-          "k": "工艺",
-          "v": "双色注塑 + 卡扣"
-        },
-        {
-          "k": "周期",
-          "v": "2024.10 – 2025.04"
-        }
-      ]
-    },
-    {
-      "title": "sword perfume",
-      "category": "日化",
-      "year": "2026",
-      "summary": "雕塑感香氛容器，织物褶皱形态，通透瓶身，兼顾美学与手持体验。",
-      "description": "雕塑感香氛容器，织物褶皱形态，通透瓶身，兼顾美学与手持体验。",
-      "images": [
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513902292-581un.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513910508-ahone.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513919838-9fvve.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513934896-k6c5y.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513938600-e5l7o.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513941924-m1rrw.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513945309-bzlrf.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513948646-pme9d.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513951425-mvwvt.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513954290-ib7c2.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513958341-i80xo.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513961440-jad16.jpg",
-        "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513964419-d9a5p.jpg"
-      ],
-      "cover": "https://raw.githubusercontent.com/fjiqi493-lgtm/fjiqi493-lgtm.github.io/main/uploads/u-1788513902292-581un.jpg",
-      "params": [],
-      "id": "w1788514150150"
-    }
-  ]
 }
