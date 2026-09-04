@@ -261,7 +261,7 @@ function renderHomeForm() {
       <label>${label}</label>
       <div style="display:flex;gap:10px;align-items:stretch;">
         <input id="${id}" value="${val || ''}" style="flex:1;">
-        <input type="color" id="${id}-color" value="${c[colorKey] || '#ffffff'}" title="文字颜色" style="width:44px;height:auto;padding:2px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);cursor:pointer;">
+        <input type="color" id="${id}-color" value="${c[colorKey] || '#ffffff'}" title="文字颜色" style="width:44px;min-height:38px;padding:2px;border:1px solid #b0b0b0;border-radius:var(--radius);background:#fff;cursor:pointer;box-sizing:border-box;">
       </div>
     </div>`;
   $('main').innerHTML = `
@@ -282,7 +282,7 @@ function renderHomeForm() {
       <label>自我介绍</label>
       <div style="display:flex;gap:10px;align-items:stretch;">
         <textarea id="h-bio" rows="4" style="flex:1;">${h.bio || ''}</textarea>
-        <input type="color" id="h-bio-color" value="${c.bio || '#ffffff'}" title="文字颜色" style="width:44px;height:auto;padding:2px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);cursor:pointer;">
+        <input type="color" id="h-bio-color" value="${c.bio || '#ffffff'}" title="文字颜色" style="width:44px;min-height:38px;padding:2px;border:1px solid #b0b0b0;border-radius:var(--radius);background:#fff;cursor:pointer;box-sizing:border-box;">
       </div>
     </div>
     <div class="field"><label>首页右侧代表作大图（拖拽/点击上传，留空自动取第一件作品封面）</label>
