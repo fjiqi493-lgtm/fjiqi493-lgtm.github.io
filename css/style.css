@@ -110,8 +110,9 @@ main, .site-footer { transition: opacity 0.18s ease; }
 
 /* ===== 首页 Hero ===== */
 .home-hero { padding: 60px 0 40px; }
-.home-hero-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 0; align-items: stretch; position: relative; }
-.home-hero-content { position: relative; z-index: 2; padding-right: 36px; }
+/* 满幅底图模式：图片铺满整个 hero 区域，文字叠在图片之上（参考 ASP 头图） */
+.home-hero-grid { display: block; position: relative; }
+.home-hero-content { position: relative; z-index: 2; max-width: 44%; padding: 20px 0; }
 .avatar {
   width: 132px; height: 132px; border-radius: 50%;
   background: var(--accent-soft); border: 1px solid var(--line);
@@ -123,43 +124,37 @@ main, .site-footer { transition: opacity 0.18s ease; }
 .home-title { font-size: 19px; color: var(--muted); margin-bottom: 24px; }
 .home-bio { font-size: 17px; color: var(--muted); line-height: 1.85; max-width: 600px; }
 .home-cta { margin-top: 32px; display: flex; gap: 14px; }
-/* 满幅横幅：固定长方形（2:1），图片按比例裁切填满、不再渐隐消散；
-   左侧叠一块斜切磨砂玻璃（参考 ASP 头图样式，磨砂面在左） */
+/* 满幅底图：绝对定位铺满 hero 全区，随文字高度自适应；按比例裁切、不渐隐 */
 .home-visual {
-  position: relative;
+  position: absolute; inset: 0;
   border: none; background: var(--accent-soft); border-radius: var(--radius);
   overflow: hidden;
-  margin: 0; /* 满幅平铺，不再侵入文字区；右缘自然与下方精选作品对齐 */
-  z-index: 1;
-  width: 100%;
-  justify-self: stretch;
-  align-self: center;
-  aspect-ratio: 2 / 1;      /* 固定横幅比例，不受原图像素影响 */
-  max-height: 560px;
+  margin: 0;
+  z-index: 0;
 }
 .visual-frame { position: absolute; inset: 0; }
 .visual-frame img {
   width: 100%; height: 100%; object-fit: cover; object-position: center;
 }
-/* 左侧斜切磨砂玻璃：backdrop-filter 模糊 + 轻微提亮，clip-path 斜边切割 */
+/* 左侧斜切磨砂玻璃：垫在文字下面保证可读性，backdrop-filter 模糊 + 提亮，clip-path 斜边切割 */
 .visual-frame::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(105deg, rgba(251,251,249,0.50) 0%, rgba(251,251,249,0.26) 100%);
-  -webkit-backdrop-filter: blur(12px) saturate(118%);
-  backdrop-filter: blur(12px) saturate(118%);
-  -webkit-clip-path: polygon(0 0, 34% 0, 20% 100%, 0 100%);
-  clip-path: polygon(0 0, 34% 0, 20% 100%, 0 100%);
+  background: linear-gradient(105deg, rgba(251,251,249,0.58) 0%, rgba(251,251,249,0.30) 100%);
+  -webkit-backdrop-filter: blur(14px) saturate(118%);
+  backdrop-filter: blur(14px) saturate(118%);
+  -webkit-clip-path: polygon(0 0, 54% 0, 44% 100%, 0 100%);
+  clip-path: polygon(0 0, 54% 0, 44% 100%, 0 100%);
   pointer-events: none;
   z-index: 2;
 }
-/* 玻璃斜边亮边：与磨砂层同一 clip-path 外扩约 2%，被上层覆盖后只露出沿斜边的一道细亮边 */
+/* 玻璃斜边亮边：与磨砂层同一 clip-path 外扩约 2.5%，被上层覆盖后只露出沿斜边的一道细亮边 */
 .visual-frame::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(105deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.15) 100%);
-  -webkit-clip-path: polygon(0 0, 36.5% 0, 22.5% 100%, 0 100%);
-  clip-path: polygon(0 0, 36.5% 0, 22.5% 100%, 0 100%);
+  background: linear-gradient(105deg, rgba(255,255,255,0.70) 0%, rgba(255,255,255,0.18) 100%);
+  -webkit-clip-path: polygon(0 0, 56.5% 0, 46.5% 100%, 0 100%);
+  clip-path: polygon(0 0, 56.5% 0, 46.5% 100%, 0 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -391,8 +386,9 @@ main, .site-footer { transition: opacity 0.18s ease; }
 /* ===== 响应式 ===== */
 @media (max-width: 1024px) {
   .works-grid { grid-template-columns: repeat(2, 1fr); }
-  .home-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .home-visual { width: 100%; max-width: 100%; margin: 0; aspect-ratio: 16 / 9; }
+  .home-hero-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  .home-hero-content { max-width: 100%; padding: 0; }
+  .home-visual { position: relative; inset: auto; width: 100%; aspect-ratio: 16 / 9; order: -1; }
   .detail-body { grid-template-columns: 1fr; gap: 40px; }
   .detail-side { position: static; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
