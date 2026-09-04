@@ -39,6 +39,9 @@ function renderHome() {
     frostImg.decoding = 'async';
   }
 
+  // 明暗检测：亮图（如白底头图）自动把 hero 小字切回深色，避免白字看不见；大名字保持深色
+  detectHeroBrightness(heroImg);
+
   // 精选作品（取前 6 件）
   renderWorksGrid(data.works, $('works-grid'), 6);
 
@@ -98,6 +101,36 @@ function renderHome() {
   initReveal();
   initLightbox();
   fadeImages();
+}
+
+/* 头图文字区明暗检测：亮图自动把 hero 小字切回深色，避免白底头图白字看不见。
+   imgUrl 已把图片改写为同域地址，canvas 不会被污染，getImageData 可用。 */
+function detectHeroBrightness(heroImg) {
+  const hero = document.querySelector('.home-hero');
+  if (!hero) return;
+  const LIGHT_THRESHOLD = 165; // 文字区平均亮度高于此值视为亮图，小字切回深色
+  const apply = () => {
+    try {
+      const W = 64, H = 64;
+      const c = document.createElement('canvas');
+      c.width = W; c.height = H;
+      const ctx = c.getContext('2d');
+      ctx.drawImage(heroImg, 0, 0, W, H);
+      const d = ctx.getImageData(0, 0, W, H).data;
+      let sum = 0, n = 0;
+      // 仅采样左半（文字覆盖区）求平均亮度
+      for (let y = 0; y < H; y++) {
+        for (let x = 0; x < W * 0.5; x++) {
+          const i = (y * W + x) * 4;
+          sum += 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
+          n++;
+        }
+      }
+      hero.classList.toggle('is-light', sum / n > LIGHT_THRESHOLD);
+    } catch (e) { /* 跨域或解码失败：保持默认白字，不报错 */ }
+  };
+  if (heroImg.complete && heroImg.naturalWidth > 0) apply();
+  else heroImg.addEventListener('load', apply, { once: true });
 }
 
 (async function () {
