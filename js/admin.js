@@ -255,9 +255,18 @@ $('modal-save').addEventListener('click', async () => {
 /* ---------- 首页内容 ---------- */
 function renderHomeForm() {
   const h = site.home || {};
+  const c = h.colors || {};
+  const colorField = (id, label, val, colorKey) => `
+    <div class="field">
+      <label>${label}</label>
+      <div style="display:flex;gap:10px;align-items:stretch;">
+        <input id="${id}" value="${val || ''}" style="flex:1;">
+        <input type="color" id="${id}-color" value="${c[colorKey] || '#ffffff'}" title="文字颜色" style="width:44px;height:auto;padding:2px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);cursor:pointer;">
+      </div>
+    </div>`;
   $('main').innerHTML = `
     <h2>首页内容</h2>
-    <p class="admin-tip">编辑品牌名、头像与首页个人介绍。</p>
+    <p class="admin-tip">编辑品牌名、头像与首页个人介绍；每组文字右侧的色块可单独设置颜色。</p>
     <div class="field"><label>品牌名</label><input id="h-brand" value="${site.brand || ''}"></div>
     <div class="field"><label>头像（拖拽/点击上传，留空显示名字首字）</label>
       <div class="dropzone" id="h-avatar-dz">点击或拖拽上传头像</div>
@@ -265,11 +274,17 @@ function renderHomeForm() {
       <div class="thumbs" id="h-avatar-thumb"></div>
     </div>
     <div class="grid2">
-      <div class="field"><label>英文标签</label><input id="h-kicker" value="${h.kicker || ''}"></div>
-      <div class="field"><label>姓名</label><input id="h-name" value="${h.name || ''}"></div>
+      ${colorField('h-kicker', '英文标签', h.kicker || '', 'kicker')}
+      ${colorField('h-name', '姓名', h.name || '', 'name')}
     </div>
-    <div class="field"><label>职位标题</label><input id="h-title" value="${h.title || ''}"></div>
-    <div class="field"><label>自我介绍</label><textarea id="h-bio" rows="4">${h.bio || ''}</textarea></div>
+    ${colorField('h-title', '职位标题', h.title || '', 'title')}
+    <div class="field">
+      <label>自我介绍</label>
+      <div style="display:flex;gap:10px;align-items:stretch;">
+        <textarea id="h-bio" rows="4" style="flex:1;">${h.bio || ''}</textarea>
+        <input type="color" id="h-bio-color" value="${c.bio || '#ffffff'}" title="文字颜色" style="width:44px;height:auto;padding:2px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);cursor:pointer;">
+      </div>
+    </div>
     <div class="field"><label>首页右侧代表作大图（拖拽/点击上传，留空自动取第一件作品封面）</label>
       <div class="dropzone" id="h-hero-dz">点击或拖拽上传大图</div>
       <input type="file" id="h-hero-input" accept="image/*" hidden>
@@ -330,6 +345,12 @@ function renderHomeForm() {
   });
 
   $('h-save').addEventListener('click', async () => {
+    const colors = {
+      kicker: $('h-kicker-color').value || '#ffffff',
+      name: $('h-name-color').value || '#ffffff',
+      title: $('h-title-color').value || '#ffffff',
+      bio: $('h-bio-color').value || '#ffffff',
+    };
     const patch = {
       brand: $('h-brand').value.trim(),
       avatar: avatarUrl,
@@ -339,6 +360,12 @@ function renderHomeForm() {
         title: $('h-title').value.trim(),
         bio: $('h-bio').value,
         heroImage: heroUrl,
+        colors: colors,
+      },
+      en: {
+        home: {
+          colors: colors,
+        },
       },
     };
     try {
@@ -349,9 +376,9 @@ function renderHomeForm() {
   });
 }
 
-// 通用：局部更新站点字段后整体保存
+// 通用：局部更新站点字段后整体保存（用 deepMerge 避免嵌套对象被整体覆盖，例如同时修改 home.colors 与 en.home.colors）。
 API.saveSitePatch = async function (patch) {
-  Object.assign(API.site, patch);
+  API.site = deepMerge(API.site, patch);
   await API.saveSite();
 };
 
