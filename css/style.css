@@ -124,9 +124,12 @@ main, .site-footer { transition: opacity 0.18s ease; }
 .home-title { font-size: 19px; color: var(--muted); margin-bottom: 24px; }
 .home-bio { font-size: 17px; color: var(--muted); line-height: 1.85; max-width: 600px; }
 .home-cta { margin-top: 32px; display: flex; gap: 14px; }
-/* 满幅底图：绝对定位铺满 hero 全区，随文字高度自适应；按比例裁切、不渐隐 */
+/* 满幅底图：绝对定位铺满 hero 内容区。注意参照系是 .wrap 的 padding box，
+   必须用 left/right = wrap 的左右 padding（80px）才能与下方精选作品同一条垂直边线 */
 .home-visual {
-  position: absolute; inset: 0;
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 80px; right: 80px;
   border: none; background: var(--accent-soft); border-radius: var(--radius);
   overflow: hidden;
   margin: 0;
