@@ -123,43 +123,45 @@ main, .site-footer { transition: opacity 0.18s ease; }
 .home-title { font-size: 19px; color: var(--muted); margin-bottom: 24px; }
 .home-bio { font-size: 17px; color: var(--muted); line-height: 1.85; max-width: 600px; }
 .home-cta { margin-top: 32px; display: flex; gap: 14px; }
+/* 满幅横幅：固定长方形（2:1），图片按比例裁切填满、不再渐隐消散；
+   左侧叠一块斜切磨砂玻璃（参考 ASP 头图样式，磨砂面在左） */
 .home-visual {
   position: relative;
-  border: none; background: var(--bg); border-radius: 0;
+  border: none; background: var(--accent-soft); border-radius: var(--radius);
   overflow: hidden;
-  margin-left: -90px; /* 向左侵入文字区 */
-  margin-right: 0; /* 右边缘与下方容器右对齐 */
+  margin: 0; /* 满幅平铺，不再侵入文字区；右缘自然与下方精选作品对齐 */
   z-index: 1;
-  /* 强制撑满 grid 右列：左缘 -90px 侵入文字区，宽度补偿 +90px 使右缘仍回到容器右边界（与下方精选作品对齐） */
-  width: calc(100% + 90px);
+  width: 100%;
   justify-self: stretch;
   align-self: center;
+  aspect-ratio: 2 / 1;      /* 固定横幅比例，不受原图像素影响 */
+  max-height: 560px;
 }
-/* 用 padding-bottom 固定 4:3 比例，宽度永远 = .home-visual 宽度 */
-.visual-frame {
-  position: relative;
-  width: 100%;
-  padding-bottom: 75%; /* 4:3 */
-}
+.visual-frame { position: absolute; inset: 0; }
 .visual-frame img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%; min-height: 0; object-fit: cover;
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
 }
-/* 左侧：用背景色渐变遮罩融合图片硬边 */
+/* 左侧斜切磨砂玻璃：backdrop-filter 模糊 + 轻微提亮，clip-path 斜边切割 */
 .visual-frame::before {
   content: '';
-  position: absolute; left: 0; top: 0; bottom: 0; width: 120px;
-  background: linear-gradient(to right, var(--bg) 0%, rgba(251,251,249,0.55) 45%, transparent 100%);
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(251,251,249,0.50) 0%, rgba(251,251,249,0.26) 100%);
+  -webkit-backdrop-filter: blur(12px) saturate(118%);
+  backdrop-filter: blur(12px) saturate(118%);
+  -webkit-clip-path: polygon(0 0, 34% 0, 20% 100%, 0 100%);
+  clip-path: polygon(0 0, 34% 0, 20% 100%, 0 100%);
   pointer-events: none;
   z-index: 2;
 }
-/* 底部：淡出到页面背景 */
+/* 玻璃斜边亮边：与磨砂层同一 clip-path 外扩约 2%，被上层覆盖后只露出沿斜边的一道细亮边 */
 .visual-frame::after {
   content: '';
-  position: absolute; left: 0; right: 0; bottom: 0; height: 8%;
-  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.15) 100%);
+  -webkit-clip-path: polygon(0 0, 36.5% 0, 22.5% 100%, 0 100%);
+  clip-path: polygon(0 0, 36.5% 0, 22.5% 100%, 0 100%);
   pointer-events: none;
-  z-index: 2;
+  z-index: 1;
 }
 
 /* ===== 区块标题 ===== */
@@ -390,7 +392,7 @@ main, .site-footer { transition: opacity 0.18s ease; }
 @media (max-width: 1024px) {
   .works-grid { grid-template-columns: repeat(2, 1fr); }
   .home-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .home-visual { width: 100%; max-width: 100%; margin-left: 0; margin-right: 0; }
+  .home-visual { width: 100%; max-width: 100%; margin: 0; aspect-ratio: 16 / 9; }
   .detail-body { grid-template-columns: 1fr; gap: 40px; }
   .detail-side { position: static; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
@@ -398,7 +400,7 @@ main, .site-footer { transition: opacity 0.18s ease; }
 }
 @media (max-width: 640px) {
   .wrap { padding: 0 22px; }
-  .home-visual { margin-left: 0; margin-right: 0; }
+  .home-visual { margin: 0; aspect-ratio: 3 / 2; }
   .nav-toggle { display: inline-flex; }
   .nav {
     position: absolute; top: 100%; right: 22px; left: 22px;
