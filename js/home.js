@@ -14,6 +14,9 @@ function renderHome() {
   setText('home-title', data.home.title);
   setText('home-bio', data.home.bio);
 
+  // 应用后台自定义文字颜色（若设置）；未设置则走默认白字 / 自动明暗检测。
+  applyHomeColors(data.home.colors);
+
   // 头像：有图用图，否则显示名字首字
   const avatar = $('avatar');
   if (data.avatar) {
@@ -103,11 +106,32 @@ function renderHome() {
   fadeImages();
 }
 
+/* 应用首页 Hero 各组文字颜色；留空则清除内联颜色，让 CSS 默认/自动明暗检测生效。 */
+function applyHomeColors(colors) {
+  const map = [
+    ['home-kicker', 'kicker'],
+    ['home-name', 'name'],
+    ['home-title', 'title'],
+    ['home-bio', 'bio'],
+  ];
+  map.forEach(([id, key]) => {
+    const el = $(id);
+    if (!el) return;
+    const v = colors && colors[key] ? String(colors[key]).trim() : '';
+    el.style.color = v || '';
+  });
+}
+
 /* 头图文字区明暗检测：亮图自动把 hero 小字切回深色，避免白底头图白字看不见。
+   若后台已自定义颜色，则跳过自动切换，完全以用户选择为准。
    imgUrl 已把图片改写为同域地址，canvas 不会被污染，getImageData 可用。 */
 function detectHeroBrightness(heroImg) {
   const hero = document.querySelector('.home-hero');
   if (!hero) return;
+  // 存在自定义颜色时，尊重用户设置，不再自动根据图片明暗切换
+  const colors = __homeRaw && __homeRaw.home && __homeRaw.home.colors;
+  const hasCustom = colors && (colors.kicker || colors.name || colors.title || colors.bio);
+  if (hasCustom) return;
   const LIGHT_THRESHOLD = 165; // 文字区平均亮度高于此值视为亮图，小字切回深色
   const apply = () => {
     try {
