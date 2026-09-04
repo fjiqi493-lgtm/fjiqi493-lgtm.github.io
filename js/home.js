@@ -29,10 +29,20 @@ function renderHome() {
   heroImg.src = imgUrl(heroSrc);
   heroImg.alt = (data.home.heroImage && '代表作') || (first ? first.title : '代表作');
   heroImg.decoding = 'async';
+  heroImg.loading = 'eager';
   heroImg.fetchPriority = 'high';
 
   // 精选作品（取前 6 件）
   renderWorksGrid(data.works, $('works-grid'), 6);
+
+  // 记忆首屏图片地址（英雄图优先），下次访问时在 <head> 阶段就预载，首图近乎瞬时
+  rememberImages(
+    [heroImg.src].concat(
+      Array.from(document.querySelectorAll('#works-grid .thumb img'))
+        .slice(0, 3)
+        .map((i) => i.src)
+    ).filter(Boolean)
+  );
 
   // 项目过程（3D 透视滚动条带 + 软件图标）
   renderProcess(data.process || {});
