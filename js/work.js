@@ -69,14 +69,15 @@ function renderWork() {
   // 图集（点击放大；图片若因 GitHub 延迟 404，自动重试 3 次）
   const gal = $('d-gallery');
   gal.innerHTML = '';
-  (w.images || []).forEach((src) => {
+  (w.images || []).forEach((src, i) => {
     const d = document.createElement('div');
     d.className = 'g-img';
     const real = imgUrl(src);
     d.setAttribute('data-zoom', real);
     const img = document.createElement('img');
     img.alt = w.title;
-    img.loading = 'lazy';
+    // 前两张通常就在首屏附近，立即加载；其余仍懒加载，避免一次性拉取全部大图
+    img.loading = i < 2 ? 'eager' : 'lazy';
     img.decoding = 'async';
     let retries = 0;
     img.onerror = () => {
@@ -89,6 +90,13 @@ function renderWork() {
     d.appendChild(img);
     gal.appendChild(d);
   });
+
+  // 记忆本页首屏图片（封面优先），下次访问时在 <head> 阶段预载
+  rememberImages(
+    [cover.src]
+      .concat(Array.from(gal.querySelectorAll('img')).slice(0, 3).map((i) => i.src))
+      .filter(Boolean)
+  );
 
   renderFooter(data);
   initReveal();
