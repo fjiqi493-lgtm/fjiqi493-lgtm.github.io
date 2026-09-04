@@ -32,6 +32,13 @@ function renderHome() {
   heroImg.loading = 'eager';
   heroImg.fetchPriority = 'high';
 
+  // 磨砂层：同一张头图的模糊副本（普通 filter blur + 父层 clip-path 斜切，跨浏览器一致）
+  const frostImg = $('frost-img');
+  if (frostImg) {
+    frostImg.src = heroImg.src;
+    frostImg.decoding = 'async';
+  }
+
   // 精选作品（取前 6 件）
   renderWorksGrid(data.works, $('works-grid'), 6);
 
