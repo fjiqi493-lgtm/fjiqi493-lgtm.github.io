@@ -290,7 +290,28 @@ main, .site-footer { transition: opacity 0.18s ease; }
   opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
 }
 .lightbox.open { opacity: 1; pointer-events: auto; }
-.lightbox img { max-width: 92vw; max-height: 88vh; border-radius: var(--radius); object-fit: contain; }
+/* 灯箱：原图不缩放、不重压缩，清晰度与源文件一致；
+   改为「就绪后淡入」，避免黑屏等待与突然弹出 */
+.lightbox img {
+  max-width: 92vw; max-height: 88vh; border-radius: var(--radius); object-fit: contain;
+  opacity: 0; transform: scale(0.985);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+.lightbox img.lb-ready { opacity: 1; transform: none; }
+/* 加载指示：极简单圈，仅在大图未就绪时出现 */
+.lightbox.is-loading::after {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  width: 26px; height: 26px; margin: -13px 0 0 -13px;
+  border: 2px solid rgba(255, 255, 255, 0.26);
+  border-top-color: rgba(255, 255, 255, 0.86);
+  border-radius: 50%;
+  animation: lbSpin 0.8s linear infinite;
+}
+@keyframes lbSpin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .lightbox img { transition: opacity 0.01s linear; transform: none; }
+  .lightbox.is-loading::after { animation: none; }
+}
 .lightbox .close { position: absolute; top: 24px; right: 28px; color: #fff; font-size: 28px; line-height: 1; background: none; border: none; }
 
 /* ===== 滚动淡入（克制）===== */
