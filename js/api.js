@@ -242,6 +242,14 @@ const API = {
 let SiteLang = (localStorage.getItem('siteLang') === 'en') ? 'en' : 'zh';
 document.documentElement.lang = (SiteLang === 'en') ? 'en' : 'zh-CN';
 
+/* ---------- 明暗主题 ---------- */
+let SiteTheme = 'light';
+try {
+  SiteTheme = localStorage.getItem('siteTheme') || 'light';
+  if (SiteTheme !== 'dark' && SiteTheme !== 'light') SiteTheme = 'light';
+} catch (e) {}
+if (SiteTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+
 // 硬编码 UI 字符串（不在 site.json 内的中文）
 const UI = {
   zh: { viewWorks: '查看作品', contact: '合作联系', viewAll: '查看全部 →', admin: '管理', openMenu: '打开菜单', rights: '保留所有权利。', count: ' 件作品', notFound: '作品不存在', ovCat: '类别', ovYear: '年份', back: '← 返回作品列表' },
@@ -324,6 +332,26 @@ function initLangToggle() {
   updateLangToggleUI();
   btn.addEventListener('click', () => applyLang(SiteLang === 'en' ? 'zh' : 'en'));
 }
+
+function updateThemeToggleUI() {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  btn.setAttribute('aria-label', SiteTheme === 'dark' ? '切换到浅色' : '切换到深色');
+}
+function applyTheme(theme) {
+  SiteTheme = theme === 'dark' ? 'dark' : 'light';
+  try { localStorage.setItem('siteTheme', SiteTheme); } catch (e) {}
+  document.documentElement.setAttribute('data-theme', SiteTheme);
+  updateThemeToggleUI();
+}
+function initThemeToggle() {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn || btn.dataset.themeBound) return;
+  btn.dataset.themeBound = '1';
+  updateThemeToggleUI();
+  btn.addEventListener('click', () => applyTheme(SiteTheme === 'dark' ? 'light' : 'dark'));
+}
+initThemeToggle();
 
 /* ---------- 工具 ---------- */
 function b64ToStr(b64) {
