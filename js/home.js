@@ -39,7 +39,7 @@ function renderHome() {
     frostImg.decoding = 'async';
   }
 
-  // 明暗检测：亮图（如白底头图）自动把 hero 小字切回深色，避免白字看不见；大名字保持深色
+  // 明暗检测：亮图（如白底头图）自动把 hero 文字切回深色，避免白字看不见
   detectHeroBrightness(heroImg);
 
   // 精选作品（取前 6 件）
