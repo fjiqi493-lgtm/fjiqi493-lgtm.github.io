@@ -23,16 +23,64 @@ function imgUrl(u) {
 
 // 图片淡入：渲染后给所有 img 加 fz(透明)，加载完成再淡入，避免“残缺/白块”闪烁；
 // 仅 JS 成功运行后才隐藏，JS 异常也不会导致图片永久不可见。
+// 优化：淡入前先 decode()，确保位图解码完毕再开始过渡，避免「开始渐变时卡一帧」。
 function fadeImages(scope) {
   (scope || document).querySelectorAll('img').forEach((im) => {
     if (im.classList.contains('fz')) return;
+    if (im.closest('#lightbox')) return; // 灯箱大图由灯箱自己控制淡入，避免两套逻辑打架
     im.classList.add('fz');
-    const done = () => im.classList.add('loaded');
+    let settled = false;
+    const done = () => {
+      if (settled) return;
+      settled = true;
+      const show = () => im.classList.add('loaded');
+      // decode() 让浏览器提前完成解码，淡入动画才不会掉帧；不支持时直接显示
+      if (typeof im.decode === 'function') im.decode().then(show, show);
+      else show();
+    };
     if (im.complete && im.naturalWidth > 0) done();
-    else im.addEventListener('load', done, { once: true });
-    im.addEventListener('error', done, { once: true });
+    else {
+      im.addEventListener('load', done, { once: true });
+      im.addEventListener('error', done, { once: true });
+    }
   });
 }
+
+/* ---------- 图片预载（让图片请求尽量提前，缩短瀑布流）---------- */
+// 记忆上次访问用过的关键图片地址，下次打开页面时在 <head> 阶段就 preload，
+// 与 site.json 并行下载；重复访问时图片已在缓存，首图几乎零延迟。
+const IMG_PRELOAD_KEY = 'site_img_preload_v1';
+
+function pageKey() {
+  return (location.pathname.split('/').pop() || 'index.html').split('#')[0];
+}
+function rememberImages(urls) {
+  try {
+    const list = (urls || []).filter(Boolean).slice(0, 4);
+    if (!list.length) return;
+    const store = JSON.parse(localStorage.getItem(IMG_PRELOAD_KEY) || '{}');
+    store[pageKey()] = list;
+    localStorage.setItem(IMG_PRELOAD_KEY, JSON.stringify(store));
+  } catch (e) {}
+}
+function preloadRememberedImages() {
+  try {
+    const store = JSON.parse(localStorage.getItem(IMG_PRELOAD_KEY) || '{}');
+    const list = store[pageKey()];
+    if (!Array.isArray(list) || !list.length) return;
+    list.slice(0, 4).forEach((u, i) => {
+      if (typeof u !== 'string' || !u) return;
+      const l = document.createElement('link');
+      l.rel = 'preload';
+      l.as = 'image';
+      l.href = u;
+      l.fetchPriority = i === 0 ? 'high' : 'low'; // 首图优先，其余不抢占带宽
+      document.head.appendChild(l);
+    });
+  } catch (e) {}
+}
+// 页面脚本一加载就立刻预载（此时 HTML 刚解析完 <head>，能抢出一个 RTT）
+preloadRememberedImages();
 
 const API = {
   token: localStorage.getItem('admin_token') || '',
@@ -45,7 +93,18 @@ const API = {
   },
 
   // 访客读取站点数据（公开）：加时间戳穿透 GitHub Pages / 浏览器缓存
+  // 优化：HTML <head> 的内联脚本在解析阶段就发起了同一个请求（window.__sitePromise），
+  // 与 css/js 并行下载，省掉「等 JS 下载完才开始请求数据」的一整轮 RTT；
+  // 这里直接复用该 Promise，请求参数与之前完全一致，不改变任何缓存/新鲜度行为。
   async getSite() {
+    if (window.__sitePromise) {
+      const p = window.__sitePromise;
+      window.__sitePromise = null; // 只消费一次
+      try {
+        const d = await p;
+        if (d && typeof d === 'object' && !d.__failed) return d;
+      } catch (e) { /* 失败则走下面的兜底请求 */ }
+    }
     const r = await fetch('./site.json?_=' + Date.now(), { cache: 'no-store' });
     if (!r.ok) throw new Error('加载站点数据失败 (' + r.status + ')');
     return r.json();
@@ -495,12 +554,18 @@ function bindNavToggle() {
 function renderWorksGrid(works, container, limit) {
   container.innerHTML = '';
   const list = limit ? works.slice(0, limit) : works;
-  list.forEach((w) => {
+  const urls = [];
+  list.forEach((w, i) => {
     const a = document.createElement('a');
     a.className = 'work-card reveal';
     a.href = 'work.html?id=' + w.id;
+    const src = imgUrl(w.cover || (w.images && w.images[0])) || '';
+    if (src) urls.push(src);
+    // 首屏前 3 张立即加载（lazy 会让首屏图被推迟到布局计算后才开始请求）；
+    // 其余仍 lazy，避免一次性拉取全部图片。
+    const loadAttr = i < 3 ? 'loading="eager" fetchpriority="auto"' : 'loading="lazy"';
     a.innerHTML = `
-      <div class="thumb"><img src="${imgUrl(w.cover || (w.images && w.images[0])) || ''}" alt="${w.title}" loading="lazy" decoding="async" /></div>
+      <div class="thumb"><img src="${src}" alt="${w.title}" ${loadAttr} decoding="async" /></div>
       <div class="meta">
         <span class="title">${w.title}</span>
         <span class="cat">${w.category || ''} · ${w.year || ''}</span>
@@ -509,6 +574,7 @@ function renderWorksGrid(works, container, limit) {
     container.appendChild(a);
   });
   fadeImages(container);
+  rememberImages(urls);
 }
 
 function initReveal() {
@@ -540,16 +606,57 @@ function initLightbox() {
   window.__lightboxBound = true;
   const box = $('lightbox');
   const img = $('lightbox-img');
-  const close = () => box.classList.remove('open');
+
+  // 图片就位后再淡入，避免「黑屏 → 突然弹出」的割裂感；未就绪时显示极简加载指示。
+  const markReady = () => {
+    img.classList.add('lb-ready');
+    box.classList.remove('is-loading');
+  };
+  const markLoading = () => {
+    img.classList.remove('lb-ready');
+    box.classList.add('is-loading');
+  };
+  img.addEventListener('load', markReady);
+  img.addEventListener('error', () => box.classList.remove('is-loading'));
+
+  const close = () => {
+    box.classList.remove('open');
+    box.classList.remove('is-loading');
+  };
+
   document.addEventListener('click', (e) => {
     const t = e.target.closest('[data-zoom]');
-    if (t) {
-      img.src = t.getAttribute('data-zoom');
-      box.classList.add('open');
+    if (!t) return;
+    const full = t.getAttribute('data-zoom');
+    if (!full) return;
+    // 详情页的展示图与放大图是同一个地址：已在缓存里时 complete 立即为真，
+    // 可以做到「点开即见」；尚未下完时先出加载指示，下完再淡入，全程不黑屏。
+    if (img.getAttribute('src') === full && img.complete && img.naturalWidth > 0) {
+      img.classList.add('lb-ready');
+      box.classList.remove('is-loading');
+    } else {
+      markLoading();
+      img.src = full;
+      if (img.complete && img.naturalWidth > 0) markReady();
     }
+    box.classList.add('open');
   });
+
   box.addEventListener('click', close);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') close();
   });
+
+  // 鼠标悬停/手指按下时提前拉取大图（地址与展示图一致，不产生额外流量），
+  // 点击时基本已就位，点开即清晰。
+  const warm = (e) => {
+    const t = e.target && e.target.closest && e.target.closest('[data-zoom]');
+    if (!t || t.dataset.warmed) return;
+    t.dataset.warmed = '1';
+    const im = new Image();
+    im.decoding = 'async';
+    im.src = t.getAttribute('data-zoom');
+  };
+  document.addEventListener('mouseover', warm, { passive: true });
+  document.addEventListener('touchstart', warm, { passive: true });
 }
